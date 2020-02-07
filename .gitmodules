@@ -1,0 +1,3 @@
+[submodule "themes/klarheit"]
+	path = themes/klarheit
+	url = https://github.com/m-scholz/klarheit.git
