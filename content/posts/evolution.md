@@ -2,6 +2,7 @@
 title: "The Evolution of the Homelab"
 date: 2020-02-07T16:01:06+01:00
 draft: false
+tags: ["Homelab", "VMware"]
 ---
 
 In the beginning, there was... well, nothing. After playing around with desktop computers, servers, and many, many VMs as long as I can think, I never really managed to permanently self-host something myself.
@@ -82,6 +83,12 @@ I would say things really started to take off with Homelab v2. Initially I wante
         <td>1</td>
     </tr>
     <tr>
+        <td>Boot USB</td>
+        <td>SanDisk Ultra 32Gb</td>
+        <td>-</td>
+        <td>1</td>
+    </tr>
+    <tr>
         <td>Total</td>
         <td></td>
         <td>736.19€</td>
@@ -89,3 +96,20 @@ I would say things really started to take off with Homelab v2. Initially I wante
     </tr>
 </table>
 
+Some parts I had already laying around, like some old 1Tb (now used in RAID0 as scratch storage) and the power supply from an old gaming PC.
+
+This whitebox is running for about a year now, and I am most impressed by the case: It look good, the build quality is absolutely perfect, it was cheap (compared to the Fractal Design cases I looked at first), it has pretty dust filtes and it is extremely quiet: The side panels are insulated with about 1cm of foam, and the CoolerMaster standard fans are inaudible compared to the Thermaltake ones in my desktop.
+
+The ESXi installation was almost seamless, except for the NIC drivers: The B450 Aorus M only has a Realtek onboard-NIC, but this wasn't a big problem thanks to the [ESXi image customization script](https://www.v-front.de/p/esxi-customizer-ps.html) and [this guide](https://www.v-front.de/2014/12/how-to-make-your-unsupported-nic-work.html).
+
+The Dell PERC H310 has been flashed to IT mode. I would like to post a more detailed guide on how this is done, but it has been too long ago and there are multiple [great guides out there](https://tylermade.net/2017/06/27/how-to-crossflash-perc-h310-to-it-mode-lsi-9211-8i-firmware-hba-for-freenas-unraid/), even for [dealing with EFI](https://www.vladan.fr/flash-dell-perc-h310-with-it-firmware/). The 2+2 disks were forwarded to a FreeNAS VM and shared via NFS to a Debian-Plex-VM.
+
+The whitebox also replaced my router through an OPNsense VM.
+
+### Homelab v2.1
+
+This setup ran perfectly for over a year, but it did not offer very much flexibility: The 2+2 disks were assigned to FreeNAS only, and ZFS really was not that necessary since I could not use deduplication.
+
+So a few months ago I scrapped everything, flashed the RAID controller back to its original firmware, reinstalled ESXi (this time with vCenter) and installed Plex to a CentOS VM, directly connected to a 2.5TB VMDK file on the RAID-1 backed VMFS datastore.
+
+Around that time I also segmentated my networks more, having seperate VLANs for WAN, internal, DMZ, VPN, and a few "test"-networks. This gives me enough flexibility to try out new technologies, learn for certifications, and hopefully write about them in this blog.

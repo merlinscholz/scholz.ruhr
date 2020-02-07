@@ -1,5 +1,36 @@
 baseURL = "https://mscholz.dev/"
 languageCode = "en-us"
+defaultContentLanguage = "en"
 title = "mscholz.dev"
 theme = "klarheit"
 
+
+paginate = 10
+
+[taxonomies]
+    tag = "tag"
+
+[params]
+author = "Merlin Scholz"
+darkmode = false
+theme = 3
+
+[menu]
+    [[menu.main]]
+        identifier = "home"
+        name = "Home"
+        url = "/"
+        weight = 10
+
+    [[menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about/"
+        weight = 20
+
+
+    [[menu.main]]
+        identifier = "git"
+        name = "GitHub"
+        url = "https://github.com/m-scholz"
+        weight = 30
