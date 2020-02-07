@@ -8,12 +8,13 @@ theme = "klarheit"
 paginate = 10
 
 [taxonomies]
-    tag = "tag"
+    tag = "tags"
 
 [params]
+subtitle = "Trying to make sense of modern technology"
 author = "Merlin Scholz"
 darkmode = false
-theme = 3
+theme = 6
 
 [menu]
     [[menu.main]]

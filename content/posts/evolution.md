@@ -2,14 +2,14 @@
 title: "The Evolution of the Homelab"
 date: 2020-02-07T16:01:06+01:00
 draft: false
-tags: ["Homelab", "VMware"]
+tags: ["homelab", "vmware"]
 ---
 
 In the beginning, there was... well, nothing. After playing around with desktop computers, servers, and many, many VMs as long as I can think, I never really managed to permanently self-host something myself.
 
 ## Homelab v0
 
-This all started to change back in 2015 when I heard of a wonderful software called Plex, and decided that I want to host it for me and close friends. At that point I had multiple servers laying around, and while they were some of the more quiet ones (Fujitsu RX100/RX200/RX300), they were still too loud to leave them running a few meters next to my bed. So, what was the most quiet computer I owned at that time? Right, a Raspberry PI 2b with some Plex distriution that's normally intended to be integrated into NAS systems. Most of you will cringe at the thought of running Plex on a RPI2B, but it worked... somehow. I only had to remember to convert all video files to h264 before I put them onto the 1tb external hard drive connected to it. It was not great... but it was my Homelab v0. The starting point of many future expenses.
+This all started to change back in 2015 when I heard of a wonderful software called Plex, and decided that I want to host it for me and close friends. At that point I had multiple servers laying around, and while they were some of the more quiet ones (Fujitsu RX100/RX200/RX300), they were still too loud to leave them running a few meters next to my bed. So, what was the most quiet computer I owned at that time? A Raspberry PI 2b with some ARM Plex distriution that's normally intended to be integrated into NAS systems. Running Plex on a RPI2B may sound like a terrible idea, but it worked... somehow. I only had to remember to convert all video files to h264 before I put them onto the 1tb external hard drive connected to it. It was not great... but it was my Homelab v0. The starting point of many future expenses.
 
 ## Homelab v1
 
