@@ -2,3 +2,4 @@ baseURL = "https://mscholz.dev/"
 languageCode = "en-us"
 title = "mscholz.dev"
 theme = "klarheit"
+
