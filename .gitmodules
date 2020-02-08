@@ -1,3 +1,6 @@
 [submodule "themes/klarheit"]
 	path = themes/klarheit
 	url = https://github.com/m-scholz/klarheit.git
+[submodule "public"]
+	path = public
+	url = https://github.com/m-scholz/m-scholz.github.io.git
