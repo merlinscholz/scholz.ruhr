@@ -5,7 +5,8 @@ draft: false
 tags: ["homelab", "vmware"]
 ---
 
-In the beginning, there was... well, nothing. After playing around with desktop computers, servers, and many, many VMs as long as I can think, I never really managed to permanently self-host something myself.
+In the beginning, there was... well, nothing. After playing around with desktop computers, servers, and many, many VMs as long as I can think, I never really managed to permanently self-host something myself. This is its evolution.
+<!--more-->
 
 ## Homelab v0
 
