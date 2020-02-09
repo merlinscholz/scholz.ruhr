@@ -3,15 +3,15 @@ languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "mscholz.dev"
 theme = "klarheit"
-
-
+enableRobotsTXT = true
+canonifyURLs = true
 paginate = 10
 
 [taxonomies]
     tag = "tags"
 
 [params]
-subtitle = "Trying to make sense of modern technology"
+description = "Trying to make sense of modern technology"
 author = "Merlin Scholz"
 darkmode = false
 theme = 6
