@@ -38,6 +38,13 @@ disable_image_filters = false # Setting to true disables the color filter featur
         url = "/contact/"
         weight = 30
 
+
+    [[menu.main]]
+        identifier = "rss"
+        name = "RSS"
+        url = "http://localhost:1313/index.xml"
+        weight = 40
+
     [[menu.social]]
         identifier = "github"
         name = "Github"
@@ -47,21 +54,6 @@ disable_image_filters = false # Setting to true disables the color filter featur
         identifier = "twitter"
         name = "Twitter"
         url = "https://twitter.com/mscholz_dev"
-
-    [[menu.footer]]
-        name = "CMS: Hugo"
-        url = "https://gohugo.io/"
-        weight = 1
-    
-    [[menu.footer]]
-        name = "Hosting: Netlify CMS"
-        url = "https://www.netlifycms.org/"
-        weight = 2
-
-    [[menu.footer]]
-        name = "Theme: Twenty Nineteen"
-        url = "https://github.com/jeremybise/twentynineteen-hugo"
-        weight = 3
 
     [[menu.footer]]
         name = "Back to top"
