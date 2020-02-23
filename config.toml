@@ -41,7 +41,7 @@ disable_image_filters = false # Setting to true disables the color filter featur
     [[menu.social]]
         identifier = "github"
         name = "Github"
-        url = "https://github.com/m-scholz"
+        url = "https://github.com/mscholz-dev"
 
     [[menu.social]]
         identifier = "twitter"
