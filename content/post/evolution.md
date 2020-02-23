@@ -7,7 +7,7 @@ tags: ["homelab", "vmware"]
 summary: "In the beginning, there was... well, nothing. After playing around with desktop computers, servers, and many, many VMs as long as I can think, I never really managed to permanently self-host something myself. This is its evolution."
 ---
 
-Cover image by [frabre](https://pixabay.com/users/frabre-18391/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2546330") from [Pixabay](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2546330)
+Cover image by [frabre](https://pixabay.com/users/frabre-18391/) from [Pixabay](https://pixabay.com/)
 
 In the beginning, there was... well, nothing. After playing around with desktop computers, servers, and many, many VMs as long as I can think, I never really managed to permanently self-host something myself. This is its evolution.
 
