@@ -7,8 +7,6 @@ tags: ["networking", "wireguard"]
 
 ---
 
-Cover image by [frabre](https://pixabay.com/users/frabre-18391/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2546330") from [Pixabay](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2546330)
-
 ## Why?
 
 Today I finally came around to replace my OPNsense VM with an old EdgeRouter X. Don't misunderstand me, OPNsense is absolutely great, but I reboot or rebuild my VM host way too often for it to be feasible anymore.
