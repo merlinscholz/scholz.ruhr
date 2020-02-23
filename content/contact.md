@@ -1,5 +1,7 @@
-## Contact
-
+---
+title: "Contact"
+draft: false
+---
 If you want to contact me, just fill out this form:
 
 {{< contactform >}}
