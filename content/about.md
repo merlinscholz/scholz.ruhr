@@ -13,8 +13,4 @@ I am currently studying Applied Computer Sciences in Germany, trying to get by b
 
 ## About this blog
 
-This blog is based on [Hugo](https://gohugo.io/) with my [Klarheit Theme](https://github.com/m-scholz/klarheit) which is based on the [Project Clarity](https://clarity.design) design system. Hosting is provided by GitHub pages, and for the privacy-focused folks: This page runs entirely without JavaScript.
-
-## Contact
-
-I am currently working on providing a contact solution that does not compromise my email address for bots to get. This should be finished in a few days.
+This blog is based on [Hugo](https://gohugo.io/) with the [Twenty Nineteen Theme](https://github.com/jeremybise/twentynineteen-hugo) by [Jeremy Bise](https://github.com/jeremybise). Hosting (and building) is provided by [Netlify CMS](https://www.netlifycms.org/).

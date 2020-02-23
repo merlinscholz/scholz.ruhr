@@ -2,11 +2,11 @@
 title: "The Evolution of the Homelab"
 date: 2020-02-07T16:01:06+01:00
 draft: false
+image: /evolution.jpg
 tags: ["homelab", "vmware"]
 ---
 
 In the beginning, there was... well, nothing. After playing around with desktop computers, servers, and many, many VMs as long as I can think, I never really managed to permanently self-host something myself. This is its evolution.
-<!--more-->
 
 ## Homelab v0
 
@@ -22,80 +22,21 @@ I also used it for VPN access to my home network (although there weren't many de
 
 I would say things really started to take off with Homelab v2. Initially I wanted a platform for experimenting with "bigger" VM setups like the VMware ecosystem (vCenter, Horizon View, vSAN, ...), the Microsoft ecosystem (Hyper-V, Active Directory, ...) and the like. Also, the 1Tb external HDD started getting full. The trusty Lattepanda Alpha with its 8GB of RAM just wasn't enough for all of this, and after years of saving I finally pulled the trigger on my own whitebox build. My requirements were, as always, cheap and quiet. I ended up with this:
 
-<table>
-    <tr>
-        <th></th>
-        <th>Part</th>
-        <th>Price (as time of buying)</th>
-        <th>Amount</th> 
-    </tr>
-    <tr>
-        <td>CPU</td>
-        <td>AMD Ryzen 5 2400G</td>
-        <td>124.90€</td>
-        <td>1</td>
-    </tr>
-    <tr>
-        <td>RAM</td>
-        <td>G.Skill Aegis DDR4-3000 CL16 16Gb</td>
-        <td>61.90€</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <td>Motherboard</td>
-        <td>Gigabyte B450 Aorus M</td>
-        <td>78.99€</td>
-        <td>1</td>
-    </tr>
-    <tr>
-        <td>Power Supply</td>
-        <td>Thermaltake Berlin 630W</td>
-        <td>-</td>
-        <td>1</td>
-    </tr>
-    <tr>
-        <td>Case</td>
-        <td>CoolerMaster Silenctio S400</td>
-        <td>85.90€</td>
-        <td>1</td>
-    </tr>
-    <tr>
-        <td>SSD</td>
-        <td>WD Black SN750 500GB</td>
-        <td>69.90€</td>
-        <td>1</td>
-    </tr>
-    <tr>
-        <td>HDDs</td>
-        <td>Seagate IronWolf 4Tb</td>
-        <td>109.40€</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>HGST Travelstar 5K1000 1Tb</td>
-        <td>-</td>
-        <td>2</td>
-    </tr>
-    <tr>
-        <td>RAID</td>
-        <td>Dell PERC H310</td>
-        <td>33.90€ (used)</td>
-        <td>1</td>
-    </tr>
-    <tr>
-        <td>Boot USB</td>
-        <td>SanDisk Ultra 32Gb</td>
-        <td>-</td>
-        <td>1</td>
-    </tr>
-    <tr>
-        <td>Total</td>
-        <td></td>
-        <td>736.19€</td>
-        <td></td>
-    </tr>
-</table>
+|  as  | Part | Price [^1] | Amount |
+| :--- | :--- | :--- | :--- |
+| CPU | AMD Ryzen 5 2400G | 124.90€ | 1 |
+| RAM | G.Skill Aegis DDR4-3000 CL16 16Gb | 61.90€ | 2 |
+| Motherboard | Gigabyte B450 Aorus M | 78.99€ | 1 |
+| Power Supply | Thermaltake Berlin 630W | - | 1 |
+| Case | CoolerMaster Silenctio S400 | 	85.90€ | 1 |
+| SSD | WD Black SN750 500GB | 69.90€ | 1 |
+| HDD | Seagate IronWolf 4Tb | 109.40€ | 2 |
+|     | HGST Travelstar 5K1000 1Tb | - | 2 |
+| RAID/HBA | Dell PERC H310 | 33.90€[^2] | 1 |
+| Boot USB | SanDisk Ultra 32Gb | - | 1 |
+| Total | | 736.19€ | |
+[^1]: As of time of buying
+[^2]: Used, from ebay
 
 Some parts I had already laying around, like some old 1Tb (now used in RAID0 as scratch storage) and the power supply from an old gaming PC.
 

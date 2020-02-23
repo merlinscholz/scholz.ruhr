@@ -4,3 +4,6 @@
 [submodule "public"]
 	path = public
 	url = https://github.com/m-scholz/m-scholz.github.io.git
+[submodule "themes/twentynineteen"]
+	path = themes/twentynineteen
+	url = https://github.com/jeremybise/twentynineteen-hugo.git

@@ -2,10 +2,11 @@ baseURL = "https://mscholz.dev/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "mscholz.dev"
-theme = "klarheit"
+theme = "twentynineteen"
 enableRobotsTXT = true
 canonifyURLs = true
-paginate = 10
+paginate = 5
+googleAnalytics = "UA-47277692-7"
 
 [taxonomies]
     tag = "tags"
@@ -13,8 +14,10 @@ paginate = 10
 [params]
 description = "Trying to make sense of modern technology"
 author = "Merlin Scholz"
-darkmode = false
-theme = 6
+
+accent_color = "#ff2200" # Set a custom accent color for links and image filters, if enabled. Defaults to blue.
+#privacy_link = "/privacy/" # Relative URL to privacy page, if there is one. This enables a Privacy Policy link in the footer. The link doesn't display if this isn't specified.
+disable_image_filters = false # Setting to true disables the color filter feature on images. Defaults to false.
 
 [menu]
     [[menu.main]]
@@ -29,9 +32,40 @@ theme = 6
         url = "/about/"
         weight = 20
 
-
     [[menu.main]]
-        identifier = "git"
-        name = "GitHub"
-        url = "https://github.com/m-scholz"
+        identifier = "contact"
+        name = "Contact"
+        url = "/contact/"
         weight = 30
+
+    [[menu.social]]
+        identifier = "github"
+        name = "Github"
+        url = "https://github.com/m-scholz"
+
+    [[menu.social]]
+        identifier = "twitter"
+        name = "Twitter"
+        url = "https://twitter.com/mscholz_dev"
+
+    [[menu.footer]]
+        name = "CMS: Hugo"
+        url = "https://gohugo.io/"
+        weight = 1
+    
+    [[menu.footer]]
+        name = "Hosting: Netlify CMS"
+        url = "https://www.netlifycms.org/"
+        weight = 2
+
+    [[menu.footer]]
+        name = "Theme: Twenty Nineteen"
+        url = "https://github.com/jeremybise/twentynineteen-hugo"
+        weight = 3
+
+    [[menu.footer]]
+        name = "Back to top"
+        url = "#"
+        weight = 4
+[outputs]
+	home = ["HTML", "RSS", "JSON"]
