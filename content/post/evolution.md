@@ -21,6 +21,8 @@ At one point, I came to the conclusion, that a single RPI wouldn't cut it, altho
 
 I also used it for VPN access to my home network (although there weren't many devices on it back then). Since I am on a residential network with a DHCP-assigned WAN IP address, I had to get a domain name. As a poor student I couldn't/didn't want to afford a proper domain name, so a DDNS-service had to do. After years of trying out different providers I came to the conclusion that [Dynu](https://www.dynu.com/) has by far the best free tier and supports all standard IP-update protocols without having to run some extra VM.
 
+![Image of Homelab v1](/homelabv1.jpg "Image of Homelab v1")
+
 ## Homelab v2
 
 I would say things really started to take off with Homelab v2. Initially I wanted a platform for experimenting with "bigger" VM setups like the VMware ecosystem (vCenter, Horizon View, vSAN, ...), the Microsoft ecosystem (Hyper-V, Active Directory, ...) and the like. Also, the 1Tb external HDD started getting full. The trusty Lattepanda Alpha with its 8GB of RAM just wasn't enough for all of this, and after years of saving I finally pulled the trigger on my own whitebox build. My requirements were, as always, cheap and quiet. I ended up with this:
