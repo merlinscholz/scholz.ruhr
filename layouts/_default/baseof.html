@@ -10,7 +10,8 @@
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta name="description" content="{{.Summary}}">
+    <meta name="author" content="{{.Site.Params.author}}">
     {{ $styles := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "style.main.scss" . | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $styles.Permalink }}" />
 
