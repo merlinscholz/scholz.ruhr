@@ -2,8 +2,8 @@
 title: "The Evolution of the Homelab"
 date: 2020-02-07T16:01:06+01:00
 draft: false
-image: /evolution.jpg
-tags: ["homelab", "vmware"]
+feature_image: /evolution.jpg
+tags: ["homelab"]
 summary: "In the beginning, there was... well, nothing. After playing around with desktop computers, servers, and many, many VMs as long as I can think, I never really managed to permanently self-host something myself. This is its evolution."
 ---
 

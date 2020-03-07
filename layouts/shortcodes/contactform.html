@@ -1,23 +1,17 @@
-<form name="contact" method="POST" data-netlify="true">
+<form name="contact" method="POST" data-netlify="true" style="width: 100%">
     <p>
-        <label>
-          <span class="screen-reader-text">Your Name:</span>
-          <input style="width:100%" type="text" name="name" placeholder="Your Name" />
-        </label>   
+        <label for="name">Your Name:</label><br>
+        <input style="color:#111" type="text" name="name" id="name" />
     </p>
     <p>
-        <label>
-            <span class="screen-reader-text">Your Email:</span>
-            <input style="width:100%" type="email" name="email" placeholder="Your Email" />
-        </label>
+        <label for="email">Your Email:</label><br>
+        <input style="color:#111" type="email" name="email" id="email" />
     </p>
     <p>
-        <label>
-            <span class="screen-reader-text">Your Message:</span>
-            <textarea name="name" placeholder="Your Message"></textarea>
-        </label>   
+        <label for="message">Your Message:</label><br>
+        <textarea style="color:#111" name="message" id="message"></textarea>
     </p>
-    <p style="text-align: right;">
-        <button type="submit">Send</button>
+    <p>
+        <button type="submit" style="display:inline-block;background:#555;padding:3px 40px">Send</button>
     </p>
 </form>

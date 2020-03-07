@@ -1,6 +1,7 @@
 ---
 title: "Contact"
 draft: false
+date: 2020-02-07T00:00:00+01:00
 ---
 If you want to contact me, just fill out this form:
 

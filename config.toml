@@ -2,62 +2,57 @@ baseURL = "https://mscholz.dev/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "mscholz.dev"
-theme = "twentynineteen"
+theme = "casper3"
 enableRobotsTXT = true
 canonifyURLs = true
 paginate = 5
-googleAnalytics = "UA-47277692-7"
+
+# hugo special directories. generally do *not* need to modify these
+contentdir = "content"
+dataDir = "data"
+defaultLayout = "post"
+layoutdir = "layouts"
+paginatePath = "page"
+publishdir = "public"
+staticdir = "static"
+themesdir = "themes"
 
 [taxonomies]
     tag = "tags"
 
 [params]
-description = "Trying to make sense of modern technology"
-author = "Merlin Scholz"
-
-accent_color = "#ff2200" # Set a custom accent color for links and image filters, if enabled. Defaults to blue.
-#privacy_link = "/privacy/" # Relative URL to privacy page, if there is one. This enables a Privacy Policy link in the footer. The link doesn't display if this isn't specified.
-disable_image_filters = false # Setting to true disables the color filter feature on images. Defaults to false.
+    analytics = "UA-47277692-7"
+    description = "Trying to make sense of modern technology"
+    mainSections = ["post"]
+    author = "Merlin Scholz"
+    hideHUGOSupport = true
+    github = "https://github.com/mscholz-dev"
+    twitter = "https://twitter.com/mscholz_dev"
 
 [menu]
     [[menu.main]]
         identifier = "home"
         name = "Home"
         url = "/"
-        weight = 10
+        weight = 5
 
     [[menu.main]]
         identifier = "about"
         name = "About"
         url = "/about/"
-        weight = 20
-
+        weight = 10
+    
     [[menu.main]]
         identifier = "contact"
         name = "Contact"
         url = "/contact/"
-        weight = 30
-
+        weight = 20
 
     [[menu.main]]
         identifier = "rss"
         name = "RSS"
-        url = "http://localhost:1313/index.xml"
-        weight = 40
+        url = "/index.xml"
+        weight = 30
 
-    [[menu.social]]
-        identifier = "github"
-        name = "Github"
-        url = "https://github.com/mscholz-dev"
-
-    [[menu.social]]
-        identifier = "twitter"
-        name = "Twitter"
-        url = "https://twitter.com/mscholz_dev"
-
-    [[menu.footer]]
-        name = "Back to top"
-        url = "#"
-        weight = 4
 [outputs]
-	home = ["HTML", "RSS", "JSON"]
+	home = ["HTML", "RSS"]
