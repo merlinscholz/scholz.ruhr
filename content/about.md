@@ -13,4 +13,4 @@ I am currently studying Applied Computer Sciences in Germany, trying to get by b
 
 ### About this blog
 
-This blog is based on [Hugo](https://gohugo.io/) with the [Twenty Nineteen Theme](https://github.com/jeremybise/twentynineteen-hugo) by [Jeremy Bise](https://github.com/jeremybise). Hosting (and building) is provided by [Netlify CMS](https://www.netlifycms.org/).
+This blog is based on [Hugo](https://gohugo.io/) with the [Casper 3 for Hugo](https://github.com/jonathanjanssens/hugo-casper3) the by [Jonathan Janssens](https://github.com/jonathanjanssens). Hosting (and building) is provided by [Netlify CMS](https://www.netlifycms.org/).
