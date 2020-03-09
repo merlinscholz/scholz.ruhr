@@ -4,3 +4,6 @@
 [submodule "themes/casper3"]
 	path = themes/casper3
 	url = https://github.com/jonathanjanssens/hugo-casper3.git
+[submodule "themes/casper3plus"]
+	path = themes/casper3plus
+	url = https://github.com/mscholz-dev/hugo-casper3plus.git
