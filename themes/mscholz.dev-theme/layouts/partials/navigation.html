@@ -1,0 +1,9 @@
+{{ with .Site.Menus.main }}
+<nav>
+    {{ range $i, $e := . }}
+    {{ if $i }}<span>/</span>{{ end }}
+    <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+    {{ end }}
+    </ul>
+</nav>
+{{ end }}
