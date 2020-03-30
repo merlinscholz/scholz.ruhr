@@ -1,17 +1,13 @@
 ---
-title: The Evolution of the Homelab
+title: "The Evolution of the Homelab"
 date: 2020-02-07T15:01:06.000Z
 draft: false
-feature_image: /evolution.jpg
-tags:
-  - homelab
-summary: >-
-  In the beginning, there was... well, nothing. After playing around with
+tags: ["homelab"]
+summary: "In the beginning, there was... well, nothing. After playing around with
   desktop computers, servers, and many, many VMs as long as I can think, I never
   really managed to permanently self-host something myself. This is its
-  evolution.
+  evolution."
 ---
-> Cover image by [frabre](https://pixabay.com/users/frabre-18391/) from [Pixabay](https://pixabay.com/)
 
 In the beginning, there was... well, nothing. After playing around with desktop computers, servers, and many, many VMs as long as I can think, I never really managed to permanently self-host something myself. This is its evolution.
 
@@ -31,7 +27,7 @@ I also used it for VPN access to my home network (although there weren't many de
 
 I would say things really started to take off with Homelab v2. Initially I wanted a platform for experimenting with "bigger" VM setups like the VMware ecosystem (vCenter, Horizon View, vSAN, ...), the Microsoft ecosystem (Hyper-V, Active Directory, ...) and the like. Also, the 1Tb external HDD started getting full. The trusty Lattepanda Alpha with its 8GB of RAM just wasn't enough for all of this, and after years of saving I finally pulled the trigger on my own whitebox build. My requirements were, as always, cheap and quiet. I ended up with this:
 
-|              | Part                              | Price \[^1] | Amount |
+|              | Part                              | Price [^1] | Amount |
 | ------------ | --------------------------------- | ----------- | ------ |
 | CPU          | AMD Ryzen 5 2400G                 | 124.90€     | 1      |
 | RAM          | G.Skill Aegis DDR4-3000 CL16 16Gb | 61.90€      | 2      |
@@ -41,11 +37,12 @@ I would say things really started to take off with Homelab v2. Initially I wante
 | SSD          | WD Black SN750 500GB              | 69.90€      | 1      |
 | HDD          | Seagate IronWolf 4Tb              | 109.40€     | 2      |
 |              | HGST Travelstar 5K1000 1Tb        | \-          | 2      |
-| RAID/HBA     | Dell PERC H310                    | 33.90€\[^2] | 1      |
+| RAID/HBA     | Dell PERC H310                    | 33.90€[^2] | 1      |
 | Boot USB     | SanDisk Ultra 32Gb                | \-          | 1      |
 | Total        |                                   | 736.19€     |        |
 
-\[^1]: As of time of buying \[^2]: Used, from ebay
+[^1]: As of time of buying
+[^2]: Used, from ebay
 
 Some parts I had already laying around, like some old 1Tb (now used in RAID0 as scratch storage) and the power supply from an old gaming PC.
 

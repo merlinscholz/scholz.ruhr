@@ -6,11 +6,11 @@
 			<span class="readingtime">{{ .ReadingTime }} minutes</span>
 			{{ with .Params.tags }}
 				<div class="tags">
-					<span>Tags: </span>
-					{{ range $i, $e := . }}
+					Tags:
+					<span class="tag_links">{{ range $i, $e := . }}
 					{{ if $i }}<span>,&nbsp;</span>{{ end }}
 					<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-					{{ end }}
+					{{ end }}</span>
 				</div>
 			{{ end }}
 			<div>

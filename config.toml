@@ -2,20 +2,10 @@ baseURL = "https://mscholz.dev/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "mscholz.dev"
-theme = "casper3plus"
+theme = "mscholz.dev-theme"
 enableRobotsTXT = true
 canonifyURLs = true
-paginate = 5
-
-# hugo special directories. generally do *not* need to modify these
-contentdir = "content"
-dataDir = "data"
-defaultLayout = "post"
-layoutdir = "layouts"
-paginatePath = "page"
-publishdir = "public"
-staticdir = "static"
-themesdir = "themes"
+paginate = 20
 
 [taxonomies]
     tag = "tags"
@@ -54,5 +44,29 @@ themesdir = "themes"
         url = "/index.xml"
         weight = 30
 
+    [[menu.main]]
+        identifier = "twitter"
+        name = "Twitter"
+        url = "https://twitter.com/mscholz_dev"
+        weight = 40
+
+    [[menu.main]]
+        identifier = "github"
+        name = "GitHub"
+        url = "https://github.com/mscholz-dev"
+        weight = 50
+
 [outputs]
 	home = ["HTML", "RSS"]
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "tango"
+    tabWidth = 4
