@@ -41,11 +41,11 @@ merlin@desktop: wg genkey | tee server_priv | wg server_pub > server_priv
 
 Also, create key pairs for every client you want to connect with:
 ```bash
-merlin@desktop: wg genkey | tee phone_priv | wg phone_pub > phone_priv
+merlin@desktop: wg genkey | tee phone_priv | wg pubkey > phone_pub
 
-merlin@desktop: wg genkey | tee notebook_priv | wg notebook_pub > notebook_priv
+merlin@desktop: wg genkey | tee notebook_priv | wg pubkey > notebook_pub
 
-merlin@desktop: wg genkey | tee tablet_priv | wg tablet_pub > tablet_priv
+merlin@desktop: wg genkey | tee tablet_priv | wg pubkey > tablet_pub
 ```
 
 ## Server configuration
