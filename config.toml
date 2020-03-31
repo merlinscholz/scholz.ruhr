@@ -15,9 +15,6 @@ paginate = 20
     description = "Trying to make sense of modern technology"
     mainSections = ["post"]
     author = "Merlin Scholz"
-    hideHUGOSupport = true
-    github = "https://github.com/mscholz-dev"
-    twitter = "https://twitter.com/mscholz_dev"
 
 [menu]
     [[menu.main]]

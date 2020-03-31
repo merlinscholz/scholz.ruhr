@@ -61,3 +61,7 @@ This setup ran perfectly for over a year, but it did not offer very much flexibi
 So a few months ago I scrapped everything, flashed the RAID controller back to its original firmware, reinstalled ESXi (this time with vCenter) and installed Plex to a CentOS VM, directly connected to a 2.5TB VMDK file on the RAID-1 backed VMFS datastore.
 
 Around that time I also segmentated my networks more, having seperate VLANs for WAN, internal, DMZ, VPN, and a few "test"-networks. This gives me enough flexibility to try out new technologies, learn for certifications, and hopefully write about them in this blog.
+
+### Homelab v2.2
+
+Recently, my Plex server had to be shut down due to lack of demand... Strange, I know. So what to do with 4tb of now-free disk space? Exactly, install Nextcloud, to replace Onedrive and Google Photos.
