@@ -1,6 +1,7 @@
 ---
 title: "The Evolution of the Homelab"
 date: 2020-02-07T15:01:06.000Z
+images: ["evolution.jpg"]
 draft: false
 tags: ["homelab"]
 summary: "In the beginning, there was... well, nothing. After playing around with
