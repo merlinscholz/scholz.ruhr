@@ -13,7 +13,9 @@ GoogleAnalytics="UA-47277692-7"
     tag = "tags"
 
 [params]
+    title = "mscholz.dev"
     description = "Trying to make sense of modern technology"
+    images = ["ogp.png"]
     mainSections = ["post"]
     author = "Merlin Scholz"
 
