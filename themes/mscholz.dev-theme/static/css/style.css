@@ -88,6 +88,9 @@ time, .readingtime{
     margin:0 auto;
     padding:6rem 1rem;
 }
+.disqus_wrapper{
+    margin-top:4rem
+}
 #title{
     display:inline-block;
     color:#163541;

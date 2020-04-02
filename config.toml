@@ -6,15 +6,17 @@ theme = "mscholz.dev-theme"
 enableRobotsTXT = true
 canonifyURLs = true
 paginate = 20
+disqusShortname = "mscholz"
+GoogleAnalytics="UA-47277692-7"
 
 [taxonomies]
     tag = "tags"
 
 [params]
-    analytics = "UA-47277692-7"
     description = "Trying to make sense of modern technology"
     mainSections = ["post"]
     author = "Merlin Scholz"
+
 
 [menu]
     [[menu.main]]

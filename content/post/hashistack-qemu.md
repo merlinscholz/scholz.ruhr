@@ -15,8 +15,8 @@ In an "usual" setup you'll see Packer being used to create Nomad Servers/Clients
 Let's start small. This is only a proof-of-concept so we shouldn't need high availability, redundancy, load balancing, or even Consul (yet). I'll use:
 * Management PC (Pop!_OS 19.10)
 * Main VM Host (ESXi 6.7 with vCenter)
-    * Nomad Master (CentOS 8)
-    * Nomad Client (CentOS 8, enabled nested virtualization)
+    * Nomad Master (Ubuntu 18.04)
+    * Nomad Client (Uubntu 18.04, enabled nested virtualization)
 
 ## Preparation
 

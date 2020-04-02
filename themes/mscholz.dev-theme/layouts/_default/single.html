@@ -16,11 +16,10 @@
 			<div>
 				{{ .Content }}
 			</div>
-			{{ with .Site.DisqusShortname }}
-			<div>
+			<hr>
+			<div class="disqus_wrapper">
 				{{ template "_internal/disqus.html" . }}
 			</div>
-			{{ end }}
 		</article>
 	</main>
 {{ end }}

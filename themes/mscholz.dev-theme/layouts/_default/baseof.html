@@ -34,6 +34,6 @@
 		{{ partial "footer" . }}
 	</div>
 	{{ partial "asciinema" . }}
-	{{ partial "analytics" . }}
+	{{ template "_internal/google_analytics_async.html" . }}
 </body>
 </html>
