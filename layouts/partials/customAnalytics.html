@@ -1,8 +1,10 @@
 <script>
-    if (window.location.hostname == 'mscholz.dev') {
-        var _pixel = new Image(1, 1);
-        _pixel.src = "https://pxl.mscholz.dev/pxl.gif?u=" +
-        encodeURIComponent(window.location.pathname) +
-        (document.referrer ? "&r=" + encodeURIComponent(document.referrer) : "");
+    if(navigator.doNotTrack != 1) {
+        if (window.location.hostname == 'mscholz.dev') {
+            var _pixel = new Image(1, 1);
+            _pixel.src = "https://pxl.mscholz.dev/pxl.gif?u=" +
+            encodeURIComponent(window.location.pathname) +
+            (document.referrer ? "&r=" + document.referrer : "");
+        }
     }
 </script>
