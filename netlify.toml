@@ -1,2 +1,7 @@
 [context.production.environment]
   HUGO_VERSION = "0.68.3"
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
