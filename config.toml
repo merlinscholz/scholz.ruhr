@@ -7,7 +7,6 @@ enableRobotsTXT = true
 canonifyURLs = true
 paginate = 20
 disqusShortname = "mscholz"
-GoogleAnalytics="UA-47277692-7"
 
 [taxonomies]
     tag = "tags"
