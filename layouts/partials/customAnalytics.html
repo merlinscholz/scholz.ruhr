@@ -4,7 +4,7 @@
             var _pixel = new Image(1, 1);
             _pixel.src = "https://pxl.mscholz.dev/pxl.gif?u=" +
             encodeURIComponent(window.location.pathname) +
-            (document.referrer ? "&r=" + document.referrer : "");
+            (document.referrer ? "&r=" + encodeURIComponent(document.referrer) : "");
         }
     }
 </script>
