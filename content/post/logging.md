@@ -1,10 +1,10 @@
 ---
 title: "How I do logging"
-date: 2020-04-07T17:43:54+01:00
-draft: true
-#images: ["signpost.jpg"]
+date: 2020-04-07T20:05:54+01:00
+draft: false
 tags: ["privacy", "webdev"]
-summary: "Switching away from Google Analytics and keeping the users privacy intact."
+summary: "Switching away from Google Analytics and keeping the user's privacy alive."
+asciinema: true
 ---
 
 Today marks the day I disabled Google Analytics for my site and deleted my Analytics account.
@@ -41,7 +41,7 @@ The analytics itself consists of just a single tracking pixel, and will only be 
     if(navigator.doNotTrack != 1) {
         if (window.location.hostname == 'mscholz.dev') {
             var _pixel = new Image(1, 1);
-            _pixel.src = "https://example.com/pxl.gif?u=" +
+            _pixel.src = "https://pxl.mscholz.dev/pxl.gif?u=" +
             encodeURIComponent(window.location.pathname) +
             (document.referrer ? "&r=" + encodeURIComponent(document.referrer) : "");
         }
@@ -116,3 +116,26 @@ log_format  pixel  '$remote_addr - $remote_user [$time_local] "$rurl" '
 ## Now I've got the logs. What to do now?
 
 Analyze them! The most popular software for this purpose seems to be [GoAccess](https://goaccess.io/), so let's try it out:
+
+{{< asciinema key="tmpnq35whjy-ascii" rows="24" preload="1" >}}
+
+Or generate an HTML report:
+
+```sh
+goaccess access.log -o report.html --log-format=COMBINED
+```
+
+![GoAcces HTML Report](/goaccess.png)
+
+It still looks pretty empty, but the new analytics goes live as soon as this post you're currently reading gets posted.
+
+## Conclusion
+
+Yes, it is possible to replace Google Analytics through open-source, privacy focused software. It doesn't provide that much information about who your visitors are, but that's the point: The now-restored anonymity. Another nice extra is the improved page load speed, since we don't have to load the whole Google Analytics script.
+
+The only thing that doesn't work perfectly (yet) are the referrers: While Nginx stores them in the same format as the request URI, GoAccess doesn't decode them properly. Instead of displaying ```https://www.google.com/```, I'm seeing ```https%3A%2F%2Fwww.google.de%2F```. This is not a huge problem though, it would just be nice-to-have, especially since the request URIs are stored in exactly the same way and are being displayed correctly. If you know how to fix this, let me know!
+
+________
+
+Incidentally, as I was just about to publish this article, I noticed that [Why you should stop using Google Analytics on your website
+](https://plausible.io/blog/remove-google-analytics) is the current top post on [lobste.rs](https://lobste.rs).
