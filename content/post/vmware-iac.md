@@ -1,6 +1,6 @@
 ---
 title: "How I do infrastructure as code and configuration management"
-date: 2020-04-17T20:35:06.000Z
+date: 2020-04-17T16:35:06.000Z
 #images: ["evolution.jpg"]
 draft: false
 tags: ["homelab"]
