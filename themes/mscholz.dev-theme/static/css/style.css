@@ -105,6 +105,11 @@ time, .readingtime{
 #tagline{
     font-size:3rem;
 }
+blockquote{
+    margin-left:1rem;
+    padding-left:1.5rem;
+    border-left:solid 5px #ddd;
+}
 code{
     display:inline-block;
     color:#163541;
