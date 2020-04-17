@@ -347,7 +347,7 @@ So, this is where the interesing stuff happens: Installing packages, setting up 
 
 Also, be careful when doing DNS. You _will_ shoot yourself in the foot at some point, especially when you need DNS to provision a DNS server. Never again.
 
-## Fazit
+## Conclusion
 
 The HashiCorp tools are great. They enable me to just take this infrastructure, change a few environment variables and move it into the cloud. One thing I am missing from Terraform is official libvirt or Hyper-V support. I understand, Terraform is mainly made for cloud providers, but a few alternatives would be nice.
 
