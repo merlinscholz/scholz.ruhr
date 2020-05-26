@@ -36,7 +36,7 @@ ubnt@erx: sudo dpkg -i /path/to/wireguard-v2.0-e50-0.0.20191219-2.deb
 On your workstation, create public and private keys for your server:
 
 ```bash
-merlin@desktop: wg genkey | tee server_priv | wg server_pub > server_pub
+merlin@desktop: wg genkey | tee server_priv | wg pubkey > server_pub
 ```
 
 Also, create key pairs for every client you want to connect with:
