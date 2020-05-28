@@ -102,7 +102,7 @@ AllowedIPs = 0.0.0.0/0, ::/0
 # Otherwise, enter only the IP ranges inside your target network
 ```
 
-If you quickly and securely want to move the config to your Android/iOS device you can run ```bash qrencode -t ansiutf8 < phone.conf``` and scan the code with the wireguard app on your phone.
+If you quickly and securely want to move the config to your Android/iOS device you can run ```qrencode -t ansiutf8 < phone.conf``` and scan the code with the wireguard app on your phone.
 
 If all worked well, you now should be able to connect to your home network from anywhere!
 
