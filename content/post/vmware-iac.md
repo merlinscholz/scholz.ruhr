@@ -7,7 +7,7 @@ tags: ["homelab"]
 summary: "Or: Mixing Infrastructure as Code, Configuration Management, cloud-init, immutable infrastructure and vCenter. Since we are all in quarantine anyways, I've decided to redo my whole infrastructure... as code."
 ---
 
-TL;DR: [https://github.com/mscholz-dev/vsphere-iac](https://github.com/mscholz-dev/vsphere-iac)
+TL;DR: [https://github.com/merlinscholz/vsphere-iac](https://github.com/merlinscholz/vsphere-iac)
 
 Since we are all in quarantine anyways, I have decided to make my whole infrastructure immutable.
 
@@ -175,7 +175,7 @@ d-i preseed/late_command string \
 
 ```
 
-For this to work, you will have to set your environment variables (there is a script to automate that in the [repo](https://github.com/mscholz-dev/vsphere-iac)), and have ```debian-10.3.0-amd64-netinst.iso``` on your vCenter server.
+For this to work, you will have to set your environment variables (there is a script to automate that in the [repo](https://github.com/merlinscholz/vsphere-iac)), and have ```debian-10.3.0-amd64-netinst.iso``` on your vCenter server.
 
 At the end of the installation, Packer will download and run the script from the [vmware/cloud-init-vmware-guestinfo](https://github.com/vmware/cloud-init-vmware-guestinfo) repo. This is necessary to get the cloud-init files into our VM in the next step.
 
@@ -355,4 +355,4 @@ So far this whole has been working pretty good (except for some DNS mishaps), al
 
 One last but annoying thing is the networking setup: I just could not get cloud-init to configure the VM without a dynamic address, there is always one defined in ```/etc/network/interfaces.d/50-cloud-init.cfg```. If you know a way to fix this, I'm open for suggestions!
 
-You can view all the code in my [repo](https://github.com/mscholz-dev/vsphere-iac).
+You can view all the code in my [repo](https://github.com/merlinscholz/vsphere-iac).
