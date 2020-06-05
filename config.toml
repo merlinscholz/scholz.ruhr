@@ -53,7 +53,7 @@ disqusShortname = "mscholz"
     [[menu.main]]
         identifier = "github"
         name = "GitHub"
-        url = "https://github.com/mscholz-dev"
+        url = "https://github.com/merlinscholz"
         weight = 50
 
 [outputs]
