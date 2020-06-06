@@ -1,10 +1,10 @@
 ---
-title: "Installing and configuring WireGuard on an EdgeRouter X"
+title: "Quick Note: Installing and configuring WireGuard on an EdgeRouter X"
 date: 2020-02-22T22:43:54+01:00
 draft: false
 images: ["wg_erx.jpg"]
 tags: ["networking", "vpn"]
-summary: "In this guide I will show you how I configured a wireguard road-warrior setup on an EdgeRouter X."
+summary: "This guide is mostly for me to remember how to set up WireGuard as a road-warrior-host on an EdgeRouter X."
 ---
 
 ## Why?
@@ -13,7 +13,7 @@ Today I finally came around to replace my OPNsense VM with an old EdgeRouter X. 
 
 Anyways, back to Wireguard: On OPNsense I ran OpenVPN which, while it worked great, was annoying to configure, especially with certificates and different clients like Android and iOS. Also, openVPN isn't that easy on the CPU, which the relatively inexpensive EdgeRouter does not excel at.
 
-In this guide I will show you how I configured a road-warrior setup.
+This guide is mostly for me to remember how to set it up again, hope you're getting some use out of this too.
 
 ## Installation
 
@@ -81,26 +81,7 @@ After that you may want to configure routing so that connections coming from the
 
 On your host, create a config file for each client:
 
-```apacheconf
-# cat phone.conf
-[Interface]
-PrivateKey = $CLIENT1PRIVATEKEY
-Address = 192.168.21.2/24
-
-# Optional:
-DNS = 192.168.21.1
-# If you are using an internal DNS server, remember to allow it from the new interface
-
-[Peer]
-PublicKey = $SERVERPUBLICKEY
-
-# Remember to change the port if using a custom one
-Endpoint = your.domain.tld:51820
-
-# If you want to route all traffic through the VPN, use this:
-AllowedIPs = 0.0.0.0/0, ::/0
-# Otherwise, enter only the IP ranges inside your target network
-```
+{{<gist merlinscholz 425bb69fc8cee7ac1856d09452dd6d61>}}
 
 If you quickly and securely want to move the config to your Android/iOS device you can run ```qrencode -t ansiutf8 < phone.conf``` and scan the code with the wireguard app on your phone.
 
