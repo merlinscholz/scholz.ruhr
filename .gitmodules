@@ -1,12 +1,3 @@
-[submodule "themes/twentynineteen"]
-	path = themes/twentynineteen
-	url = https://github.com/jeremybise/twentynineteen-hugo.git
-[submodule "themes/casper3"]
-	path = themes/casper3
-	url = https://github.com/jonathanjanssens/hugo-casper3.git
-[submodule "themes/casper3plus"]
-	path = themes/casper3plus
-	url = https://github.com/mscholz-dev/hugo-casper3plus.git
 [submodule "themes/mscholz.dev-theme"]
 	path = themes/mscholz.dev-theme
 	url = https://github.com/merlinscholz/mscholz.dev-theme
