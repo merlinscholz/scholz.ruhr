@@ -6,4 +6,4 @@ The repo from which [mscholz.dev](mscholz.dev) got deployed.
 
 The theme is available at https://github.com/merlinscholz/mscholz.dev-theme
 
-The blog itself has been migrated to merlinscholz.name
+The blog itself has been migrated to [merlinscholz.name](merlinscholz.name)
