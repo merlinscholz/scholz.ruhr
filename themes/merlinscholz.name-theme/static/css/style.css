@@ -63,7 +63,7 @@ table td:not(.js-line-number), *:not(.gist) table th{
     margin-left:30px;
 }
 .singleFooter{
-    margin:30px 0;
+    margin:60px 0 30px;
 }
 .singleFooter a{
     display:inline-block;
@@ -83,6 +83,15 @@ footer{
 footer div{
     flex:1
 }
-footer:last-child(div){
+footer div:last-child{
     text-align: right;
+}
+.e404 blockquote{
+    font-size:0.8rem;
+    color:#666;
+    border-left-color: #ddd;
+}
+.footnotes hr{
+    border:none;
+    border-bottom:solid 1px #ddd
 }
