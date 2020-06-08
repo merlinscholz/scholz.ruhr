@@ -1,72 +1,18 @@
-baseURL = "https://mscholz.dev/"
+baseURL = "https://merlinscholz.name/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
-title = "mscholz.dev"
-theme = "mscholz.dev-theme"
+title = "Merlin Scholz"
+theme = "merlinscholz.name-theme"
 enableRobotsTXT = true
 canonifyURLs = true
-paginate = 20
-disqusShortname = "mscholz"
+paginate = 9999
 
 [taxonomies]
-    tag = "tags"
 
 [params]
-    title = "mscholz.dev"
+    title = "merlinscholz.name"
     description = "Trying to make sense of modern technology"
-    images = ["ogp.png"]
-    mainSections = ["post"]
     author = "Merlin Scholz"
-
-
-[menu]
-    [[menu.main]]
-        identifier = "home"
-        name = "Home"
-        url = "/"
-        weight = 5
-
-    [[menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about/"
-        weight = 10
-    
-    [[menu.main]]
-        identifier = "contact"
-        name = "Contact"
-        url = "/contact/"
-        weight = 20
-
-    [[menu.main]]
-        identifier = "rss"
-        name = "RSS"
-        url = "/index.xml"
-        weight = 30
-
-    [[menu.main]]
-        identifier = "twitter"
-        name = "Twitter"
-        url = "https://twitter.com/mscholz_dev"
-        weight = 40
-
-    [[menu.main]]
-        identifier = "github"
-        name = "GitHub"
-        url = "https://github.com/merlinscholz"
-        weight = 50
 
 [outputs]
 	home = ["HTML", "RSS"]
-
-[markup]
-  [markup.highlight]
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ""
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
-    style = "tango"
-    tabWidth = 4

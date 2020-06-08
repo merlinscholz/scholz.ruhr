@@ -1,0 +1,6 @@
+<header>
+    <a class="homeBtn" href="{{.Site.BaseURL}}">{{.Site.Title}}</a>
+    {{ if eq .Page.Type "post" }}
+        <time class="postTime">{{ .Date.Format "January 02, 2006" }}</time>
+    {{ end }}
+</nav>

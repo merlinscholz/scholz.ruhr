@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{ .Title }}</title>
+	{{ if .Params.summary }}
+	<meta name="description" content="{{ .Params.summary }}">
+	{{ else }}
+	<meta name="description" content="{{ .Site.Params.description }}">
+	{{ end }}
+	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+	{{ template "_internal/opengraph.html" . }}
+	{{ template "_internal/twitter_cards.html" . }}
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+	{{ if .Params.asciinema }}
+		<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}asciinema/asciinema-player.css" />
+	{{ end }}
+	{{ with .OutputFormats.Get "RSS" -}}
+		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+	{{- end }}
+</head>
+<body>
+	<div class="wrapper">
+		{{ partial "header" . }}
+	</div>
+	<div class="wrapper">
+		{{ block "main" . }}{{ end }}
+	</div>
+	<div class="wrapper">
+		{{ partial "footer" . }}
+	</div>
+	{{ partial "asciinema" . }}
+</body>
+</html>

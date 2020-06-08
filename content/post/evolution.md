@@ -1,9 +1,7 @@
 ---
 title: "The Evolution of the Homelab"
 date: 2020-02-07T15:01:06.000Z
-images: ["evolution.jpg"]
 draft: false
-tags: ["homelab"]
 summary: "In the beginning, there was... well, nothing. After playing around with
   desktop computers, servers, and many, many VMs as long as I can think, I never
   really managed to permanently self-host something myself. This is its
@@ -21,8 +19,6 @@ This all started to change back in 2015 when I heard of a wonderful software cal
 At one point, I came to the conclusion, that a single RPI wouldn't cut it, although its form factor wasn't that bad. So after searching for more-powerful, x86-based SBCs online, I decided to go with the [Lattepanda Alpha 864](https://www.lattepanda.com/products/lattepanda-alpha-864s.html). (The product in this link is the updated version 864s with a different CPU, mine has the Intel M3-7y30 as used in some MacBook models.) It features a good-enough Intel Dual-Core/Quad-Thread CPU with virtualization capabilities, 8Gb of RAM, and 64GB eMMC storage. One quick Plex migration later and I had a working, powerful media server.
 
 I also used it for VPN access to my home network (although there weren't many devices on it back then). Since I am on a residential network with a DHCP-assigned WAN IP address, I had to get a domain name. As a poor student I couldn't/didn't want to afford a proper domain name, so a DDNS-service had to do. After years of trying out different providers I came to the conclusion that [Dynu](https://www.dynu.com/) has by far the best free tier and supports all standard IP-update protocols without having to run some extra VM.
-
-![Image of Homelab v1](/homelabv1.jpg "Image of Homelab v1")
 
 ## Homelab v2
 
@@ -66,3 +62,9 @@ Around that time I also segmentated my networks more, having seperate VLANs for 
 ### Homelab v2.2
 
 Recently, my Plex server had to be shut down due to lack of demand... Strange, I know. So what to do with 4tb of now-free disk space? Exactly, install Nextcloud, to replace Onedrive and Google Photos.
+
+### Homelab v3
+
+Homelab v3 consists of my finally buying some proper network gear (Ubiquiti Dream Machine Pro) and a few domains. This package has not arrived yet, but I'll try to keep this page updated as soon as I redo the networking in here.
+
+Currently, my old blog domain mscholz.dev is being used for testing purposes, while the main blog and other public projects are being hosted on merlinscholz.name

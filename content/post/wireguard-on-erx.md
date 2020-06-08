@@ -2,8 +2,6 @@
 title: "Quick Note: Installing and configuring WireGuard on an EdgeRouter X"
 date: 2020-02-22T22:43:54+01:00
 draft: false
-images: ["wg_erx.jpg"]
-tags: ["networking", "vpn"]
 summary: "This guide is mostly for me to remember how to set up WireGuard as a road-warrior-host on an EdgeRouter X."
 ---
 

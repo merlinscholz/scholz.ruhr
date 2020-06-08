@@ -1,0 +1,44 @@
+{{ define "main" }}
+    <p>{{ .Content }}</p>
+    <h1>Newest Posts</h1>
+    <ul class="newestPosts">
+        {{ range (where .Site.RegularPages "Type" "in" "post") }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
+    </ul>
+    <p>You can view all of my posts <a href="/post">here</a>.</p>
+    <h1>Projects</h1>
+    <ul class="projects">
+        {{ range (where .Site.RegularPages "Type" "in" "projects") }}
+            <li>
+                <a href="{{ .Param "link" }}">{{ .Title }}</a>
+                <span>- {{ .Summary }}
+                    {{ if (.Param "wip" )}}
+                        *
+                    {{ end }}
+                </span>
+            </li>
+        {{ end }}
+    </ul>
+    <p>Follow me on <a href="https://github.com/merlinscholz">GitHub</a> to stay up to date.</p>
+    <p>* Work in Progress</p>
+
+    <h1>Project scratchpad</h1>
+    <p>This is place for me to write down ideas for future articles. Do not take them too seriously.</p>
+    <ul class="projects">
+        {{ range (where .Site.RegularPages "Type" "in" "scratchpad") }}
+            <li>
+               <span>{{ .Summary }}</span>
+            </li>
+        {{ end }}
+    </ul>
+
+    <h1>Profiles</h1>
+    <ul>
+        {{ range (where .Site.RegularPages "Type" "in" "profiles") }}
+        <li>
+            <a href="{{ .Param "link" }}">{{ .Title }}: {{ .Summary }}</a>
+        </li>
+    {{ end }}
+    </ul>
+{{ end }}
