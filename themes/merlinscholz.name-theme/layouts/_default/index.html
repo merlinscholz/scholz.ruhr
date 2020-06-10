@@ -7,9 +7,12 @@
         {{ end }}
     </ul>
     <p>You can view all of my posts <a href="/post">here</a>.</p>
+
+    {{ $projects := .Site.GetPage "projects" }}    
+    {{ $projects := $projects.Resources.ByType "page" }}
     <h1>Projects</h1>
     <ul class="projects">
-        {{ range (where .Site.RegularPages "Type" "in" "projects") }}
+        {{ range $projects }}
             <li>
                 <a href="{{ .Param "link" }}">{{ .Title }}</a>
                 <span>- {{ .Summary }}
