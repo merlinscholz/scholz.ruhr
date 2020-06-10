@@ -74,6 +74,7 @@ img{
 }
 footer{
     display: flex;
+    flex-wrap: wrap;
     font-size:0.8rem;
     color:#666;
     border-top: solid 1px #ddd;
@@ -83,8 +84,14 @@ footer{
 footer div{
     flex:1
 }
-footer div:last-child{
+footer .break{
+    flex-basis: 100%;
+}
+footer div:nth-child(3n+2){
     text-align: right;
+}
+footer div:nth-child(3n+1) a{
+    margin-right:12px;
 }
 .e404 blockquote{
     font-size:0.8rem;
