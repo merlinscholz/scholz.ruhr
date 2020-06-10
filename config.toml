@@ -6,6 +6,7 @@ theme = "merlinscholz.name-theme"
 enableRobotsTXT = true
 canonifyURLs = true
 paginate = 9999
+pygmentsUseClasses=true
 
 [taxonomies]
 
@@ -16,3 +17,14 @@ paginate = 9999
 
 [outputs]
 	home = ["HTML", "RSS"]
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    tabWidth = 4
