@@ -1,9 +1,7 @@
 ---
 title: "Quick Note: Combining IaC, cloud-init, and vCenter"
 date: 2020-04-17T16:35:06.000Z
-#images: ["evolution.jpg"]
 draft: false
-tags: ["homelab"]
 summary: "Or: Trying to get Infrastructure as Code, Configuration Management, cloud-init, vCenter, Debian, Packer and Terraform to work together."
 ---
 

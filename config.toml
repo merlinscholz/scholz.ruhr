@@ -16,3 +16,5 @@ paginate = 9999
 
 [outputs]
 	home = ["HTML", "RSS"]
+    section = ["HTML"]
+    

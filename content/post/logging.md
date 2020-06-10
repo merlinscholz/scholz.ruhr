@@ -2,7 +2,6 @@
 title: "How I do logging"
 date: 2020-04-07T20:05:54+01:00
 draft: false
-tags: ["privacy", "webdev"]
 summary: "Switching away from Google Analytics and keeping the user's privacy alive."
 asciinema: true
 ---
