@@ -20,12 +20,13 @@ header{
     font-family: 'Montserrat', sans-serif;
     display: inline-block;
     text-decoration: none;
-    background:#2070dc;
-    text-transform: uppercase;
+    background:#00894e;
     color:#fff;
     font-weight: 600;
-    padding:14px;
-    border-radius: 4px;;
+    padding:8px 20px;
+    border-radius: 4px;
+    font-size:1.1rem;
+    letter-spacing: -0.05em;
 }
 h1{
     font-family: 'Montserrat', sans-serif;
@@ -37,12 +38,12 @@ h2{
     font-size: 1.25rem;
 }
 a{
-    color:#2070dc;
+    color:#00894e;
     text-decoration: none;
     transition: all 100ms ease-in-out;
 }
 a:not(.homeBtn):hover{
-    background-color: #2070dc;
+    background-color: #00894e;
     color:#fff;
 }
 blockquote{

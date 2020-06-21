@@ -15,7 +15,7 @@
         {{ range $projects }}
             <li>
                 <a href="{{ .Param "link" }}">{{ .Title }}</a>
-                <span>- {{ .Summary }}
+                <span>– {{ .Summary }}
                     {{ if (.Param "wip" )}}
                         *
                     {{ end }}
