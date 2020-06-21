@@ -78,6 +78,7 @@ img{
 }
 footer{
     display: flex;
+    flex-wrap: wrap;
     font-size:0.8rem;
     color:#666;
     border-top: solid 1px #ddd;
@@ -87,8 +88,14 @@ footer{
 footer div{
     flex:1
 }
-footer div:last-child{
+footer .break{
+    flex-basis: 100%;
+}
+footer div:nth-child(3n+2){
     text-align: right;
+}
+footer div:nth-child(3n+1) a{
+    margin-right:12px;
 }
 .e404 blockquote{
     font-size:0.8rem;
@@ -98,4 +105,18 @@ footer div:last-child{
 .footnotes hr{
     border:none;
     border-bottom:solid 1px #ddd
+}
+.highlight{
+    border:solid 1px;
+    border-color:  #ddd #ddd #ccc;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    line-height: 1.9;
+}
+.highlight pre{
+    margin:0 .5em;
+    overflow: auto;
+}
+.highlight pre .lnt{
+    color:rgba(27,31,35,.3)
 }

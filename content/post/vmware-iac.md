@@ -1,9 +1,7 @@
 ---
 title: "Quick Note: Combining IaC, cloud-init, and vCenter"
 date: 2020-04-17T16:35:06.000Z
-#images: ["evolution.jpg"]
 draft: false
-tags: ["homelab"]
 summary: "Or: Trying to get Infrastructure as Code, Configuration Management, cloud-init, vCenter, Debian, Packer and Terraform to work together."
 ---
 
@@ -45,16 +43,158 @@ Combining everything can be tricky.
 The template creation is the easiest part. Just create a ```.json``` file using the [official guide](https://www.packer.io/intro/getting-started/build-image.html):
 
 Mine looks like this:
-{{< gist merlinscholz 1ca3a61594a1741ef15507acbc778f41 >}}
+```json {linenos=table}
+{
+  "variables": {
+    "vcenter_server": "{{ env `vcenter_server` }}",
+    "vcenter_username": "{{ env `vcenter_username` }}",
+    "vcenter_password": "{{ env `vcenter_password` }}",
+    "vcenter_insecure_connection": "true",
+    "vm_name": "ci_debian-10",
+    "cluster": "{{ env `vcenter_cluster` }}",
+    "host": "{{ env `vcenter_host` }}",
+    "datastore": "{{ env `vcenter_datastore` }}",
+    "network": "{{ env `vcenter_network` }}",
+    "guest_os_type": "debian10_64Guest",
+    "iso_paths": "{{ env `vcenter_isopath` }} debian-10.3.0-amd64-netinst.iso"
+  },
+  "builders": [
+    {
+      "type": "vsphere-iso",
+      "vcenter_server": "{{ user `vcenter_server` }}",
+      "username": "{{ user `vcenter_username` }}",
+      "password": "{{ user `vcenter_password` }}",
+      "insecure_connection": "{{ user `vcenter_insecure_connection` }}",
+      "vm_name": "{{ user `vm_name` }}",
+      "cluster": "{{ user `cluster` }}",
+      "host": "{{ user `host` }}",
+      "datastore": "{{ user `datastore` }}",
+      "network": "{{ user `network` }}",
+      "ssh_username": "ci",
+      "ssh_password": "Hashi123!",
+      "ssh_pty": "true",
+      "guest_os_type": "{{ user `guest_os_type` }}",
+      "CPUs": 1,
+      "RAM": 1024,
+      "RAM_reserve_all": false,
+      "disk_controller_type": "pvscsi",
+      "disk_size": 32768,
+      "disk_thin_provisioned": true,
+      "network_card": "vmxnet3",
+      "iso_paths": [
+        "{{ user `iso_paths` }}"
+      ],
+      "boot_command": [
+        "<esc><wait>",
+        "install <wait>",
+        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
+        "debian-installer=en_US.UTF-8 <wait>",
+        "auto <wait>",
+        "locale=en_US.UTF-8 <wait>",
+        "kbd-chooser/method=us <wait>",
+        "keyboard-configuration/xkb-keymap=us <wait>",
+        "netcfg/get_hostname=debian <wait>",
+        "netcfg/get_domain=local <wait>",
+        "fb=false <wait>",
+        "debconf/frontend=noninteractive <wait>",
+        "console-setup/ask_detect=false <wait>",
+        "console-keymaps-at/keymap=us <wait>",
+        "grub-installer/bootdev=/dev/sda <wait>",
+        "<enter><wait>"
+      ],
+      "http_directory": "."
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "curl -sSL https://raw.githubusercontent.com/vmware/cloud-init-vmware-guestinfo/master/install.sh | sudo sh -",
+        "echo 'source /etc/network/interfaces.d/*' | sudo tee /etc/network/interfaces",
+        "rm -rf /etc/network/interfaces.d/*"
+      ]
+    }
+  ]
+}
+```
 
 
 This script leads to the Debian VM trying to load a ```preseed.cfg``` file. Here is a fairly simple example, the important bit is, that it installs cloud-init:
 
-{{< gist merlinscholz e300a7607621bb5391a566a449e38066>}}
+```go-text-template {linenos=table}
+d-i passwd/user-fullname string ci
+d-i passwd/username string ci
+d-i passwd/user-password password Hashi123!
+d-i passwd/user-password-again password Hashi123!
+d-i user-setup/allow-password-weak boolean true
+
+choose-mirror-bin mirror/http/proxy string
+d-i base-installer/kernel/override-image string linux-server
+d-i clock-setup/utc boolean true
+d-i clock-setup/utc-auto boolean true
+d-i finish-install/reboot_in_progress note
+d-i grub-installer/only_debian boolean true
+d-i grub-installer/with_other_os boolean true
+d-i mirror/country string manual
+d-i mirror/http/directory string /debian
+d-i mirror/http/hostname string httpredir.debian.org
+d-i mirror/http/proxy string
+d-i apt-setup/cdrom/set-first boolean false
+d-i apt-setup/cdrom/set-next boolean false   
+d-i apt-setup/cdrom/set-failed boolean false
+
+d-i partman-auto/init_automatically_partition select biggest_free
+d-i partman-auto/method string regular
+d-i partman-auto/choose_recipe select atomic
+d-i partman-partitioning/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman/confirm_nooverwrite boolean true
+
+d-i passwd/root-login boolean false
+d-i passwd/user-fullname string ci
+d-i passwd/username string ci
+d-i passwd/user-password password Hashi123!
+d-i passwd/user-password-again password Hashi123!
+d-i user-setup/allow-password-weak boolean true
+d-i pkgsel/include string open-vm-tools openssh-server curl python3-pip cloud-init netplan.io
+d-i pkgsel/install-language-support boolean false
+d-i pkgsel/update-policy select none
+d-i pkgsel/upgrade select full-upgrade
+d-i time/zone string UTC
+d-i user-setup/allow-password-weak boolean true
+d-i user-setup/encrypt-home boolean false
+tasksel tasksel/first multiselect standard, ssh-server
+popularity-contest popularity-contest/participate boolean true
+d-i preseed/late_command string \
+    echo 'ci ALL=(ALL) NOPASSWD: ALL' > /target/etc/sudoers.d/ci ; \
+    in-target chmod 440 /etc/sudoers.d/ci ;
+```
 
 For this to work, you will have to set your environment variables, and have ```debian-10.3.0-amd64-netinst.iso``` on your vCenter server:
 
-{{< gist merlinscholz 47b6521d86cba85af221a2e639871515 >}}
+```sh {linenos=table}
+export vcenter_server=""
+export vcenter_username=""
+export vcenter_password=""
+export vcenter_cluster=""
+export vcenter_host=""
+export vcenter_datastore=""
+export vcenter_network=""
+export vcenter_isopath=""
+export vcenter_datacenter=""
+
+
+export TF_VAR_vcenter_server=$vcenter_server
+export TF_VAR_vcenter_username=$vcenter_username
+export TF_VAR_vcenter_password=$vcenter_password
+export TF_VAR_vcenter_cluster=$vcenter_cluster
+export TF_VAR_vcenter_host=$vcenter_host
+export TF_VAR_vcenter_datastore=$vvcenter_datastore
+export TF_VAR_vcenter_network=$vcenter_network
+export TF_VAR_vcenter_isopath=$vcenter_isopath
+export TF_VAR_vcenter_datacenter=$vcenter_datacenter
+```
 
 At the end of the installation, Packer will download and run the script from the [vmware/cloud-init-vmware-guestinfo](https://github.com/vmware/cloud-init-vmware-guestinfo) repo. This is necessary to get the cloud-init files into our VM in the next step.
 
@@ -67,8 +207,79 @@ You can now build the template using ```packer build debian-10.json``` and get a
 For this example, we are going to install a name server using PowerDNS and PowerDNS Recusor.
 
 A simple Terraform definition file to achieve this looks like this:
+```tf {linenos=table}
+variable "vcenter_username" {}
+variable "vcenter_password" {}
+variable "vcenter_server" {}
+variable "vcenter_cluster" {}
+variable "vcenter_datastore" {}
+variable "vcenter_network" {}
+variable "vcenter_datacenter" {}
 
-{{< gist merlinscholz 69de29b29a6e0ee4d389b97d30c47920>}}
+provider "vsphere" {
+  user           = var.vcenter_username
+  password       = var.vcenter_password
+  vsphere_server = var.vcenter_server
+
+  # If you have a self-signed cert
+  allow_unverified_ssl = true
+}
+
+data "vsphere_datacenter" "dc" {
+  name = var.vcenter_datacenter
+}
+
+data "vsphere_datastore" "datastore" {
+  name          = var.vcenter_datastore
+  datacenter_id = data.vsphere_datacenter.dc.id
+}
+
+data "vsphere_resource_pool" "pool" {
+  name          = "${var.vcenter_cluster}/Resources"
+  datacenter_id = data.vsphere_datacenter.dc.id
+}
+
+data "vsphere_network" "network" {
+  name          = var.vcenter_network
+  datacenter_id = data.vsphere_datacenter.dc.id
+}
+
+data "vsphere_virtual_machine" "template" {
+  name          = "ci_debian-10"
+  datacenter_id = data.vsphere_datacenter.dc.id
+}
+resource "vsphere_virtual_machine" "ns1" {
+  name             = "ns1"
+  resource_pool_id = data.vsphere_resource_pool.pool.id
+  datastore_id     = data.vsphere_datastore.datastore.id
+
+  num_cpus = 1
+  memory   = 512
+  guest_id = "debian10_64Guest"
+
+  network_interface {
+    network_id = data.vsphere_network.network.id
+  }
+
+  disk {
+    label            = "disk0"
+    size             = data.vsphere_virtual_machine.template.disks.0.size
+    eagerly_scrub    = data.vsphere_virtual_machine.template.disks.0.eagerly_scrub
+    thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
+  }
+
+  clone {
+    template_uuid = data.vsphere_virtual_machine.template.id
+  }
+
+  extra_config = {
+    "guestinfo.metadata"          = base64encode(file("${path.module}/metadata.yaml"))
+    "guestinfo.metadata.encoding" = "base64"
+    "guestinfo.userdata"          = base64encode(file("${path.module}/userdata.yaml"))
+    "guestinfo.userdata.encoding" = "base64"
+  }
+}
+```
 
 There is not much to say about this file, the provider variables are set through the environment variables, there is a file called ```env.sh.sample``` in the repo, to facilitate that process.
 Except for that, it just copies the template we created beforehand. Also, one could separate the provider initialization into a different file, if creating multiple machines at the same time.
@@ -79,11 +290,76 @@ In the ```extra-config``` section, we are encoding the cloud-init files into bas
 
 Let's take a look at ```metadata.yaml```:
 
-{{< gist merlinscholz 131a010ef66ef5960bf344a218dc2830>}}
+```yaml {linenos=table}
+network:
+  version: 2
+  ethernets:
+    ens192:
+      dhcp4: false
+      addresses:
+        - 192.168.1.254/24
+      gateway4: 192.168.1.1
+      nameservers:
+        search: [corp.example.com]
+        addresses: [208.67.222.222, 208.67.222.220]
+
+
+local-hostname: ns1.corp.example.com
+instance-id: ns1
+```
 
 Yes, nothing special, just defining networking and hostname. What about ```userdata.yaml```?
 
-{{< gist merlinscholz 2f447086689fc1f666345eef02dbda91 >}}
+
+```yaml {linenos=table}
+#cloud-config
+users:
+  - name: merlin
+    ssh-authorized-keys:
+     - ssh-rsa AAAAB3NzaC1y...
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    groups: sudo
+    shell: /bin/bash
+  - name: ci
+    lock_passwd: true    
+
+packages:
+  - pdns-server
+  - pdns-recursor
+
+write_files:
+-   content: |
+        launch=bind
+        local-port=5300
+        local-address=127.0.0.1
+        bind-config=/etc/powerdns/bind/named.conf
+    path: /etc/powerdns/pdns.conf
+-   content: |
+        forward-zones=corp.example.com=127.0.0.1:5300
+        local-address=0.0.0.0
+        local-port=53
+    path: /etc/powerdns/recursor.conf
+-   content: |
+        options {
+            directory "/etc/powerdns/bind";
+        };
+
+        zone "corp.example.com" IN {
+            type master;
+            file "corp.example.com";
+        };
+    path: /etc/powerdns/bind/named.conf
+-   content: |
+      ; corp.example.com
+      $ORIGIN corp.example.com.
+      $TTL 300
+      @               300     IN      SOA     ns1.corp.example.com. root.corp.example.com. 2020041610 3H 1H 1W 1D
+      @               300     IN      NS      ns1.corp.example.com.
+      @               300     IN      NS      ns2.corp.example.com.
+      vcenter         300     IN      A       192.168.1.10
+      ; EOF
+    path: /etc/powerdns/bind/corp.example.com
+```
 
 So, this is where the interesing stuff happens: Installing packages, setting up users, configuring our services, all in one file. Isn't it great? We do not even have to invoke this manually, it all happens through the magic of cloud-init!
 

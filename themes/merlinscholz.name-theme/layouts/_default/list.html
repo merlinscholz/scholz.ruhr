@@ -1,7 +1,6 @@
 {{ define "main" }}
-    <p>{{ .Content }}</p>
-    <h1>Posts Archive</h1>
-        {{ range (where .Site.RegularPages "Type" "in" "post").GroupByDate "2006" }}
+    <h1>{{ .Title }} Archive</h1>
+        {{ range .Pages.GroupByDate "2006" }}
         <h2 class="yearnum">{{ .Key }}</h2>
         <ul class="newestPosts">
             {{ range .Pages }}

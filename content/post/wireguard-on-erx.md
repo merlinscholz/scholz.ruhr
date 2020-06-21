@@ -79,7 +79,27 @@ After that you may want to configure routing so that connections coming from the
 
 On your host, create a config file for each client:
 
-{{<gist merlinscholz 425bb69fc8cee7ac1856d09452dd6d61>}}
+```ini {linenos=table,linenostart=0}
+# cat phone.conf
+[Interface]
+PrivateKey = CLIENT1PRIVATEKEY
+Address = 192.168.21.2/24
+
+# Optional:
+DNS = 192.168.21.1
+# If you are using an internal DNS server, remember to allow it from the new interface
+
+[Peer]
+PublicKey = SERVERPUBLICKEY
+
+# Remember to change the port if using a custom one
+Endpoint = your.domain.tld:51820
+
+# If you want to route all traffic through the VPN, use this:
+AllowedIPs = 0.0.0.0/0, ::/0
+# Otherwise, enter only the IP ranges inside your target network:
+# AllowedIPs = 192.168.20.0/24
+```
 
 If you quickly and securely want to move the config to your Android/iOS device you can run ```qrencode -t ansiutf8 < phone.conf``` and scan the code with the wireguard app on your phone.
 

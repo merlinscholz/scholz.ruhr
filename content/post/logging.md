@@ -2,7 +2,6 @@
 title: "How I do logging"
 date: 2020-04-07T20:05:54+01:00
 draft: false
-tags: ["privacy", "webdev"]
 summary: "Switching away from Google Analytics and keeping the user's privacy alive."
 asciinema: true
 ---
@@ -22,7 +21,7 @@ I don't either, this blog is currently being build and served through [Netlify](
 
 This blog runs on Hugo. I adapted the theme to be able to include custom logging code:
 
-```go-html-template
+```go-html-template {linenos=table,linenostart=0}
 <!-- ./themes/mscholz.dev-theme/layouts/_default/baseof.html -->
 	{{ if templates.Exists "partials/customAnalytics.html" }}
 		{{ partial "customAnalytics" }}
@@ -35,7 +34,7 @@ Through the ```if templates.Exists```, whoever uses the theme can decide for him
 
 The analytics itself consists of just a single tracking pixel, and will only be enabled if the Do-Not-Track flag isn't set:
 
-```go-html-template
+```go-html-template {linenos=table,linenostart=0}
 <!-- ./layouts/partials/customAnalytics.html -->
 <script>
     if(navigator.doNotTrack != 1) {
@@ -59,9 +58,8 @@ That's right, but we won't be using Cloudfont. We will use our trusty Homelab (a
 
 I set up a CNAME record on pxl.mscholz.dev, which does not, like mscholz.dev, point to Netlify, but to the IP address of a webserver I have control over. In this case, I am running Nginx:
 
-```nginx
+```nginx {linenos=table,linenostart=0}
 # /etc/nginx/sites-enabled/pxl.mscholz.dev.conf
-
 server {
         listen 443 ssl http2;
         listen [::]:443 ssl http2;
@@ -102,7 +100,7 @@ server {
 }
 ```
 
-Appearantly, nginx even contains [a directive to serve an empty 1x1px GIF](https://nginx.org/en/docs/http/ngx_http_empty_gif_module.html).
+Apparently, nginx even contains [a directive to serve an empty 1x1px GIF](https://nginx.org/en/docs/http/ngx_http_empty_gif_module.html).
 
 The above code assumes a custom Nginx [log format called "pixel"](https://timnash.co.uk/pixel-tracking-with-nginx-a-tiny-bit-of-javascript/) has been loaded:
 
