@@ -42,6 +42,12 @@ But isn't WordPress just for blog posts you may think? No. You can rename "posts
 ### Great documentation
 If I ever had to check how something should be done (be it for example user registration), a quick search with my favorite search engine always led to [developer.wordpress.org](https://developer.wordpress.org/), where all functions I needed were described good enough for me to understand what they do and how to call them properly. Even if that didn't help, there is a [WordPress StackExchange](https://wordpress.stackexchange.com/) where all of the problems I could think of in the course of developing this project, have been asked and answered by other community members. Combine that with the "normal" StackOverflow for your normal PHP-related questions, and there is no question left unanswered.
 
+## Other use cases
+
+My current project is just one of many possible use cases. One could, for example, make a Twitter clone, Instagram clone, Hacker News or basically anything that relies on user-submitted content.
+
+Is this actually a good idea for use in production? I'll have to admit, I don't know. It's working great for my use cases so far, and should scale well enough. But especially for simple or more sophisticated project, a custom backend will have advantages, given that you have enough time and resources to maintain it.
+
 ## Summary
 
 The project is now almost finished, and I am more than happy with my choice of using WordPress. Given the strict time frame, and... Interesting choice of technology to be used, I did not expect this project to go as far as it did. I will probably publish it soon on my GitHub. Until then, I'd like to hear about your opinion on this approach! Write me on Twitter, HN, or anywhere else!
