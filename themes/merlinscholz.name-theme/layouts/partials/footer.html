@@ -1,10 +1,5 @@
 <footer>
-    <div>{{ .Site.Params.Author }}</div>
-    <div>Contact me:</div>
-    <div class="break"></div>
-    <div>
-        <a href="/index.xml">RSS</a>
-        <a href="/sitemap.xml">Sitemap</a>
-    </div>
-    <div>INSERT EMAIL HERE <!-- TODO --></div>
+    {{ range site.Menus.article }}
+        <a href="{{ .URL }}">{{ .Name }}</a>
+    {{ end }}
 </footer>

@@ -1,51 +1,30 @@
 {{ define "main" }}
-    <p>{{ .Content }}</p>
-    <h1>Newest Posts</h1>
-    <ul class="newestPosts">
+<main class="home">
+    {{ partial "logo" }}
+    <div class="social">
+        {{ range .Site.Menus.main }}
+            <a href="{{ .URL }}">{{ .Name }}</a>
+        {{ end }}
+    </div>
+    <hr>
+    <div class="articles">
+        <h2>Blog</h2>
         {{ range (where .Site.RegularPages "Type" "in" "post") }}
-            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            <a href="{{ .Permalink }}">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time>
+                <span class="title">{{ .Title }}</span>
+            </a>
         {{ end }}
-    </ul>
-    <p>You can view all of my posts <a href="/post">here</a>.</p>
+        <a href="/post">
+            <span class="timeplaceholder"></span>
+            <span class="title">Archiv</span>
+        </a>
+    </div>
 
-    {{ $projects := .Site.GetPage "projects" }}    
-    {{ $projects := $projects.Resources.ByType "page" }}
-    <h1>Projects</h1>
-    <ul class="projects">
-        {{ range $projects }}
-            <li>
-                <a href="{{ .Param "link" }}">{{ .Title }}</a>
-                <span>– {{ .Summary }}
-                    {{ if (.Param "wip" )}}
-                        *
-                    {{ end }}
-                </span>
-            </li>
-        {{ end }}
-    </ul>
-    <p>Follow me on <a href="https://github.com/merlinscholz">GitHub</a> to stay up to date.</p>
-    <p>* Work in Progress</p>
-
-    {{ $scratchpad := .Site.GetPage "scratchpad" }}    
-    {{ $scratchpad := $scratchpad.Resources.ByType "page" }}
-    <h1>Project scratchpad</h1>
-    <p>This is place for me to write down ideas for future articles. Do not take them too seriously.</p>
-    <ul class="projects">
-        {{range $scratchpad}}
-            <li>
-               <span>{{ .Summary }}</span>
-            </li>
-        {{ end }}
-    </ul>
-
-    {{ $profiles := .Site.GetPage "profiles" }}    
-    {{ $profiles := $profiles.Resources.ByType "page" }}
-    <h1>Profiles</h1>
-    <ul>
-        {{range $profiles}}
-            <li>
-                <a href="{{ .Param "link" }}">{{ .Title }}: {{ .Summary }}</a>
-            </li>
-        {{ end }}
-    </ul>
+    <hr>
+    <div class="about">
+        <h2>About me</h2>
+        {{ .Content }}
+    </div>
+</main>
 {{ end }}

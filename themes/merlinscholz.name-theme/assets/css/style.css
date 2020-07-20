@@ -1,32 +1,12 @@
 html, body{
-    color:#1b1c25;
+    color:#000;
     font-family: 'Noto Sans', sans-serif;
     font-weight: 400;
     margin:0;
     padding: 0;
 }
 body{
-    line-height: 1.7;
-}
-.wrapper{
-    width:90%;
-    max-width: 960px;
-    margin:0 auto;
-}
-header{
-    margin:64px 0;
-}
-.homeBtn{
-    font-family: 'Montserrat', sans-serif;
-    display: inline-block;
-    text-decoration: none;
-    background:#00894e;
-    color:#fff;
-    font-weight: 600;
-    padding:8px 20px;
-    border-radius: 4px;
-    font-size:1.1rem;
-    letter-spacing: -0.05em;
+    line-height: 2;
 }
 h1{
     font-family: 'Noto Sans', sans-serif;
@@ -36,14 +16,23 @@ h1{
 h2{
     font-size: 1.25rem;
 }
-a{
-    color:#00894e;
-    text-decoration: none;
-    transition: all 100ms ease-in-out;
+hr{
+    border:none;
+    border-top:dashed 1px #bbb;
+    margin-top:30px;
 }
-a:not(.homeBtn):hover{
-    background-color: #00894e;
-    color:#fff;
+a{
+    color:#000;
+    text-decoration: underline;
+    transition: all 100ms ease-in-out;
+    padding:8px;
+    margin:-8px;
+    border-radius: 3px;
+    font-weight: 800;
+}
+a:not(.logo):hover{
+    color:rgb(0, 183, 255);
+    border-bottom-color: rgb(0, 183, 255);
 }
 blockquote{
     border-left:solid 3px #bbb;
@@ -59,52 +48,8 @@ table td:not(.js-line-number), *:not(.gist) table th{
     border:solid 1px #aaa;
     padding:16px;
 }
-.postTime{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color:#777;
-    display:inline-block;
-    margin-left:30px;
-}
-.singleFooter{
-    margin:60px 0 30px;
-}
-.singleFooter a{
-    display:inline-block;
-    margin-right:24px;
-}
 img{
     width:100%;
-}
-footer{
-    display: flex;
-    flex-wrap: wrap;
-    font-size:0.8rem;
-    color:#666;
-    border-top: solid 1px #ddd;
-    margin:30px 0;
-    padding:10px 0;
-}
-footer div{
-    flex:1
-}
-footer .break{
-    flex-basis: 100%;
-}
-footer div:nth-child(3n+2){
-    text-align: right;
-}
-footer div:nth-child(3n+1) a{
-    margin-right:12px;
-}
-.e404 blockquote{
-    font-size:0.8rem;
-    color:#666;
-    border-left-color: #ddd;
-}
-.footnotes hr{
-    border:none;
-    border-bottom:solid 1px #ddd
 }
 .highlight{
     border:solid 1px;
@@ -119,4 +64,102 @@ footer div:nth-child(3n+1) a{
 }
 .highlight pre .lnt{
     color:rgba(27,31,35,.3)
+}
+.wrapper{
+    width:90%;
+    max-width: 600px;
+    margin:0 auto;
+    padding: 6.5rem 1rem 1rem;
+    position: relative;
+}
+@media all and (min-width:960px){
+    .logo{
+        position: absolute;
+        right:100%;
+        text-align: right;
+        white-space: nowrap;
+    }
+}
+header{
+    padding-left:30px;
+    width:auto;
+    padding:0;
+}
+.logo{
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    background:#000;
+    color:#fff;
+    font-weight: 600;
+    padding:0px 10px;
+    border-radius: 4px;
+    font-size:1.1rem;
+    letter-spacing: -0.05em;
+    margin: 0  20px 30px 0;
+}
+.home .social a{
+    display:inline-block;
+    padding:0;
+    margin: 8px 20px 8px 0;
+    text-decoration: none;
+    border-bottom: solid 1px #888;
+    border-radius: 0;
+    line-height: 1.5rem;
+    font-weight: inherit;
+}
+.home .articles, .list{
+    font-weight: 600;
+}
+.home .articles a, .list .articles a{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    border-radius: 3px;
+}
+.home .articles time, .home .articles .timeplaceholder, .list .articles time{
+    color:#aaa;
+    font-style: italic;
+    display:inline-block;
+    width:60px;
+    text-align: right;
+    margin-right:12px;
+}
+.home .articles .title, .list .articles .title{
+    flex: 1;
+}
+.single .logo{
+    margin-top:40px;
+}
+.single time{
+    font-weight: 600;
+    color:#aaa;
+    font-style: italic;
+    display:block;
+}
+.single .title{
+    margin-top:0;
+}
+footer{
+    border-top:dashed 1px #bbb;
+    margin:30px 0;
+    padding:30px 0;
+}
+footer a{
+    display:inline-block;
+    margin-right: 20px;
+    font-weight: 600;
+    color:#aaa;
+    text-decoration: none;
+    font-style: italic;
+}
+.error blockquote{
+    font-size:0.8rem;
+    color:#666;
+    border-left-color: #ddd;
+    margin:0 0 30px;
+}
+.error blockquote a{
+    color: inherit;
+    font-weight: inherit;
 }

@@ -1,11 +1,17 @@
 {{ define "main" }}
+<main class="list">
+    {{ partial "logo" }}
     <h1>{{ .Title }} Archive</h1>
-        {{ range .Pages.GroupByDate "2006" }}
-        <h2 class="yearnum">{{ .Key }}</h2>
-        <ul class="newestPosts">
-            {{ range .Pages }}
-                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-            {{ end }}
-        </ul>
-		{{ end }}
+    {{ range .Pages.GroupByDate "2006" }}
+    <h2 class="yearnum">{{ .Key }}</h2>
+    <div class="articles">
+        {{ range .Pages }}
+        <a href="{{ .Permalink }}">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time>
+                <span class="title">{{ .Title }}</span>
+            </a>
+        {{ end }}
+    </div>
+    {{ end }}
+</main>
 {{ end }}

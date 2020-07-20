@@ -1,10 +1,9 @@
 {{ define "main" }}
-	<main class="e404">
-        <img src="{{ .Site.BaseURL }}/404.jpg" alt="">
+<main class="error e404">
+        <img src="{{ .Site.BaseURL }}/404.jpg" alt="Confused kitty">
         <blockquote>Image by <a href="https://unsplash.com/@kimtheris">@kimtheris</a> on Unsplash.</blockquote>
         <h1>The cat could not find this page either</h1>
-        <p>This page could not be found. If you think this is an error on my part, please contact me using the e-mail address in the footer.</p>
-        <a href="{{ .Site.BaseURL }}">Go back to the homepage</a>
-	</main>
+        {{ partial "footer" }}
+</main>
 
 {{ end }}

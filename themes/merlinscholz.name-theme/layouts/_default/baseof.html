@@ -34,16 +34,8 @@
 	{{- end }}
 </head>
 <body>
-
-
-	<div class="wrapper">
-		{{ partial "header" . }}
-	</div>
 	<div class="wrapper">
 		{{ block "main" . }}{{ end }}
-	</div>
-	<div class="wrapper">
-		{{ partial "footer" . }}
 	</div>
 	{{ if .Params.asciinema }}
 		{{ with resources.Get "js/asciinema-player.js" | minify }}

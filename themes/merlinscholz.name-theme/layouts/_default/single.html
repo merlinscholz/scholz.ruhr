@@ -1,12 +1,12 @@
 {{ define "main" }}
-	<main>
-		<article>
-			<h1>{{ .Title }}</h1>
-			{{ .Content }}
-		</article>
-	</main>
-	<div class="singleFooter">
-		<a href="#">Go Up</a>
-		<a href="">Homepage</a>
-	</div>
+<main class="single">
+	{{ partial "logo" }}
+	<a class="logo" href="{{.Site.BaseURL}}">{{.Site.Title}}</a>
+	<article>
+		<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+		<h1 class="title">{{ .Title }}</h1>
+		{{ .Content }}
+	</article>
+	{{ partial "footer" }}
+</main>
 {{ end }}
