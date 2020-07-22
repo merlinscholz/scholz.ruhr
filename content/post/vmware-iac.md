@@ -198,7 +198,7 @@ export TF_VAR_vcenter_datacenter=$vcenter_datacenter
 
 At the end of the installation, Packer will download and run the script from the [vmware/cloud-init-vmware-guestinfo](https://github.com/vmware/cloud-init-vmware-guestinfo) repo. This is necessary to get the cloud-init files into our VM in the next step.
 
-Also when using Debian, we have to install [nextplan.io](https://nextplan.io), because the default Debian networking configuration (```/etc/networking/interfaces```, ENI) is [not properly supported by cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/network-config-format-eni.html). We have to delete the ENI because otherwise we end up with a DHCP address in addition to the static address we want.
+Also when using Debian, we have to install [netplan.io](https://netplan.io), because the default Debian networking configuration (```/etc/networking/interfaces```, ENI) is [not properly supported by cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/network-config-format-eni.html). We have to delete the ENI because otherwise we end up with a DHCP address in addition to the static address we want.
 
 You can now build the template using ```packer build debian-10.json``` and get a coffee. This will take a few minutes.
 
