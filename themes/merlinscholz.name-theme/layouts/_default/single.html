@@ -1,7 +1,6 @@
 {{ define "main" }}
 <main class="single">
 	{{ partial "logo" }}
-	<a class="logo" href="{{.Site.BaseURL}}">{{.Site.Title}}</a>
 	<article>
 		<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
 		<h1 class="title">{{ .Title }}</h1>
