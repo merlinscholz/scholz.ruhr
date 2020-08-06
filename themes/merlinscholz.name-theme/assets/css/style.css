@@ -128,9 +128,6 @@ header{
 .home .articles .title, .list .articles .title{
     flex: 1;
 }
-.single .logo{
-    margin-top:40px;
-}
 .single time{
     font-weight: 600;
     color:#aaa;
