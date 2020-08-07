@@ -14,6 +14,7 @@ h1{
     font-size: 1.5rem;
 }
 h2{
+    margin:32px 0 24px;
     font-size: 1.25rem;
 }
 hr{
@@ -159,4 +160,16 @@ footer a{
 .error blockquote a{
     color: inherit;
     font-weight: inherit;
+}
+.twitter-tweet{
+    padding: 20px;
+    border:solid 1px #1da1f2;
+    border-radius: 10px;
+    margin:40px 0;
+}
+.twitter-tweet::before{
+    content: "Twitter";
+    color: #1da1f2;
+    font-weight: 600;
+    font-size: 1.2rem;
 }

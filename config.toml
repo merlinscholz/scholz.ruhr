@@ -62,3 +62,11 @@ pygmentsUseClasses=true
     name = "Go Up"
     url = "#"
     weight = 2
+
+[privacy]
+  [privacy.twitter]
+    simple = true
+
+[services]
+  [services.twitter]
+    disableInlineCSS = true
