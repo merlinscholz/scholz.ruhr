@@ -123,7 +123,7 @@ Or generate an HTML report:
 goaccess access.log -o report.html --log-format=COMBINED
 ```
 
-![GoAcces HTML Report](/goaccess.png)
+![GoAcces HTML Report](/images/goaccess.png)
 
 It still looks pretty empty, but the new analytics goes live as soon as this post you're currently reading gets posted.
 

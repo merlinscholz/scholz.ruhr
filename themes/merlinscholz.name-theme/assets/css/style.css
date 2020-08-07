@@ -49,8 +49,11 @@ table td:not(.js-line-number), *:not(.gist) table th{
     border:solid 1px #aaa;
     padding:16px;
 }
-img{
+article img{
     width:100%;
+    box-shadow: 0 0 15px 0 rgba(50,50,50,.5);
+    margin:32px 0 24px;
+    border-radius: 6px;;
 }
 .highlight{
     border:solid 1px;
@@ -164,8 +167,10 @@ footer a{
 .twitter-tweet{
     padding: 20px;
     border:solid 1px #1da1f2;
-    border-radius: 10px;
+    border-radius: 6px;
     margin:40px 0;
+    box-shadow: 0 0 15px 0 rgba(29,161,242,.1);
+
 }
 .twitter-tweet::before{
     content: "Twitter";

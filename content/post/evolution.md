@@ -65,6 +65,6 @@ Recently, my Plex server had to be shut down due to lack of demand... Strange, I
 
 ### Homelab v3
 
-Homelab v3 consists of my finally buying some proper network gear (Ubiquiti Dream Machine Pro) and a few domains. This package has not arrived yet, but I'll try to keep this page updated as soon as I redo the networking in here.
+Homelab v3 consists of my finally buying some proper network gear (Ubiquiti Dream Machine Pro), storage gear (Synology DSM218+) and a few domains.
 
-Currently, my old blog domain mscholz.dev is being used for testing purposes, while the main blog and other public projects are being hosted on merlinscholz.name
+Currently, my old blog domain mscholz.dev is being used for testing purposes, while the main blog and other public projects are being hosted on merlinscholz.name.
