@@ -12,13 +12,15 @@ In the beginning, there was... well, nothing. After playing around with desktop 
 
 ## Homelab v0
 
-This all started to change back in 2015 when I heard of a wonderful software called Plex, and decided that I want to host it for me and close friends. At that point I had multiple servers laying around, and while they were some of the more quiet ones (Fujitsu RX100/RX200/RX300), they were still too loud to leave them running a few meters next to my bed. So, what was the most quiet computer I owned at that time? A Raspberry PI 2b with some ARM Plex distriution that's normally intended to be integrated into NAS systems. Running Plex on a RPI2B may sound like a terrible idea, but it worked... somehow. I only had to remember to convert all video files to h264 before I put them onto the 1tb external hard drive connected to it. It was not great... but it was my Homelab v0. The starting point of many future expenses.
+This all started to change back in 2015 when I heard of a wonderful software called Plex, and decided that I want to host it for me and close friends. At that point I had multiple servers laying around, and while they were some of the more quiet ones (Fujitsu RX100/RX200/RX300), they were still too loud to leave them running a few meters next to my bed. So, what was the most quiet computer I owned at that time? A Raspberry PI 2b with some ARM Plex distriution that's normally intended to be integrated into NAS systems. Running Plex on a RPI2B may sound like a terrible idea, but it worked... somehow. I only had to remember to convert all video files to h264 before I put them onto the 1Tb external hard drive connected to it. It was not great... but it was my Homelab v0. The starting point of many future expenses.
 
 ## Homelab v1
 
 At one point, I came to the conclusion, that a single RPI wouldn't cut it, although its form factor wasn't that bad. So after searching for more-powerful, x86-based SBCs online, I decided to go with the [Lattepanda Alpha 864](https://www.lattepanda.com/products/lattepanda-alpha-864s.html). (The product in this link is the updated version 864s with a different CPU, mine has the Intel M3-7y30 as used in some MacBook models.) It features a good-enough Intel Dual-Core/Quad-Thread CPU with virtualization capabilities, 8Gb of RAM, and 64GB eMMC storage. One quick Plex migration later and I had a working, powerful media server.
 
 I also used it for VPN access to my home network (although there weren't many devices on it back then). Since I am on a residential network with a DHCP-assigned WAN IP address, I had to get a domain name. As a poor student I couldn't/didn't want to afford a proper domain name, so a DDNS-service had to do. After years of trying out different providers I came to the conclusion that [Dynu](https://www.dynu.com/) has by far the best free tier and supports all standard IP-update protocols without having to run some extra VM.
+
+![Homelab v1](/images/homelabv1.jpg)
 
 ## Homelab v2
 
@@ -51,20 +53,22 @@ The Dell PERC H310 has been flashed to IT mode. I would like to post a more deta
 
 The whitebox also replaced my router through an OPNsense VM.
 
-### Homelab v2.1
+### Homelab v2
 
 This setup ran perfectly for over a year, but it did not offer very much flexibility: The 2+2 disks were assigned to FreeNAS only, and ZFS really was not that necessary since I could not use deduplication.
 
-So a few months ago I scrapped everything, flashed the RAID controller back to its original firmware, reinstalled ESXi (this time with vCenter) and installed Plex to a CentOS VM, directly connected to a 2.5TB VMDK file on the RAID-1 backed VMFS datastore.
+So a at that time I scrapped everything, flashed the RAID controller back to its original firmware, reinstalled ESXi (this time with vCenter) and installed Plex to a CentOS VM, directly connected to a 2.5TB VMDK file on the RAID-1 backed VMFS datastore.
 
 Around that time I also segmentated my networks more, having seperate VLANs for WAN, internal, DMZ, VPN, and a few "test"-networks. This gives me enough flexibility to try out new technologies, learn for certifications, and hopefully write about them in this blog.
 
-### Homelab v2.2
+This was the time that I really started to invest money into my homelab. I got myself a [12u open frame rack](https://www.startech.com/de/en/Server-Management/Racks/12u-4-post-server-rack~4POSTRACK12U) from StarTech (which offers amazing build quality) and got to work mounting everything:
 
-Recently, my Plex server had to be shut down due to lack of demand... Strange, I know. So what to do with 4tb of now-free disk space? Exactly, install Nextcloud, to replace Onedrive and Google Photos.
+![Homelab v2](/images/homelabv2.jpg)
 
 ### Homelab v3
 
-Homelab v3 consists of my finally buying some proper network gear (Ubiquiti Dream Machine Pro), storage gear (Synology DSM218+) and a few domains.
+Homelab v3 consists of me buying way too much extra stuff, including some proper network gear (Ubiquiti Dream Machine Pro)[^3], storage gear (Synology DSM218+, in which I threw the IronWolfs) and a few domains.
 
-Currently, my old blog domain mscholz.dev is being used for testing purposes, while the main blog and other public projects are being hosted on merlinscholz.name.
+[^3]: At least I thought at the time it would be proper gear. In hindsight I should have picked a different firewall/router/switch.
+
+Currently, my old blog domain mscholz.dev is being used for testing purposes and internal domains, while the main blog and other public projects are being hosted on merlinscholz.name.
