@@ -138,7 +138,7 @@ header{
     font-style: italic;
     display:block;
 }
-.single .title{
+.single .title, .list h1{
     margin-top:0;
 }
 footer{
