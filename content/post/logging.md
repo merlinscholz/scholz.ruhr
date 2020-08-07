@@ -133,7 +133,7 @@ Yes, it is possible to replace Google Analytics through open-source, privacy foc
 
 The only thing that doesn't work perfectly (yet) are the referrers: While Nginx stores them in the same format as the request URI, GoAccess doesn't decode them properly. Instead of displaying ```https://www.google.com/```, I'm seeing ```https%3A%2F%2Fwww.google.de%2F```. This is not a huge problem though, it would just be nice-to-have, especially since the request URIs are stored in exactly the same way and are being displayed correctly. If you know how to fix this, let me know!
 
-________
+___
 
 Incidentally, as I was just about to publish this article, I noticed that [Why you should stop using Google Analytics on your website
 ](https://plausible.io/blog/remove-google-analytics) is the current top post on [lobste.rs](https://lobste.rs).
