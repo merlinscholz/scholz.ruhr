@@ -51,14 +51,17 @@ table td:not(.js-line-number), *:not(.gist) table th{
 }
 article img{
     width:100%;
-    box-shadow: 0 0 15px 0 rgba(50,50,50,.5);
+    border:solid 1px;
+    border-color:  #ddd #ddd #ccc;
     margin:32px 0 24px;
-    border-radius: 6px;;
+    border-radius: 3px;
+
 }
 .highlight{
     border:solid 1px;
     border-color:  #ddd #ddd #ccc;
     border-radius: 3px;
+    margin:32px 0 24px;
     font-size: 0.9rem;
     line-height: 1.9;
 }
@@ -166,11 +169,10 @@ footer a{
 }
 .twitter-tweet{
     padding: 20px;
-    border:solid 1px #1da1f2;
-    border-radius: 6px;
-    margin:40px 0;
-    box-shadow: 0 0 15px 0 rgba(29,161,242,.1);
-
+    border:solid 1px;
+    border-color:  #ddd #ddd #ccc;
+    margin:32px 0 24px;
+    border-radius: 3px;
 }
 .twitter-tweet::before{
     content: "Twitter";
