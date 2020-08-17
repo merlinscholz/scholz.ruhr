@@ -51,7 +51,3 @@ Is this actually a good idea for use in production? I'll have to admit, I don't 
 ## Summary
 
 The project is now almost finished, and I am more than happy with my choice of using WordPress. Given the strict time frame, and... Interesting choice of technology to be used, I did not expect this project to go as far as it did. I will probably publish it soon on my GitHub. Until then, I'd like to hear about your opinion on this approach! Write me on Twitter, HN, or anywhere else!
-
-___
-
-Any notes, additions, experiences? Leave a comment on the HN post: https://news.ycombinator.com/item?id=23595953

@@ -1,0 +1,10 @@
+<div class="webring">
+    <h1>Webring</h1>
+    <p>New articles from other blogs I follow</p>
+    <ul>
+    {{range .Articles}}
+        <li><a href="{{.Link}}" target="_blank" rel="noopener">{{.Title}}</a><a class="sourceLink" href="{{ .SourceLink }}">{{ .SourceTitle }}</a></li>
+    {{end}}
+    </ul>
+    <p class="powered">Powered by <a href="https://git.sr.ht/~sircmpwn/openring/">openring</a></p>
+</div>

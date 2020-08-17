@@ -62,7 +62,3 @@ Not everything works perfectly. I've encountered two things, that are not really
 Firstly, this setup does not block the default Google DOH server which are set up in some Android phones. The DHCP-issued DNS resolver should, in theory, override that settings, but with Googles addiction to tracking you can never be sure.
 
 Secondly, while Adguard Home is a great project, I wish it would offer more granular DNS overrides. At this moment you can deploy ```A```, ```AAAA``` and ```CNAME```-records. This is more than enough for the average user, but I would like to have fun with ```ALIAS```, ```TXT```, ```NS``` and such things. I could add another layer of DNS server in front of this, maybe running PowerDNS, but this is a story for a different day.
-
-___
-
-Any notes, additions, experiences? Leave a comment on the HN post: https://news.ycombinator.com/item?id=24076988

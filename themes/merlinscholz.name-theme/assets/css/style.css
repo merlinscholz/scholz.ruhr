@@ -144,7 +144,7 @@ header{
 .single .title, .list h1{
     margin-top:0;
 }
-footer{
+footer, .webring{
     border-top:dashed 1px #bbb;
     margin:30px 0;
     padding:30px 0;
@@ -156,6 +156,19 @@ footer a{
     color:#aaa;
     text-decoration: none;
     font-style: italic;
+}
+.webring .sourceLink{
+    color:#888;
+    font-weight: 400;
+    text-decoration: none;
+}
+.webring .sourceLink::before{
+    content: ' - ';
+    color:#888;
+}
+.webring .powered{
+    text-align: right;
+    opacity: 0.4;
 }
 .error blockquote{
     font-size:0.8rem;
