@@ -1,6 +1,7 @@
 #! /bin/bash
 
 chmod +x ./netlify/openring
+mkdir -p layouts/partials
 
 ./netlify/openring \
     -n 5 \
@@ -21,6 +22,6 @@ chmod +x ./netlify/openring
     -s https://blog.pizzabox.computer/index.xml \
     -s https://chrisdown.name/feed.xml \
     < themes/merlinscholz.name-theme/openring.html \
-    > themes/merlinscholz.name-theme/layouts/partials/openring.html 
+    > layouts/partials/openring.html 
 
 hugo --minify
