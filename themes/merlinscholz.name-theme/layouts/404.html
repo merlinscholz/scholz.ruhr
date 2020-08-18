@@ -1,8 +1,10 @@
 {{ define "main" }}
 <main class="error e404">
-        <img src="{{ .Site.BaseURL }}/404.jpg" alt="Confused kitty">
-        <blockquote>Image by <a href="https://unsplash.com/@kimtheris">@kimtheris</a> on Unsplash.</blockquote>
-        <h1>The cat could not find this page either</h1>
+	<h1 class="title">Error 404 - Page not found</h1>
+	<div class="content">
+                        <p>The cat could not find this page either</p>
+                        <img src="{{ .Site.BaseURL }}/404.jpg" alt="Confused kitty">
+                        <p>Image by <a href="https://unsplash.com/@kimtheris">@kimtheris</a> on Unsplash.</p>
+	</div>
 </main>
-
 {{ end }}

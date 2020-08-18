@@ -117,7 +117,7 @@ table td:not(.js-line-number){
 
 
 /* Custom page elements */
-.single img{
+.content img{
     width:100%;
     margin:32px 0 24px;
     background:#f8f9fa;
