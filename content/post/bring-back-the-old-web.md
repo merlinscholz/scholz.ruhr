@@ -1,7 +1,7 @@
 ---
 title: "Bring back the old web"
 date: 2020-08-18T18:32:54+01:00
-draft: true
+draft: false
 summary: "I miss the old web. Maybe it's just nostalgia, maybe it's may anti-monopoly attitude or just my desire for privacy."
 ---
 
