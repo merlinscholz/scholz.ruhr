@@ -37,7 +37,7 @@ That's when I remembered that webrings used to exist:
 
 TL:DR; Webrings are a decentralized, highly customizable solution for providing your readers with the content you enjoy.
 
-Over the years I have accumulated a number of blogs I like. And no way to recommend them to other people enjoying the same topics as me. I could just link them on a custom page on my blog, but that would not lead to many organic page views. That's when I found out about [Drev Devault's openring](https://sr.ht/~sircmpwn/openring/).
+Over the years I have accumulated a number of blogs I like. And no way to recommend them to other people enjoying the same topics as me. I could just link them on a custom page on my blog, but that would not lead to many organic page views. That's when I found out about [Drev DeVault's openring](https://sr.ht/~sircmpwn/openring/).
 
 Openring is a great little tool that integrates perfectly into any CMS, static page generator, etc.
 
