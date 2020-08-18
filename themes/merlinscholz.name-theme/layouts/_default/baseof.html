@@ -17,9 +17,13 @@
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 	{{ template "_internal/opengraph.html" . }}
 	{{ template "_internal/twitter_cards.html" . }}
-	{{ with resources.Get "css/fonts.css" | minify }}
-		<style>{{ .Content | safeCSS }}</style>
-	{{ end }}
+	<style>
+		@import url('https://rsms.me/inter/inter.css');
+		html { font-family: 'Inter', sans-serif; }
+		@supports (font-variation-settings: normal) {
+			html { font-family: 'Inter var', sans-serif; }
+		}
+	</style>
 	{{ with resources.Get "css/style.css" | minify }}
 		<style>{{ .Content | safeCSS }}</style>
 	{{ end }}
@@ -37,9 +41,7 @@
 	{{- end }}
 </head>
 <body>
-	<div class="wrapper">
-		{{ block "main" . }}{{ end }}
-	</div>
+	{{ block "main" . }}{{ end }}
 	{{ if .Params.asciinema }}
 		{{ with resources.Get "js/asciinema-player.js" | minify }}
 			<script>{{ .Content | safeJS }}</script>

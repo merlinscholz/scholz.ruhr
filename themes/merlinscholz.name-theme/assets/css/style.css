@@ -1,69 +1,99 @@
+/* Page layout */
 html, body{
     color:#000;
-    font-family: 'Noto Sans', sans-serif;
     font-weight: 400;
     margin:0;
     padding: 0;
 }
 body{
-    line-height: 2;
+    line-height: 1.4;
 }
+main{
+    width:90%;
+    max-width: 960px;
+    margin:0 auto;
+    padding: 1rem;
+    position: relative;
+}
+.grid{
+    display: grid;
+    column-gap: 2.2rem;
+    row-gap: 2.2rem;
+    grid-template-columns: 2fr 1fr;
+}
+@media (max-width:768px){
+    .grid{
+        display: block;
+    }
+    .sidebar{
+        border-top:solid 1px #444;
+        padding-top:20px;
+    }
+}
+.content{
+    min-width:60%;
+}
+.sidebar{
+    font-size:0.9rem;
+    min-width: 240px;
+}
+.sidebar h1{
+    font-size: 1.2rem;
+}
+.sidebar a{
+    color:#777;
+}
+.sidebar .navigationLink{
+    margin-bottom:0.6rem;
+}
+.sidebar .navigationLink span{
+    display:block
+}
+.sidebar .navigationLink a{
+    display:block;
+}
+
+/* General tags and elements */
+
 h1{
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 700;
     font-size: 1.5rem;
 }
 h2{
-    margin:32px 0 24px;
     font-size: 1.25rem;
 }
-hr{
-    border:none;
-    border-top:dashed 1px #bbb;
-    margin-top:30px;
-}
 a{
-    color:#000;
-    text-decoration: underline;
-    transition: all 100ms ease-in-out;
-    padding:8px;
-    margin:-8px;
-    border-radius: 3px;
-    font-weight: 800;
-}
-a:not(.logo):hover{
-    color:rgb(0, 183, 255);
-    border-bottom-color: rgb(0, 183, 255);
+    color:#0640e0
 }
 blockquote{
-    border-left:solid 3px #bbb;
-    margin-left:10px;
-    padding-left:10px;
+    background:#f8f9fa;
+}
+blockquote{
+    padding: 20px;
+    border:none;
+    margin:32px 0 24px;
+    background:#f8f9fa;
+}
+blockquote::before{
+    content: "Quote";
+    color: inherit;
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 table:not(.js-file-line-container){
     border-collapse: collapse;
     margin:  64px auto;
 }
-table td:not(.js-line-number), *:not(.gist) table th{
+table td:not(.js-line-number){
     margin:0;
     border:solid 1px #aaa;
     padding:16px;
 }
-article img{
-    width:100%;
-    border:solid 1px;
-    border-color:  #ddd #ddd #ccc;
-    margin:32px 0 24px;
-    border-radius: 3px;
-
-}
 .highlight{
-    border:solid 1px;
-    border-color:  #ddd #ddd #ccc;
-    border-radius: 3px;
+    border:solid 1px #ddd;
     margin:32px 0 24px;
     font-size: 0.9rem;
     line-height: 1.9;
+    padding:4px;
 }
 .highlight pre{
     margin:0 .5em;
@@ -72,104 +102,83 @@ article img{
 .highlight pre .lnt{
     color:rgba(27,31,35,.3)
 }
-.wrapper{
-    width:90%;
-    max-width: 600px;
-    margin:0 auto;
-    padding: 6.5rem 1rem 1rem;
-    position: relative;
+.twitter-tweet{
+    padding: 20px;
+    border:none;
+    margin:32px 0 24px;
+    background:#f8f9fa;
 }
-@media all and (min-width:960px){
-    .logo{
-        position: absolute;
-        right:100%;
-        text-align: right;
-        white-space: nowrap;
-    }
-}
-header{
-    padding-left:30px;
-    width:auto;
-    padding:0;
-}
-.logo{
-    display: inline-block;
-    font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
-    background:#000;
-    color:#fff;
+.twitter-tweet::before{
+    content: "Twitter";
+    color: #1da1f2;
     font-weight: 600;
-    padding:0px 10px;
-    border-radius: 4px;
-    font-size:1.1rem;
-    letter-spacing: -0.05em;
-    margin: 0  20px 30px 0;
+    font-size: 1.2rem;
 }
-.home .social a{
-    display:inline-block;
-    padding:0;
-    margin: 8px 20px 8px 0;
-    text-decoration: none;
-    border-bottom: solid 1px #888;
-    border-radius: 0;
-    line-height: 1.5rem;
-    font-weight: inherit;
+
+
+/* Custom page elements */
+.single img{
+    width:100%;
+    margin:32px 0 24px;
+    background:#f8f9fa;
+    padding:4px;
+    box-sizing: border-box;
+
 }
-.home .articles, .list{
-    font-weight: 600;
+.single .title, .list .title{
+    margin: 0.8rem 0 0.2rem;
 }
-.home .articles a, .list .articles a{
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    border-radius: 3px;
-}
-.home .articles time, .home .articles .timeplaceholder, .list .articles time{
-    color:#aaa;
-    font-style: italic;
-    display:inline-block;
-    width:60px;
-    text-align: right;
-    margin-right:12px;
-}
-.home .articles .title, .list .articles .title{
-    flex: 1;
-}
-.single time{
-    font-weight: 600;
-    color:#aaa;
-    font-style: italic;
+.single .meta{ 
     display:block;
+    color:#666;
+    margin-bottom:1.2rem;
 }
-.single .title, .list h1{
-    margin-top:0;
+.single .meta a{
+    font-weight: inherit;
+    color:inherit;
+    text-decoration: underline;
 }
-footer, .webring{
-    border-top:dashed 1px #bbb;
+
+.list .articles{
+    margin-top:1.2rem;
+}
+.articleCard{
+    font-size: 0.85rem;
+    background:#f8f9fa;
+    padding:8px 12px;
+    margin:16px 0;
+}
+.articleCard .title{
+    font-size:1.0rem;
+}
+.articleCard .meta{
+    font-size:0.8rem;
+    display:block;
+    color:#666;
+    margin-bottom:1.2rem;
+}
+
+.webring{
+    border-top:solid 1px #444;
     margin:30px 0;
     padding:30px 0;
 }
-footer a{
-    display:inline-block;
-    margin-right: 20px;
-    font-weight: 600;
-    color:#aaa;
-    text-decoration: none;
-    font-style: italic;
-}
-.webring .sourceLink{
-    color:#888;
-    font-weight: 400;
-    text-decoration: none;
-}
-.webring .sourceLink::before{
-    content: ' - ';
-    color:#888;
-}
 .webring .powered{
     text-align: right;
-    opacity: 0.4;
 }
+
+.footnotes{
+    font-size:0.9rem;
+    margin:3rem 0;
+}
+.footnotes::before{
+    content:'Footnotes:';
+    font-size:0.9rem;
+}
+.footnotes > hr{
+    display:none;
+}
+
 .error blockquote{
     font-size:0.8rem;
     color:#666;
@@ -179,17 +188,4 @@ footer a{
 .error blockquote a{
     color: inherit;
     font-weight: inherit;
-}
-.twitter-tweet{
-    padding: 20px;
-    border:solid 1px;
-    border-color:  #ddd #ddd #ccc;
-    margin:32px 0 24px;
-    border-radius: 3px;
-}
-.twitter-tweet::before{
-    content: "Twitter";
-    color: #1da1f2;
-    font-weight: 600;
-    font-size: 1.2rem;
 }

@@ -1,12 +1,13 @@
 {{ define "main" }}
 <main class="single">
-	{{ partial "logo" }}
-	<article>
-		<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-		<h1 class="title">{{ .Title }}</h1>
-		{{ .Content }}
-	</article>
-	{{ partial "openring" }}
-	{{ partial "footer" }}
+	<h1 class="title">{{ .Title }}</h1>
+	<div class="grid">
+		<article class="content">
+			<span class="meta">Posted <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time> on <a href=""><a class="logo" href="{{ site.BaseURL}}">{{ site.Params.BlogTitle}}</a></a></span>
+			{{ .Content }}
+			{{ partial "openring" }}
+		</article>
+		{{ partial "sidebar" }}
+	</div>
 </main>
 {{ end }}

@@ -11,7 +11,8 @@ pygmentsUseClasses=true
 [taxonomies]
 
 [params]
-    title = "merlinscholz.name"
+    title = "Merlin Scholz"
+    blogTitle = "Merlin Scholz's Blog"
     description = "Trying to make sense of modern technology"
     author = "Merlin Scholz"
 
@@ -30,30 +31,27 @@ pygmentsUseClasses=true
     tabWidth = 4
 
 [menu]
-  [[menu.main]]
+  [[menu.social]]
     name = "Github"
     url = "https://github.com/merlinscholz/"
     weight = 1
-  [[menu.main]]
+  [[menu.social]]
     name = "Twitter"
     url = "https://twitter.com/mscholz_dev"
     weight = 2
-  [[menu.main]]
+  [[menu.social]]
     name = "Hacker News"
     url = "https://news.ycombinator.com/user?id=merlinscholz"
     weight = 3
-  [[menu.main]]
+  [[menu.social]]
     name = "Keybase"
     url = "https://keybase.io/merlinscholz"
     weight = 4
-  [[menu.main]]
+  [[menu.social]]
     name = "Ko-fi"
     url = "https://ko-fi.com/merlinscholz"
     weight = 5
-  [[menu.main]]
-    name = "RSS"
-    url = "/index.xml"
-    weight = 5
+    
   [[menu.article]]
     name = "Home"
     url = "/"

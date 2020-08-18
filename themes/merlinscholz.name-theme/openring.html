@@ -1,10 +1,12 @@
 <div class="webring">
     <h1>Webring</h1>
     <p>New articles from other blogs I follow</p>
-    <ul>
-    {{range .Articles}}
-        <li><a href="{{.Link}}" target="_blank" rel="noopener">{{.Title}}</a><a class="sourceLink" href="{{ .SourceLink }}">{{ .SourceTitle }}</a></li>
-    {{end}}
-    </ul>
+    {{ range .Articles }}
+        <div class="articleCard">
+            <a class="title" href="{{ .Link }}">{{ .Title }}</a>
+            <span class="meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time> via <a href="{{ .SourceLink }}">{{ .SourceTitle }}</a></span>
+            {{ .Summary }}
+        </div>
+    {{ end }}
     <p class="powered">Powered by <a href="https://git.sr.ht/~sircmpwn/openring/">openring</a></p>
 </div>

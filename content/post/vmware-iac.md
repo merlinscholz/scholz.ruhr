@@ -13,9 +13,9 @@ My homelab mainly consists of VMware boxes, and while they are great, there do n
 
 I will not describe the concept of immutable infrastructure on here, there are plenty of great articles on its advantages:
 
-> The benefits of an immutable infrastructure include more consistency and reliability in your infrastructure and a simpler, more predictable deployment process. It mitigates or entirely prevents issues that are common in mutable infrastructures, like configuration drift and snowflake servers. However, using it efficiently often includes comprehensive deployment automation, fast server provisioning in a cloud computing environment, and solutions for handling stateful or ephemeral data like logs.
-
-[Source](https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure)
+> The benefits of an immutable infrastructure include more consistency and reliability in your infrastructure and a simpler, more predictable deployment process. It mitigates or entirely prevents issues that are common in mutable infrastructures, like configuration drift and snowflake servers. However, using it efficiently often includes comprehensive deployment automation, fast server provisioning in a cloud computing environment, and solutions for handling stateful or ephemeral data like logs. 
+>
+> [Source](https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure)
 
 ## Infrastructure as Code
 

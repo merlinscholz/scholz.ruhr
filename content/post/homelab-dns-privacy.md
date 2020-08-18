@@ -2,7 +2,7 @@
 title: "Just block port 53 in your firewall"
 date: 2020-08-07T00:57:54+01:00
 draft: false
-summary: "I recently just blocked port 53 in my firewall to improve the privacy in my home network"
+summary: "I recently just blocked port 53 in my firewall to improve the privacy in my home network."
 asciinema: true
 ---
 
