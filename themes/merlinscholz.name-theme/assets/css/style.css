@@ -61,6 +61,12 @@ h1{
 h2{
     font-size: 1.25rem;
 }
+h3{
+    font-size: 1rem;
+}
+h4{
+    font-size: 0.8rem;
+}
 a{
     color:#0640e0
 }
