@@ -17,13 +17,6 @@
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 	{{ template "_internal/opengraph.html" . }}
 	{{ template "_internal/twitter_cards.html" . }}
-	<style>
-		@import url('https://rsms.me/inter/inter.css');
-		html { font-family: 'Inter', sans-serif; }
-		@supports (font-variation-settings: normal) {
-			html { font-family: 'Inter var', sans-serif; }
-		}
-	</style>
 	{{ with resources.Get "css/style.css" | minify }}
 		<style>{{ .Content | safeCSS }}</style>
 	{{ end }}
