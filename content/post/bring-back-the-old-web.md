@@ -67,6 +67,7 @@ mkdir -p layouts/partials
     -s https://tarynpivots.com/index.xml \
     -s https://blog.pizzabox.computer/index.xml \
     -s https://chrisdown.name/feed.xml \
+    -s https://blog.monstermuffin.org/feed/ \
     < themes/merlinscholz.name-theme/openring.html \
     > layouts/partials/openring.html 
 
