@@ -69,6 +69,8 @@ This was the time that I really started to invest money into my homelab. I got m
 
 Homelab v3 consists of me buying way too much extra stuff, including some proper network gear (Ubiquiti Dream Machine Pro)[^3], storage gear (Synology DSM218+, in which I threw the IronWolfs) and a few domains.
 
+Update: Homelab v3 also consists of me selling my Dream Machine Pro, and getting some proper network gear, namely a MikroTik RB4011 and a MikroTik CRS326. Couldn't be happier with them.
+
 [^3]: At least I thought at the time it would be proper gear. In hindsight I should have picked a different firewall/router/switch.
 
 Currently, my old blog domain mscholz.dev is being used for testing purposes and internal domains, while the main blog and other public projects are being hosted on merlinscholz.name.
