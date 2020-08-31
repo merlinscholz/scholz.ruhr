@@ -16,6 +16,9 @@ main{
     padding: 1rem;
     position: relative;
 }
+p{
+    text-align: justify;
+}
 .grid{
     display: grid;
     column-gap: 2.2rem;
