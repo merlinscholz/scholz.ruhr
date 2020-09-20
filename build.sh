@@ -22,6 +22,7 @@ mkdir -p layouts/partials
     -s https://blog.pizzabox.computer/index.xml \
     -s https://chrisdown.name/feed.xml \
     -s https://blog.monstermuffin.org/feed/ \
+    -s https://www.jessesquires.com/feed.xml \
     < themes/merlinscholz.name-theme/openring.html \
     > layouts/partials/openring.html 
 
