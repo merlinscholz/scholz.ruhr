@@ -1,6 +1,6 @@
 #! /bin/bash
 
-chmod +x ./netlify/openring
+chmod +x ./bin/openring
 mkdir -p layouts/partials
 
 ./netlify/openring \
