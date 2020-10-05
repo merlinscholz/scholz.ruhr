@@ -37,7 +37,7 @@ pygmentsUseClasses=true
     weight = 1
   [[menu.social]]
     name = "Twitter"
-    url = "https://twitter.com/mscholz_dev"
+    url = "https://twitter.com/ruhrscholz"
     weight = 2
   [[menu.social]]
     name = "Hacker News"
