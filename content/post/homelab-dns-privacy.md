@@ -1,9 +1,8 @@
 ---
-title: "Just block port 53 in your firewall"
-date: 2020-08-07T00:57:54+01:00
-draft: false
-summary: "I recently just blocked port 53 in my firewall to improve the privacy in my home network."
-asciinema: true
+date: "2020-08-07T00:57:54+01:00"
+draft: true
+summary: I recently just blocked port 53 in my firewall to improve the privacy in my home network.
+title: Just block port 53 in your firewall
 ---
 
 - After a long time postponing various projects and not doing anything proper with my homelab, I decided that most things I would want to do depend on a proper DNS setup.

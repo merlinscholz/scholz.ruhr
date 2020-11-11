@@ -1,8 +1,8 @@
 ---
-title: "Unsupervised Deep Clustering"
-date: 2020-08-18T19:18:54+01:00
+date: "2020-08-18T19:18:54+01:00"
 draft: true
-summary: "Something a little different today: Using neural networks without training data to cluster images"
+summary: 'Something a little different today: Using neural networks without training data to cluster images'
+title: Unsupervised Deep Clustering
 ---
 
 Something a little different today: Using neural networks without training data to cluster images. How I got into this? Well, it was my bachelor's thesis.

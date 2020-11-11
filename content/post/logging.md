@@ -1,9 +1,8 @@
 ---
-title: "How I do logging"
-date: 2020-04-07T20:05:54+01:00
-draft: false
-summary: "Switching away from Google Analytics and keeping the user's privacy alive."
-asciinema: true
+date: "2020-04-07T20:05:54+01:00"
+draft: true
+summary: Switching away from Google Analytics and keeping the user's privacy alive.
+title: How I do logging
 ---
 
 Today marks the day I disabled Google Analytics for my site and deleted my Analytics account.
@@ -114,8 +113,6 @@ log_format  pixel  '$remote_addr - $remote_user [$time_local] "$rurl" '
 ## Now I've got the logs. What to do now?
 
 Analyze them! The most popular software for this purpose seems to be [GoAccess](https://goaccess.io/), so let's try it out:
-
-{{< asciinema key="tmpnq35whjy-ascii" rows="24" preload="1" >}}
 
 Or generate an HTML report:
 

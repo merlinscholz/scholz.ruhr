@@ -1,8 +1,8 @@
 ---
-title: "On using WordPress as a backend"
-date: 2020-06-21T00:00:00+02:00
-draft: false
-summary: "WordPress is great as a proof-of-concept backend for your future web app. Let me tell you why."
+date: "2020-06-21T00:00:00+02:00"
+draft: true
+summary: WordPress is great as a proof-of-concept backend for your future web app. Let me tell you why.
+title: On using WordPress as a backend
 ---
 
 ## The Task

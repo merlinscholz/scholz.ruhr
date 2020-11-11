@@ -1,8 +1,8 @@
 ---
-title: "Quick Note: Combining IaC, cloud-init, and vCenter"
-date: 2020-04-17T16:35:06.000Z
-draft: false
-summary: "Or: Trying to get Infrastructure as Code, Configuration Management, cloud-init, vCenter, Debian, Packer and Terraform to work together."
+date: "2020-04-17T16:35:06.000Z"
+draft: true
+summary: 'Or: Trying to get Infrastructure as Code, Configuration Management, cloud-init, vCenter, Debian, Packer and Terraform to work together.'
+title: 'Quick Note: Combining IaC, cloud-init, and vCenter'
 ---
 
 Since we are all in quarantine anyways, I have decided try out immutable infrastructure without using some big cloud provider. This article is more of a mental note for me, since I definitely will forget how I got this to work.
