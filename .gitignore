@@ -1,2 +1,4 @@
-public/
-resources/
+/frontend/public/
+/frontend/resources/
+.vercel
+/api/node_modules/

@@ -1,0 +1,17 @@
+{{ define "main" }}
+<main>
+    {{ partial "articlefull" .}}
+    <div class="twitter-spam-wrapper">
+        <div class="twitter-spam">
+            <div class="cta"><span>Enjoyed this article? Tweet it!</span>
+            <p>It would really help me out if you tweeted about this article if you enjoyed it.
+                If you do not want to tweet, that's fine too. Have a nice day!
+            </p>
+            </div>
+            <div class="button">
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="I&#39;ve just read &quot;{{ .Title }}&quot;!" data-via="ruhrscholz" data-related="ruhrscholz" data-lang="en" data-dnt="true" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        </div>
+    </div>
+</main>
+{{ end }}

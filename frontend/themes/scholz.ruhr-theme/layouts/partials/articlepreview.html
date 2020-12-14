@@ -1,0 +1,25 @@
+<article class="article-preview">
+    <a href="{{ .Permalink }}" class="article-title"><h2>{{ .Title }}</h2></a>
+
+    {{- $images := .Resources.ByType "image" -}}
+    {{- $featured := $images.GetMatch "*feature*" -}}
+    {{- with $featured -}}
+
+    {{ $featured := $featured.Resize "650x q85" }}
+
+    <a href="{{ .Permalink }}" class="feature-img-stylized"><div  style="background-image:url({{ $featured.Permalink }})"></div></a>
+    {{ end }}
+
+    <div class="summary">
+      <p>{{ .Summary }}</p>
+      <a href="{{ .Permalink }}" class="continue-reading"><span>Continue reading</span> &rarr;</a>
+    </div>
+
+    <div class="post-info">
+      <div>{{ .Site.Params.Author }}</div>
+      <div><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></div>
+      <div>{{ math.Round (div (countwords .Content) 220.0) }} Minute Read</div>
+    </div>
+
+    
+</article>

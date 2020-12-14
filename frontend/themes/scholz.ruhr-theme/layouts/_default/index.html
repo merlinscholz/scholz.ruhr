@@ -1,0 +1,7 @@
+{{ define "main" }}
+<main>
+  {{ range (where .Site.RegularPages "Type" "post") }}
+    {{ partial "articlepreview" . }}
+  {{ end }}
+</main>
+{{ end }}

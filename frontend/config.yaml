@@ -1,0 +1,76 @@
+MetaDataFormat: yaml
+baseURL: 'https://scholz.ruhr/'
+languageCode: en-us
+defaultContentLanguage: en
+title: scholz.ruhr
+theme: scholz.ruhr-theme
+enableRobotsTXT: true
+canonifyURLs: true
+pygmentsUseClasses: true
+googleAnalytics: UA-182984692-1
+relativeURLs: true
+
+taxonomies:
+  tag: tags
+  category: categories
+
+params:
+  blogTitle: scholz.ruhr
+  author: Merlin Scholz
+outputs:
+  home:
+    - HTML
+    - RSS
+    # TODO Add JSON for client-side search
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    hl_Lines: ''
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    tabWidth: 4
+
+staticDir:
+- static
+- api
+
+menu:
+  main:
+    - name: Home
+      url: '/'
+      weight: 1
+    - name: Articles
+      url: '/post'
+      weight: 10
+    - name: Gear
+      url: '/gear'
+      weight: 20
+    - name: About
+      url: '/about'
+      weight: 30
+  social:
+    - name: GitHub
+      url: 'https://github.com/merlinscholz/'
+      weight: 10
+    - name: Twitter
+      url: 'https://twitter.com/ruhrscholz'
+      weight: 20
+    - name: Email
+      url: 'mailto:hello@scholz.ruhr'
+      weight: 30
+  article:
+    - name: Home
+      url: /
+      weight: 10
+    - name: Go Up
+      url: '#'
+      weight: 20
+privacy:
+  googleAnalytics:
+    anonymizeIP: true
+    disable: false
+    respectDoNotTrack: true
+    useSessionStorage: true

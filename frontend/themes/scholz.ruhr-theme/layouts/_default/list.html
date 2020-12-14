@@ -1,0 +1,8 @@
+{{ define "main" }}
+<div class="page-title"><h1>{{ .Title }}</h1></div>
+<main>
+    {{ range .Pages }}
+        {{ partial "articlepreview" . }}
+    {{ end }}
+</main>
+{{ end }}

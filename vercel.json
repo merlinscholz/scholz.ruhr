@@ -1,0 +1,7 @@
+{
+    "functions": {
+        "api/ogimage.ts": {
+            "includeFiles": "api/ogimage/**"
+        }
+    }
+}
