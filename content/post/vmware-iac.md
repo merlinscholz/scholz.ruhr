@@ -15,7 +15,7 @@ I will not describe the concept of immutable infrastructure on here, there are p
 
 > The benefits of an immutable infrastructure include more consistency and reliability in your infrastructure and a simpler, more predictable deployment process. It mitigates or entirely prevents issues that are common in mutable infrastructures, like configuration drift and snowflake servers. However, using it efficiently often includes comprehensive deployment automation, fast server provisioning in a cloud computing environment, and solutions for handling stateful or ephemeral data like logs. 
 >
-> [Source](https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure)
+> [DigitalOcean](https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure)
 
 ## Infrastructure as Code
 
@@ -43,7 +43,7 @@ Combining everything can be tricky.
 The template creation is the easiest part. Just create a ```.json``` file using the [official guide](https://www.packer.io/intro/getting-started/build-image.html):
 
 Mine looks like this:
-```json {linenos=table}
+```json
 {
   "variables": {
     "vcenter_server": "{{ env `vcenter_server` }}",
@@ -121,7 +121,7 @@ Mine looks like this:
 
 This script leads to the Debian VM trying to load a ```preseed.cfg``` file. Here is a fairly simple example, the important bit is, that it installs cloud-init:
 
-```go-text-template {linenos=table}
+```go-text-template
 d-i passwd/user-fullname string ci
 d-i passwd/username string ci
 d-i passwd/user-password password Hashi123!
@@ -173,7 +173,7 @@ d-i preseed/late_command string \
 
 For this to work, you will have to set your environment variables, and have ```debian-10.3.0-amd64-netinst.iso``` on your vCenter server:
 
-```sh {linenos=table}
+```bash
 export vcenter_server=""
 export vcenter_username=""
 export vcenter_password=""
@@ -207,7 +207,7 @@ You can now build the template using ```packer build debian-10.json``` and get a
 For this example, we are going to install a name server using PowerDNS and PowerDNS Recusor.
 
 A simple Terraform definition file to achieve this looks like this:
-```tf {linenos=table}
+```tf
 variable "vcenter_username" {}
 variable "vcenter_password" {}
 variable "vcenter_server" {}
@@ -290,7 +290,7 @@ In the ```extra-config``` section, we are encoding the cloud-init files into bas
 
 Let's take a look at ```metadata.yaml```:
 
-```yaml {linenos=table}
+```yaml
 network:
   version: 2
   ethernets:
@@ -311,7 +311,7 @@ instance-id: ns1
 Yes, nothing special, just defining networking and hostname. What about ```userdata.yaml```?
 
 
-```yaml {linenos=table}
+```yaml
 #cloud-config
 users:
   - name: merlin
