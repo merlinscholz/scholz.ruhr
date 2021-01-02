@@ -28,6 +28,8 @@ markup:
     noClasses: true
     tabWidth: 4
 menu:
+  header:
+  
   social:
     - name: Github
       url: 'https://github.com/merlinscholz/'
@@ -35,15 +37,6 @@ menu:
     - name: Twitter
       url: 'https://twitter.com/ruhrscholz'
       weight: 2
-    - name: Hacker News
-      url: 'https://news.ycombinator.com/user?id=merlinscholz'
-      weight: 3
-    - name: Keybase
-      url: 'https://keybase.io/merlinscholz'
-      weight: 4
-    - name: Ko-fi
-      url: 'https://ko-fi.com/merlinscholz'
-      weight: 5
   article:
     - name: Home
       url: /

@@ -1,0 +1,28 @@
+$gradient1: #ff8a00;
+$gradient2: #e52e71;
+
+html, body{
+    margin:0;
+    padding:0;
+}
+
+footer{
+    position: relative;
+    height:300px;
+
+    &::before{
+        content:'';
+        display:block;
+        position:absolute;
+        top:0;
+        left:0;
+        height:3px;
+        width:100%;
+        background:repeating-linear-gradient(to right, rgba(255,255,255,1) 8px, rgba(255,255,255,1) 24px, rgba(255,255,255,0) 24px, rgba(255,255,255,0) 40px),
+            linear-gradient(to right, rgba(255,255,255,1) 5%, rgba(255,255,255,0) 10%, rgba(255,255,255,0) 90%, rgba(255,255,255,1) 95%),
+            linear-gradient(to right, $gradient1, $gradient2),
+    }
+
+    background:radial-gradient(ellipse at bottom, rgba(255,255,255,0.9) 0, rgba(255,255,255,1) 80%),
+        linear-gradient(to right, $gradient1, $gradient2),
+}

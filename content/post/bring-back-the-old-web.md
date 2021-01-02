@@ -1,7 +1,6 @@
 ---
 date: "2020-08-18T18:32:54+01:00"
 draft: true
-summary: I miss the old web. Maybe it's just nostalgia, maybe it's may anti-monopoly attitude or just my desire for privacy.
 title: Bring back the old web
 ---
 
@@ -13,7 +12,12 @@ I miss the old web. Maybe it's just nostalgia, maybe it's may anti-monopoly atti
 
 ### Medium
 
-Back then everybody used to host stuff themselves or use one of the many available hosting providers... Nowadays, I get the feeling that 90% of blog posts are being hosted on medium.com. I wouldn't really care, but if I have to read "Pardon the Interruption" one more time, I'll just go mad. Other than that, Medium pages are way too slow and bloated for what they are. [A test via Pingdom Tools](https://tools.pingdom.com/#5d00a9ee1a800000) on a random Medium-hosted article reveals that for what could have been a single HTML file and a few images, there are 107 requests being made. The page load takes 2.40 seconds from one of Pingdom's faster-than-average browsers. On my residential broadband connection it is way worse, after finishing reading the first paragraph there is still stuff being loaded in the background.
+Back then everybody used to host stuff themselves or use one of the many available hosting providers... Nowadays, I get the feeling that 90% of blog posts are being hosted on medium.com. I wouldn't really care, but if I have to read "Pardon the Interruption" one more time, I'll just go mad. Other than that, Medium 
+pages are way too slow and bloated for what they are.
+
+<!--more-->
+
+[A test via Pingdom Tools](https://tools.pingdom.com/#5d00a9ee1a800000) on a random Medium-hosted article reveals that for what could have been a single HTML file and a few images, there are 107 requests being made. The page load takes 2.40 seconds from one of Pindom's faster-than-average browsers. On my residential broadband connection it is way worse, after finishing reading the first paragraph there is still stuff being loaded in the background.
 
 ### Competition
 

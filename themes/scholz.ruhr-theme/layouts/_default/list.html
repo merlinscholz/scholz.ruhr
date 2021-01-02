@@ -1,9 +1,0 @@
-{{ define "main" }}
-    <h1>{{ .Title }} Archive</h1>
-    {{ range .Pages }}
-        <a class="title" href="{{ .Permalink }}">{{ .Title }}</a>
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-        <p>{{ .Summary }}</p>
-        </div>
-    {{ end }}
-{{ end }}

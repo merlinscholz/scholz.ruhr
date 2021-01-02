@@ -1,7 +1,6 @@
 ---
 date: "2020-08-07T00:57:54+01:00"
 draft: true
-summary: I recently just blocked port 53 in my firewall to improve the privacy in my home network.
 title: Just block port 53 in your firewall
 ---
 
@@ -13,6 +12,8 @@ So, let's combine those two thoughts and do it right (hopefully).
 {{< tweet 1291515805293858817 >}}
 
 Since DNS is old \[citation needed\], and nobody really cared about security back in those dark ages, it can easily be read by third parties. Those third parties do not have to have bad intentions, one of the more common example would be your ISP checking up on what websites you are visiting.
+
+<!--more-->
 
 There have been many attempts to solve this problem, but it seems like DNS-over-HTTPS (DOH for short) is being used the most. If you want a short introduction on why it is useful, and DNS in general, check out [Mozilla's blogs/comics](https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/) on this topic.
 
