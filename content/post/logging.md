@@ -25,7 +25,7 @@ I don't either, this blog is currently being build and served through [Netlify](
 
 This blog runs on Hugo. I adapted the theme to be able to include custom logging code:
 
-```
+```html
 <!-- ./themes/mscholz.dev-theme/layouts/_default/baseof.html -->
 
 	{{ if templates.Exists "partials/customAnalytics.html" }}
@@ -109,11 +109,11 @@ log_format  pixel  '$remote_addr - $remote_user [$time_local] "$rurl" '
 
 Analyze them! The most popular software for this purpose seems to be [GoAccess](https://goaccess.io/), so let's try it out:
 
-```
+```bash
 goaccess access.log -o report.html --log-format=COMBINED
 ```
 
-![](images/goaccess-1024x902.png)
+![GoAccess Dashboard](images/goaccess-1024x902.png)
 
 It still looks pretty empty, but the new analytics goes live as soon as this post you're currently reading gets posted.
 
@@ -122,6 +122,6 @@ It still looks pretty empty, but the new analytics goes live as soon as this pos
 Yes, it is possible to replace Google Analytics through open-source, privacy focused software. It doesn't provide that much information about who your visitors are, but that's the point: The now-restored anonymity. Another nice extra is the improved page load speed, since we don't have to load the whole Google Analytics script.  
 The only thing that doesn't work perfectly (yet) are the referrers: While Nginx stores them in the same format as the request URI, GoAccess doesn't decode them properly. Instead of displaying `https://www.google.com/`, I'm seeing `https%3A%2F%2Fwww.google.de%2F`. This is not a huge problem though, it would just be nice-to-have, especially since the request URIs are stored in exactly the same way and are being displayed correctly. If you know how to fix this, let me know!
 
-* * *
+___
 
 Incidentally, as I was just about to publish this article, I noticed that [Why you should stop using Google Analytics on your website](https://plausible.io/blog/remove-google-analytics) is the current top post on lobste.rs.
