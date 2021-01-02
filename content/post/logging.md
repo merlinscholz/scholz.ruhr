@@ -1,7 +1,6 @@
 ---
 date: "2020-04-07T20:05:54+01:00"
 draft: true
-summary: Switching away from Google Analytics and keeping the user's privacy alive.
 title: How I do logging
 ---
 
@@ -15,6 +14,8 @@ Server-side analytics.
 
 ## I don't run my own web server, what to do now?
 I don't either, this blog is currently being build and served through [Netlify](https://www.netlify.com/). While they offer server-side log analytics, it'd cost $9/month, which seems to be a fair price, I don't really want to spend that much on a hobby website. So I rolled my own analytics.
+
+<!--more-->
 
 ## How?
 

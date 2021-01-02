@@ -1,8 +1,9 @@
 ---
 date: "2020-08-18T19:18:54+01:00"
 draft: true
-summary: 'Something a little different today: Using neural networks without training data to cluster images'
 title: Unsupervised Deep Clustering
+categories:
+    - article
 ---
 
 Something a little different today: Using neural networks without training data to cluster images. How I got into this? Well, it was my bachelor's thesis.
@@ -10,6 +11,8 @@ Something a little different today: Using neural networks without training data 
 ## Motivation
 
 Neuronal networks are often being used for image segmentation. To do this, you normally need some kind of ground truth, so the neural network knows, what to do with this image. Sadly, ground truths aren't always an option: If you want to cluster the surface of the Mars, you won't find any good datasets[^1]. There also won't be any datasets soon, because
+
+<!--more-->
 
 1. It is an extremely big set of images to analyze
 2. You would need domain experts to actually cluster the images

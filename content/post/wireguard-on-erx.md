@@ -1,7 +1,6 @@
 ---
 date: "2020-02-22T22:43:54+01:00"
 draft: true
-summary: This guide is mostly for me to remember how to set up WireGuard as a road-warrior-host on an EdgeRouter X.
 title: 'Quick Note: Installing and configuring WireGuard on an EdgeRouter X'
 ---
 
@@ -10,6 +9,8 @@ title: 'Quick Note: Installing and configuring WireGuard on an EdgeRouter X'
 Today I finally came around to replace my OPNsense VM with an old EdgeRouter X. Don't misunderstand me, OPNsense is absolutely great, but I reboot or rebuild my VM host way too often for it to be feasible anymore.
 
 Anyways, back to Wireguard: On OPNsense I ran OpenVPN which, while it worked great, was annoying to configure, especially with certificates and different clients like Android and iOS. Also, openVPN isn't that easy on the CPU, which the relatively inexpensive EdgeRouter does not excel at.
+
+<!--more-->
 
 This guide is mostly for me to remember how to set it up again, hope you're getting some use out of this too.
 

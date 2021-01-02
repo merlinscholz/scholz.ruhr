@@ -1,7 +1,6 @@
 ---
 date: "2020-08-07T00:57:54+01:00"
 draft: true
-summary: I recently just blocked port 53 in my firewall to improve the privacy in my home network.
 title: Just block port 53 in your firewall
 ---
 
@@ -11,6 +10,8 @@ title: Just block port 53 in your firewall
 So, let's combine those two thoughts and do it right (hopefully).
 
 {{< tweet 1291515805293858817 >}}
+
+<!--more-->
 
 Since DNS is old [citation needed], and nobody really cared about security back in those dark ages, it can easily be read by third parties. Those third parties do not have to have bad intentions, one of the more common example would be your ISP checking up on what websites you are visiting.
 

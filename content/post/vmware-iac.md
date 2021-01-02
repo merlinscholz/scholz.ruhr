@@ -1,13 +1,14 @@
 ---
 date: "2020-04-17T16:35:06.000Z"
 draft: true
-summary: 'Or: Trying to get Infrastructure as Code, Configuration Management, cloud-init, vCenter, Debian, Packer and Terraform to work together.'
 title: 'Quick Note: Combining IaC, cloud-init, and vCenter'
 ---
 
 Since we are all in quarantine anyways, I have decided try out immutable infrastructure without using some big cloud provider. This article is more of a mental note for me, since I definitely will forget how I got this to work.
 
 My homelab mainly consists of VMware boxes, and while they are great, there do not seem to be any simple guides on how to make infrastructure as code and configuation management work in an homelab. The ones I could find leveraged tools like Ansible, Salt, Puppet, etc., but we can do without them.
+
+<!--more-->
 
 ## Immutable Infrastructure
 

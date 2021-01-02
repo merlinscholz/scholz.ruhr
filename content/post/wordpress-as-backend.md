@@ -1,13 +1,14 @@
 ---
 date: "2020-06-21T00:00:00+02:00"
 draft: true
-summary: WordPress is great as a proof-of-concept backend for your future web app. Let me tell you why.
 title: On using WordPress as a backend
 ---
 
 ## The Task
 
 I've recently been assigned with writing a platform where users can share and support each other petitions. Think of it like a self-hosted version of [change.org](https://www.change.org/). This includes a way for users to create accounts, login (so prober authentication and authorization), a pretty frontend and a good way of storing the created content. At first, my mind flew into the depths of modern web technologies: Should I use a REST-backend and a React frontend? Be even more hip and use GraphQL? If so, what language to write the backend in? Go, Ruby, Python, PHP, C#... Anything was possible. And the frontend? Use Next.js? What about Angular? Vue.js? Svelte? I started comparing the possibilities for a few days, but after a short time, the exact requirements had been given to me.
+
+<!--more-->
 
 ## The Problem
 
