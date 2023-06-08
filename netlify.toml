@@ -1,0 +1,19 @@
+[build]
+  command = "hugo"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.113.0"
+
+[[redirects]]
+    from = "/wp-login.php"
+    to = "https://speed.hetzner.de/10GB.bin"
+
+[[redirects]]
+    from = "/xing"
+    to = "https://www.xing.com/profile/Merlin_Scholz4"
+
+[[redirects]]
+    from = "/post/*"
+    to = "/blog/:splat"
+    

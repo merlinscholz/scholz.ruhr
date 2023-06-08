@@ -1,0 +1,34 @@
+
+    <head>
+        <meta charset="utf-8">
+        <title>scholz.ruhr</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            'display': ["Inconsolata", "monospace"]
+                        }
+                    }
+                }
+            }
+        </script>
+        <style type="text/tailwindcss">
+            @layer base {
+                a {
+                    @apply underline;
+                    @apply underline-offset-4;
+                    @apply decoration-2;
+                    @apply decoration-slate-300;
+                }
+            }
+          </style>
+        <link rel="canonical" href="{{ .Permalink }}">
+        {{ range .AlternativeOutputFormats -}}
+            {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+        {{ end -}}
+        {{ template "_internal/opengraph.html" . }}
+        {{ template "_internal/twitter_cards.html" . }}
+    </head>

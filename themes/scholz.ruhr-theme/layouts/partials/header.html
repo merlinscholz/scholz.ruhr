@@ -1,0 +1,17 @@
+<header class="w-full border-b border-solid border-gray-200 bg-white/50 backdrop-blur-md">
+    <div class="h-[4px] bg-gradient-to-r from-[#667eea] to-[#764ba2]">
+        
+    </div>
+    <nav class="px-8 py-3 flex gap-12 justify-between items-center">
+        <div>
+            <a href="/" class="text-2xl text-slate-900 no-underline">scholz.ruhr</a>
+        </div>
+        <div class="[&>a]:inline-block [&>a]:px-4 [&>a]:py-1 [&>a:hover]:bg-slate-100 [&>a]:rounded [&>a]:no-underline">
+            {{- range site.Menus.main }}
+            <a {{ with .Params.class -}} class="{{ . }}" {{ end -}} href="{{ .URL }}">
+                {{ .Name }}
+            </a>
+            {{- end }}
+        </div>
+    </nav>
+</header>

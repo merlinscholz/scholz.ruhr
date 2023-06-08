@@ -1,5 +1,20 @@
-# Created by https://www.toptal.com/developers/gitignore/api/macos,linux,windows,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,windows,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/hugo,macos,linux,windows,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=hugo,macos,linux,windows,visualstudiocode
+
+### Hugo ###
+# Generated files by hugo
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+hugo_stats.json
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
+
+# Temporary lock file while building
+/.hugo_build.lock
 
 ### Linux ###
 *~
@@ -94,4 +109,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/hugo,macos,linux,windows,visualstudiocode
