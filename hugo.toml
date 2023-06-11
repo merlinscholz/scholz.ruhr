@@ -2,6 +2,16 @@ baseURL = 'https://scholz.ruhr/'
 languageCode = 'en-us'
 title = 'scholz.ruhr'
 theme = 'scholz.ruhr-theme'
+pluralizelisttitles = false
+copyright = "CC BY-NC-SA 4.0"
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+
+[outputs]
+    home = ["HTML", "ATOM"]
+    section = ["HTML"]
 
 [menu]
     [[menu.main]]
@@ -10,9 +20,40 @@ theme = 'scholz.ruhr-theme'
         weight = 10
     [[menu.main]]
         name = 'Blog'
-        pageRef = '/blog'
+        pageRef = 'blog'
         weight = 20
     [[menu.main]]
         name = 'About'
-        pageRef = '/about'
+        pageRef = 'about'
         weight = 30
+    
+    [[menu.social]]
+        name = 'Mastodon'
+        url = 'https://toot.kif.rocks/@ruhrscholz'
+        weight = 10
+    [[menu.social]]
+        name = 'GitHub'
+        url = 'https://github.com/ruhrscholz'
+        weight = 20
+    [[menu.social]]
+        name = 'More about me →'
+        pageRef = 'about'
+        weight = 50
+
+[params]
+    mainSections = ["blog"]
+
+[mediaTypes]
+    [mediaTypes."application/atom+xml"]
+        suffixes = ["atom"]
+
+[outputFormats]
+    [outputFormats.ATOM]
+        name = "ATOM"
+        baseName = "feed"
+        mediaType = "application/atom+xml"
+        isPlainText = false
+        rel = "alternate"
+        isHTML = false
+        noUgly = true
+        permalinkable = false

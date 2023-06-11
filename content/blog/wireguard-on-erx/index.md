@@ -18,12 +18,12 @@ The EdgeRouter-series is `.deb`\-based, which makes the installation pretty stra
 1.  Enable SSH (Web UI > System > SSH Server > Enable) and log in into your EdgeRouter.
 2.  Download the installation package from [https://github.com/Lochnair/vyatta-wireguard/releases](http://web.archive.org/web/20200815202213/https://github.com/Lochnair/vyatta-wireguard/releases) and either transfer it to the router (via SCP) or just download it directly onto it. The official forum post by the Wireguard creator _zx2c4_ can be found at [https://community.ui.com/questions/Release-WireGuard-for-EdgeRouter/3765d2a4-1952-4629-948a-3ac9d9c22311](http://web.archive.org/web/20200815202213/https://community.ui.com/questions/Release-WireGuard-for-EdgeRouter/3765d2a4-1952-4629-948a-3ac9d9c22311). This is just to verify that the EdgeRouter packages are more-or-less official. If you are using an ERX you will need the E50-package, also the new v2.0 version has worked fine for me. Remember to check for newer versions!
 
-```
+```console
 ubnt@erx: wget https://github.com/Lochnair/vyatta-wireguard/releases/download/0.0.20191219-2/wireguard-v2.0-e50-0.0.20191219-2.deb
 ```        
     
 3.  Install it:
-```
+```console
 ubnt@erx: sudo dpkg -i /path/to/wireguard-v2.0-e50-0.0.20191219-2.deb
 ```        
     
@@ -31,12 +31,13 @@ ubnt@erx: sudo dpkg -i /path/to/wireguard-v2.0-e50-0.0.20191219-2.deb
 
 On your workstation, create public and private keys for your server:
 
-```
+```console
 merlin@desktop: wg genkey | tee server_priv | wg pubkey > server_pub
 ```    
 
 Also, create key pairs for every client you want to connect with:
-```
+
+```console
 merlin@desktop: wg genkey | tee phone_priv | wg pubkey > phone_pub
 
 merlin@desktop: wg genkey | tee notebook_priv | wg pubkey > notebook_pub
@@ -76,8 +77,9 @@ After that you may want to configure routing so that connections coming from the
 ## Client configuration
 
 On your host, create a config file for each client:
-```
-merlin@des# cat phone.conf
+
+```ini
+# phone.conf
 [Interface]
 PrivateKey = CLIENT1PRIVATEKEY
 Address = 192.168.21.2/24

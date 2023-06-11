@@ -24,7 +24,7 @@ The goal here is to hide this IP, get rid of the port forwarding and DynDNS alto
 
 The first step is acquiring the VPS. I went with the cheapest VPS on Hetzner, costing me around 4€/month. As operating system I use CentOS Stream 9 (yes, don't hate me), but it shouldn't make a big difference as the tools we're using are working on almost every OS. If you're still reading this, I trust you to be able to install Linux and configure your user account. After this, you want to [install WireGuard](https://www.wireguard.com/install/). You'll want to generate your keypairs (as usual, `wg genkey | tee priv | wg pubkey > pub`), and create a `wg0.conf` file that accepts incoming connections and allows routing through the VPN:
 
-```
+```ini
 [Interface]
 PrivateKey = [REDACTED]
 Address = 10.0.60.1
@@ -53,7 +53,7 @@ We disable this SSL-terminating remote proxy altogether and take note of the por
 
 Now, the reverse proxy. Many different options, I've always used Apache httpd, Nginx and HAproxy in the past, but I've heard good things about [Caddy](https://caddyserver.com/) in the past and am too lazy to set up ACME certs by hand. I have a simple config that looks like this:
 
-```
+```caddyfile
 # /etc/caddy/Caddyfile
 
 example.com {

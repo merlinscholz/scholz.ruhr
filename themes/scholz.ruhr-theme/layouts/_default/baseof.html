@@ -3,9 +3,12 @@
     <head>
         {{- partial "head.html" . -}}
     </head>
-    <body class="tracking-wide text-slate-600">
+    <body class="tracking-wide text-zinc-600 leading-relaxed flex flex-col min-h-screen
+        dark:bg-zinc-900 dark:text-zinc-300">
         {{- partial "header.html" . -}}
-        {{- block "main" . }}{{- end }}
+        <div class="flex-1 px-8 container mx-auto max-w-screen-lg">
+            {{- block "main" . }}{{- end }}
+        </div>
         {{- partial "footer.html" . -}}
     </body>
 </html>

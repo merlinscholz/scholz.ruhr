@@ -5,8 +5,16 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        
+      typography: {
+        default: {
+          css: {
+            pre: false,
+            code: false,
+            'pre code': false,
+            'code::before': false,
+            'code::after': false
+          }
+        }
       }
     },
   },

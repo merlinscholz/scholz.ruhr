@@ -23,8 +23,8 @@ And even if you opt for that option, in theory ICANN could delete your TLD as th
 
 Another, way more interesting solution is the creation of an _alternative DNS root_. Since DNS is a distributed protocol, all (global) DNS requests start at the [Root Servers](https://www.iana.org/domains/root/servers) (the IP addresses of the Root Servers themselves are needed to bootstrap the process and are usually being packaged with the DNS software you use in the [Root Hints File](https://www.iana.org/domains/root/files)). For example, if you wanted to request `scholz.ruhr`, the first step in resolving this domain is finding out how to resolve `.ruhr` domains:
 
-```
-dig scholz.ruhr +trace
+```dns
+; dig scholz.ruhr +trace
 
 ; <<>> DiG 9.16.24-RH <<>> scholz.ruhr +trace
 ;; global options: +cmd
@@ -54,7 +54,7 @@ ruhr.                   86400   IN      RRSIG   DS 8 1 86400 20220221050000 2022
 
 As you can see, the first request goes to the Root Servers to find out how to resolve `.ruhr` domains. In this case, `c.root-servers.net` forwards our client to some name servers hosted under the `irondns.net` domain. Afterwards, the resolving continues recursively as usual:
 
-```
+```dns
 scholz.ruhr.            86400   IN      NS      freedns1.registrar-servers.com.
 scholz.ruhr.            86400   IN      NS      freedns4.registrar-servers.com.
 scholz.ruhr.            86400   IN      NS      freedns2.registrar-servers.com.
@@ -103,7 +103,7 @@ On the client we install some browsers, and on our web server we install Nginx. 
 
 For the root server, the authoritative server and the recursor (yes, all three) we need bind installed, opened up, and started up: 
 
-```bash
+```console
 dnf in bind -y
 firewall-cmd --add-port=53/udp --zone=public --permanent
 firewall-cmd --reload
@@ -117,13 +117,13 @@ What does the root server have to do? Serve information about where to find the 
 
 The easy-to-parse zone file of all TLDs can be retrieved via `dig AXFR . @lax.xfr.dns.icann.org` or just downloaded from [InterNIC](https://www.internic.net/domain/root.zone):
 
-```bash
+```console
 wget https://www.internic.net/domain/root.zone -O /etc/named/root.zone
 ```
 
 Usually, the file served from the bind package would be used. This is unfavorable in our use-case, since an OS update could overwrite it at any point after we added some custom content to it. We also have to configure the server to actually use and serve this file. Remove the default root hints from the config file:
 
-```
+```console
 //zone "." IN {
 //        type hint;
 //        file "named.ca";
@@ -132,7 +132,7 @@ Usually, the file served from the bind package would be used. This is unfavorabl
 
 And replace it with our downloaded file:
 
-```
+```console
 zone "." IN {
         type master;
         file "/etc/named/root.zone";
@@ -143,8 +143,8 @@ While we're at it we also disable the recursion - we don't need it since we only
 
 Restart the server and try it out:
 
-```
-dig scholz.ruhr @10.0.254.4
+```dig
+; dig scholz.ruhr @10.0.254.4
 
 ; <<>> DiG 9.16.24-RH <<>> scholz.ruhr @10.0.254.4
 ;; global options: +cmd
@@ -187,7 +187,7 @@ It only serves the TLD NS records themselves, as it should.
 
 First of all, disable recursion in the config file. Afterwards, we add our custom `.scholz` zone to the config file:
 
-```
+```console
 zone "scholz" IN {
         type master;
         file "/etc/named/zones/db.scholz";
@@ -196,7 +196,7 @@ zone "scholz" IN {
 
 In the zone file (`/etc/named/zones/db.scholz`) itself, we'll just put our new fancy test web server and the name server itself:
 
-```
+```dig
 @        IN      SOA     ns1.scholz. admin.scholz. (
                   3     ; Serial
              604800     ; Refresh
@@ -213,8 +213,8 @@ It is a **terrible idea** to use my name as TLD, as the ICANN could decide to cr
 
 Restart the service and test it out:
 
-```
-dig www.scholz. @10.0.254.5
+```dig
+; dig www.scholz. @10.0.254.5
 
 ; <<>> DiG 9.16.24-RH <<>> www.scholz. @10.0.254.5
 ;; global options: +cmd
@@ -250,7 +250,7 @@ First success!
 
 Most of the work is done, now we have to add our .scholz name server to the root zone. We append the `root.zone` file from earlier:
 
-```
+```dns
 ; <<< snip >>>
 scholz.       172800   IN   NS   ns1.scholz.
 ns1.scholz.   172800   IN   A   10.0.254.5
@@ -258,8 +258,8 @@ ns1.scholz.   172800   IN   A   10.0.254.5
 
 Aaand reload the service. Next test:
 
-```
-dig www.scholz. @10.0.254.4
+```dns
+; dig www.scholz. @10.0.254.4
 
 ; <<>> DiG 9.16.24-RH <<>> www.scholz. @10.0.254.4
 ;; global options: +cmd
@@ -294,9 +294,9 @@ What do we have to do to get the resolver up and running? Not much. (I thought) 
 
 In the config file, we leave recursion enabled for once, and replace the root hint file path `named.ca` with a custom `/etc/named/custom_named.ca`. That file now looks like this:
 
-```
-.                       518400  IN      NS      fake.root-servers.net.
-fake.root-servers.net.             518400  IN      A       10.0.254.4
+```dns
+.                               518400  IN      NS      fake.root-servers.net.
+fake.root-servers.net.          518400  IN      A       10.0.254.4
 ```
 
 Don't forget to disable DNSSEC via the `dnssec-enable` flag, otherwise you will run into `SERVFAIL` errors.
@@ -309,7 +309,7 @@ There seem to be two obvious workarounds:
 
 Since I've invested way too much work into getting BIND to work, I'll go with option 2. Set up the resolver to server zone "." from a custom file:
 
-```
+```console
 zone "." IN {
         type master;
         file "/etc/named/root.zone";
@@ -320,7 +320,7 @@ Serving the root zone prevents BIND from getting to the included root hints.
 
 Afterwards, append the information about our root server to the root zone file we downloaded to `/etc/named/root.zone`:
 
-```
+```dig
 .                       86400   IN      SOA     a.root-servers.net. nstld.verisign-grs.com. 2022020701 1800 900 604800 86400
 
 ; <<<snip>>>
@@ -331,8 +331,8 @@ ns1.scholz.             1       IN      A       10.0.254.5
 
 Last test:
 
-```
-dig www.scholz. @10.0.254.7
+```dns
+; dig www.scholz. @10.0.254.7
 
 ; <<>> DiG 9.16.24-RH <<>> www.scholz. @10.0.254.7
 ;; global options: +cmd

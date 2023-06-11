@@ -52,7 +52,7 @@ The next issue was disabling VGA and printing everything to the first free com p
 
 There are multiple ways to tell NetBSD where to print everything it has to say. You can either specify a `consdev` in the [bootloader config](https://man.netbsd.org/NetBSD-9.3/boot.cfg.5), like so:
 
-```
+```console
 menu=Boot normally:rndseed /var/db/entropy-file;consdev com2;boot netbsd
 ```
 
@@ -60,13 +60,13 @@ Or override that one in the kernel config via `CONSDEVNAME`, `CONSDEVADDR`, `CON
 
 The first option is the new, preferred, streamlined one, so I tried it, exactly like it says above. It worked, I could see my kernel messages on my (virtual) com2, up until the point where the com management was handed off from the bootloader/BIOS to the kernel. In NetBSD, this is around the time the switch from kernel code to the init system (`/etc/rc`) happens. At this point I was greeted by my *favorite* error from the previous article:
 
-```
+```console
 cnopen: no console device
 ```
 
 A text I absolutely dreaded at this point. From my previous attempt I already learned that, while the bootloader just prints to whatever it can access, NetBSD likes to check first and initialize all devices properly, so let's see what it has to say in the kernel debug messages:
 
-```
+```console
 [   1.0303504] com0 at acpi0 (COM1, PNP0501-1): io 0x3f8-0x3ff irq 4
 [   1.0303504] com0: ns16550a, working fifo
 [   1.0303504] com1 at acpi0 (COM2, PNP0501-2): io 0x2f8-0x2ff irq 3
@@ -84,7 +84,7 @@ By the way, there are at least 20 different ways to set up com ports in that con
 
 The (I assumed) logical next step was to just comment out the [ACPI com detection](https://github.com/NetBSD/src/blob/654dd71243cd7229d0174117e9a2ddf5fd5ca7a6/sys/arch/i386/conf/GENERIC#L324) and re-enable [the hard-coded ports](https://github.com/NetBSD/src/blob/654dd71243cd7229d0174117e9a2ddf5fd5ca7a6/sys/arch/i386/conf/GENERIC#L576-L579) in the kernel config:
 
-```
+```console
 com0	at isa? port 0x3f8 irq 4	# Standard PC serial ports
 com1	at isa? port 0x2f8 irq 3
 com2	at isa? port 0x3e8 irq 5
@@ -101,13 +101,13 @@ Some additional context: The single, lonely `p` is something that is printed as 
 
 I was getting desparate (this was day 3 or 4 of me fighting this bug), and decided to just mess around with the kernel config, bootloader config, etc. VGA still worked normally, just com didn't. I set the bootloader to redirect everything to com0 (instead of com2) to get a better picture of what exactly fails. Same point in the startup (around 30 minutes in), the handoff between BIOS and init, and what does it print?
 
-```
+```console
 Mon May  1 23:44:24 CEST 2023
 ```
 
 That's the source of the mysterious `M`. Of course, I enabled the experiment again, still printing everything to com0, and got 
 
-```
+```console
 pre-init script...
 ```
 
@@ -117,7 +117,7 @@ The source of the mysterious `p`. It didn't come from the debug messages, it som
 
 Remember the com init code from earlier?
 
-```
+```console
 com0	at isa? port 0x3f8 irq 4	# Standard PC serial ports
 com1	at isa? port 0x2f8 irq 3
 com2	at isa? port 0x3e8 irq 5

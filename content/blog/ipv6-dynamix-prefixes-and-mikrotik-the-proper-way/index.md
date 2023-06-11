@@ -39,7 +39,7 @@ The solution to all of our problems: Give every LAN-side interface on the MikroT
 
 Here is how it looks on my machine (albeit redacted):
 
-```
+```console
 [admin@router.infra.scholzserv.de] > /ipv6/dhcp-client/print
 Columns: INTERFACE, STATUS, REQUEST, PREFIX, ADDRESS
 # INTERFACE  STATUS  REQUEST  PREFIX                          ADDRESS

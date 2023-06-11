@@ -1,17 +1,34 @@
-<header class="w-full border-b border-solid border-gray-200 bg-white/50 backdrop-blur-md">
-    <div class="h-[4px] bg-gradient-to-r from-[#667eea] to-[#764ba2]">
+<header class="w-screen border-b border-solid border-zinc-200 dark:border-zinc-700 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md">
+    <div class="h-[5px] bg-gradient-to-r from-[#667eea] to-[#764ba2]">
         
     </div>
-    <nav class="px-8 py-3 flex gap-12 justify-between items-center">
-        <div>
-            <a href="/" class="text-2xl text-slate-900 no-underline">scholz.ruhr</a>
-        </div>
-        <div class="[&>a]:inline-block [&>a]:px-4 [&>a]:py-1 [&>a:hover]:bg-slate-100 [&>a]:rounded [&>a]:no-underline">
-            {{- range site.Menus.main }}
-            <a {{ with .Params.class -}} class="{{ . }}" {{ end -}} href="{{ .URL }}">
-                {{ .Name }}
+    <nav class="max-w-screen-lg mx-auto px-8 py-4 flex gap-2 justify-between items-center whitespace-nowrap overflow-x-auto">
+        <div class="flex-none h-10 w-10">
+            {{ if not .IsHome }}
+            <a href="/" class="text-2xl text-zinc-900 dark:text-zinc-100">
+                <img class="aspect-square h-10 w-10" src="/memoji.png" alt="My memoji">
             </a>
-            {{- end }}
+            {{ end }}
+        </div>
+        <div class="font-mono">
+            {{ $currentPage := . }}
+            {{ range site.Menus.main }}
+                <a class="text-sm md:text-base mx-0 md:ml-4 inline-block
+                    before:font-bold after:font-bold before:content-['['] after:content-[']'] 
+                    transition-colors before:transition-colors after:transition-colors
+                    {{ if $currentPage.IsMenuCurrent .Menu . }}
+                        text-zinc-900 dark:text-white
+                        before:text-purple-500 after:text-purple-500
+                    {{ else }}
+                        text-zinc-500 dark:text-zinc-400
+                        before:text-transparent after:text-transparent
+                        hover:text-zinc-900 dark:hover:text-white
+                    {{ end }}
+                    hover:before:text-zinc-300 hover:after:text-zinc-300
+                    dark:hover:before:text-zinc-600 dark:hover:after:text-zinc-600" href="{{ .URL }}">
+                    &nbsp;{{ .Name }}&nbsp;
+                </a>
+            {{ end }}
         </div>
     </nav>
 </header>

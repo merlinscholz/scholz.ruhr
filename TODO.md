@@ -1,14 +1,2 @@
-- CC licensing
-- Footer
-- Image pipeline
-- Links to headings
-- Unify markdown style
-- Script tag languages
-- Script tag colours
-- 404
-- Dark mode
-- Link hover
-- Prose styling
 - TOC
-- Only one RSS feed
-
+- Share box

@@ -17,7 +17,7 @@ All of these settings are also manageable through the web/WinBox interface and s
 
 The first step consists of creating the VLAN that should access the internet via the VPN. In my case this VLAN is called `mullvad` and the router has the address 10.0.60.1/24 for that VLAN.
 
-```
+```console
 /interface/vlan/add vlan-id=60 interface=bridge1 name=mullvad
 /ip/address/add address=10.0.60.1/24 network=10.0.60.0 interface=mullvad
 ```
@@ -26,7 +26,7 @@ The first step consists of creating the VLAN that should access the internet via
 
 For this step you'll have to access [https://mullvad.net/en/account/#/wireguard-config/](https://mullvad.net/en/account/#/wireguard-config/) to generate a WireGuard key pair. Just generate it in the web interface and download the appropriate config file for your preferred server. My example (for `nl1`) looks like this:
 
-```
+```ini
 [Interface]
 PrivateKey = ####privkey####
 Address = 10.67.7.126/32,fc00:bbbb:bbbb:bb01::4:77d/128
@@ -40,7 +40,7 @@ Endpoint = 193.32.249.66:51820
 
 We'll transform this into MikroTik commands:
 
-```
+```console
 /interface/wireguard/add private-key="####privkey####" name=mullvad-upstream
 /interface/wireguard/peers/add allowed-address=0.0.0.0/0,::/0 endpoint-address=193.32.249.66 endpoint-port=51820 interface=mullvad-upstream public-key="UrQiI9ISdPPzd4ARw1NHOPKKvKvxUhjwRjaI0JpJFgM="
 ```
@@ -49,7 +49,7 @@ Remember to quote your keys, otherwise the `=` sign messes up the command. Also,
 
 At this point there was the biggest difficulty: To set the address of the router's `mullvad-upstream` correctly, you need to find out which network Mullvad uses internally. Luckily, their SOCKS5 addresses are available, and seem to match the WireGuard ones. We head to [https://mullvad.net/en/servers/](https://mullvad.net/en/servers/), select our server, and take a note of the "SOCKS5 Proxy Address", in our example `nl1-wg.socks5.mullvad.net:1080`. This (currently) resolves to `10.124.0.4` using any public resolver:
 
-```
+```console
 /ip/address/add address=10.67.7.126 network=10.124.0.4 interface=mullvad-upstream
 ```
 
@@ -57,14 +57,14 @@ At this point there was the biggest difficulty: To set the address of the router
 
 While this seemed difficult at first, it really wasn't. Some other posts suggest using VRF, but this isn't even necessary. Instead, all packets coming from our special VLAN will use a custom routing table called `mullvad`:
 
-```
+```console
 /routing/table/add name=mullvad fib
 /ip/firewall/mangle/add chain=prerouting in-interface=mullvad action=mark-routing new-routing-mark=mullvad
 ```
 
 Then, we'll create a routing rule so that all packages coming from the specified VLAN will only be handled by the custom routing table:
 
-```
+```console
 /routing/rule/add routing-mark=mullvad action=lookup-only-in-table table=mullvad
 ```
 
@@ -72,13 +72,13 @@ Beware: For some godforsaken reason, the RouterOS web interface does not show th
 
 Afterwards, we'll add a route in this new table that routes everything through the Mullvad server:
 
-```
+```console
 /ip/route/add dst-address=0.0.0.0/0 gateway=10.124.0.4 routing-table=mullvad
 ```
 
 Important: Do not forget that you need to NAT the traffic from the special VLAN:
 
-```
+```console
 /ip/firewall/nat/add chain=srcnat out-interface=mullvad-upstream action=masquerade
 ```
 
@@ -90,7 +90,7 @@ Sadly, as of RouterOS v7, MikroTik does not allow DNS server on a per-interface 
 
 From this point on, we connect a device to our new VLAN and test the connection:
 
-```
+```console
 merlin@test:~$ curl icanhazip.com
 193.32.249.136
 ```

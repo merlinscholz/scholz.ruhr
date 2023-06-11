@@ -1,5 +1,5 @@
 [build]
-  command = "hugo"
+  command = "hugo --minify"
   publish = "public"
 
 [build.environment]
@@ -16,4 +16,16 @@
 [[redirects]]
     from = "/post/*"
     to = "/blog/:splat"
-    
+  
+[[redirects]]
+  from = "/rss"
+  to = "/feed.atom"
+
+[[redirects]]
+  from = "/index.xml"
+  to = "/feed.atom"
+
+[[headers]]
+  for = "*.atom"
+  [headers.values]
+    Content-Type = "application/atom+xml; charset=UTF-8"

@@ -1,34 +1,18 @@
-
-    <head>
-        <meta charset="utf-8">
-        <title>scholz.ruhr</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        fontFamily: {
-                            'display': ["Inconsolata", "monospace"]
-                        }
-                    }
-                }
-            }
-        </script>
-        <style type="text/tailwindcss">
-            @layer base {
-                a {
-                    @apply underline;
-                    @apply underline-offset-4;
-                    @apply decoration-2;
-                    @apply decoration-slate-300;
-                }
-            }
-          </style>
-        <link rel="canonical" href="{{ .Permalink }}">
+<head>
+    <meta charset="utf-8">
+    <title>{{ if not .IsHome }}{{ if .Page.Title }}{{ .Page.Title }} - {{ end }}{{ end }}{{ .Site.Title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/tw.css">
+    <link rel="stylesheet" href="/syntax.css">
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{ with .Site.Home }}
         {{ range .AlternativeOutputFormats -}}
-            {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+            <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
         {{ end -}}
-        {{ template "_internal/opengraph.html" . }}
-        {{ template "_internal/twitter_cards.html" . }}
-    </head>
+    {{ end }}
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+</head>

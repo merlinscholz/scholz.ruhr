@@ -1,5 +1,5 @@
 ---
-date: "2023-09-02"
+date: "2022-09-02"
 title: "IPv6, FRITZ!Box, and MikroTik"
 ---
 

@@ -44,7 +44,7 @@ If you were to try adding the GPU to the VM and installing the Nvidia drivers, y
 
 Log in to your Proxmox installation (SSH or the web terminal) and edit the config file for your VM, in my case VM ID 104. You'll want to add/replace the following lines:
 
-```
+```console
 # /etc/pve/qemu-server/104.conf
 
 agent: 0

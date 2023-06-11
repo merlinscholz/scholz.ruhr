@@ -19,7 +19,7 @@ As you can see, there is a kernel panic, stemming from a strange error message r
 
 My first thought was "Well that sure is some incompatibility between a current NetBSD version and a decade-old forked Bochs". In fact, the Bochs version this research project relies on prints the following on startup:
 
-```
+```console
 ========================================================================
         FailBochs 1.0.1, based on the Bochs x86 Emulator 2.4.6
              Build from CVS snapshot, on February 22, 2011
@@ -29,7 +29,7 @@ My first thought was "Well that sure is some incompatibility between a current N
 
 Maybe we should try a more recent Bochs version. I was in the process of downloading the source code onto my Mac when I remembered package managers exist. A simple `brew install bochs` later, and I could test a more recent version:
 
-```
+```console
 ========================================================================
                         Bochs x86 Emulator 2.7
               Built from SVN snapshot on August  1, 2021
@@ -97,7 +97,7 @@ The most beautiful thing I have ever seen. But using the LEGACY kernel, while it
 
 Searching for “Bochs PCI VGA” yields this result: [https://bochs.sourceforge.io/doc/docbook/user/cirrus-notes.html](https://bochs.sourceforge.io/doc/docbook/user/cirrus-notes.html). So there is VGA over PCI, through an emulated Cirrus GPU. I’ve enabled the Cirrus config options in my BOCHSRC through
 
-```
+```console
 # Enable CL-GD5446 PCI
 vga: extension=cirrus
 vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest-cirrus
@@ -106,7 +106,7 @@ pci: enabled=1, chipset=i440fx, slot1=cirrus
 
 (and disabling the previous options), [downloaded the Cirrus VGA BIOS](https://www.nongnu.org/vgabios/), and was ready to see a perfectly starting system… but:
 
-![Bochs screenshot with black screen](https://mataroa.blog/images/d414c2a3.png)
+![Bochs screenshot with black screen](d414c2a3.png)
 
 Black screen. Why doesn’t this work? No clue (and am happy for any answers).
 
@@ -130,7 +130,7 @@ Now, if you recall, my initial goal was to run NetBSD 9.3 on an older, forked Bo
 
 But: While randomly changing BOCHSRC options, I noticed those few lines of comments:
 
-```
+```console
 #=======================================================================
 # I440FXSUPPORT:
 # This option controls the presence of the i440FX PCI chipset. You can

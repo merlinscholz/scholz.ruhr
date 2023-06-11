@@ -1,16 +1,8 @@
 {{ define "main" }}
-<div class="container mx-auto max-w-screen-lg px-8">
-    <h1 class="text-4xl text-slate-900 py-8">Blog</h1>
-    {{ range .Pages }}
-    <article class="mb-12">
-      <time class="block text-sm" datetime="{{ .PublishDate.Format "2006-02-01" }}">
-        {{ .PublishDate.Format "January 2, 2006" }}
-      </time>
-      <a href="{{ .Permalink }}" class="block text-2xl text-slate-900">
-        {{ .Title }}
-      </a>
-    </article>
-    
+<div>
+  <h1 class="text-4xl text-zinc-900 dark:text-white font-bold pt-14 pb-4 mb-8">{{ .Title }}</h1>
+  {{ range .Pages }}
+  {{ partial "articleheading.html" . }}
   {{ end }}
 </div>
 {{ end }}

@@ -17,8 +17,8 @@ And even if you opt for that option, in theory ICANN could delete your TLD as th
 
 Another, way more interesting solution is the creation of an _alternative DNS root_. Since DNS is a distributed protocol, all (global) DNS requests start at the [Root Servers](https://www.iana.org/domains/root/servers) (the IP addresses of the Root Servers themselves are needed to bootstrap the process and are usually being packaged with the DNS software you use in the [Root Hints File](https://www.iana.org/domains/root/files)). For example, if you wanted to request scholz.ruhr, the first step in resolving this domain is finding out how to resolve .ruhr domains:
 
-```sh
-merlin@laptop:~> dig scholz.ruhr +trace
+```dns
+; merlin@laptop:~> dig scholz.ruhr +trace
 
 ; <<>> DiG 9.16.19 <<>> scholz.ruhr +trace
 ;; global options: +cmd
@@ -48,7 +48,7 @@ ruhr.			86400	IN	RRSIG	DS 8 1 86400 20210904050000 20210822040000 26838 . Imh3cr
 
 As you can see, the first request goes to the Root Servers (whose order is randomized for load balancing) to find out how to resolve .ruhr domains. Afterwards, the resolving continues recursively as usual:
 
-```
+```dns
 scholz.ruhr.		86400	IN	NS	freedns4.registrar-servers.com.
 scholz.ruhr.		86400	IN	NS	freedns2.registrar-servers.com.
 scholz.ruhr.		86400	IN	NS	freedns3.registrar-servers.com.
@@ -78,15 +78,15 @@ We will need at least 2 machines for our fake alternative DNS root. In theory we
 
 This is probably the most difficult thingm but still easily doable. I’ll skip the VM creation and inital system setup (like copying SSH keys, updating the system) for now. At this point there already was a hurdle for me, as PowerDNS only provides x86\_64 repos. So I opted to use BIND:
 
-```sh
+```console
 sudo dnf install bind
 sudo systemctl enable --now named
 ```   
 
 At this point, access from localhost should already work:
 
-```sh
-[opc@adn-root-s-cin-defra-843f ~]$ dig scholz.ruhr. @localhost
+```dns
+; [opc@adn-root-s-cin-defra-843f ~]$ dig scholz.ruhr. @localhost
 
 ; <<>> DiG 9.11.26-RedHat-9.11.26-4.el8_4 <<>> scholz.ruhr. @localhost
 ;; global options: +cmd
@@ -121,7 +121,7 @@ Also, remember to open the firewall for port 53: `sudo firewall-cmd --add-port=5
 
 Let’s open up `named.conf` once again. At the bottom of the file you should find the definition of the root zone:
 
-```
+```console
 zone "." IN {
         type hint;
         file "named.ca";
@@ -130,7 +130,7 @@ zone "." IN {
 
 In this case, `named.ca` is our Root Hint file. We will append this config block with the following:
 
-```
+```console
 # /etc/named/zones/db.scholz
 zone "scholz" IN {
         type master;
@@ -142,12 +142,12 @@ It is a **terrible idea** to use my name as TLD, as the ICANN could decide to cr
 
 Afterwards, we will fill `/etc/named/zones/db.scholz` with the bare minimum:
 
-```
+```dns
 @		IN      SOA     ns1.scholz. admin.scholz. (
-                    3     ; Serial
+                3          ; Serial
                 604800     ; Refresh
-                86400     ; Retry
-            2419200     ; Expire
+                86400      ; Retry
+                2419200    ; Expire
                 604800 )   ; Negative Cache TTL
 
         IN      NS      ns1.scholz.
@@ -179,14 +179,15 @@ Serving the root zone would be mostly trivial: As stated earlier, IANA let’s y
 
 A “default” BIND installation is already set up to act as a normal resolver (if only for localhost by default). The only thing left to do is replacing the `root.hint` (or `named.root`, depending on the system) file with something like this:
 
-    .                        3600000      NS    NS1.EXAMPLE.
-    NS1.EXAMPLE.             3600000      A     0.0.0.0
-    NS1.EXAMPLE       .      3600000      AAAA  ::
-    
-    .                        3600000      NS    NS2.EXAMPLE.
-    NS2.EXAMPLE.             3600000      A     0.0.0.0
-    NS2.EXAMPLE       .      3600000      AAAA  ::
-    
+```dns
+.                        3600000      NS    NS1.EXAMPLE.
+NS1.EXAMPLE.             3600000      A     0.0.0.0
+NS1.EXAMPLE       .      3600000      AAAA  ::
+
+.                        3600000      NS    NS2.EXAMPLE.
+NS2.EXAMPLE.             3600000      A     0.0.0.0
+NS2.EXAMPLE       .      3600000      AAAA  ::
+```
 
 You could also just append to the existing file, to be “backwards compatible”. The default Root Hints are available at [https://www.internic.net/domain/named.root](https://www.internic.net/domain/named.root). One thing to keep in mind though, is that system updates will override that file, so you should move it somewhere else.
 
@@ -197,66 +198,69 @@ Sidenote
 
 On a technical level, a lot of DNS providers already implement fake TLDs, although only CHAOS records exist for them. CHAOS records are used to get information about the DNS server that you are using. For example, when using CloudFlare’s 1.1.1.1 you can send a CHAOS TXT request for `id.server` to find out which of the AnyCast locations you are using:
 
-    merlin@workstation:~> dig CHAOS TXT id.server. @1.1.1.1
-    
-    ; <<>> DiG 9.16.6 <<>> CHAOS TXT id.server. @1.1.1.1
-    ;; global options: +cmd
-    ;; Got answer:
-    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 28916
-    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
-    
-    ;; QUESTION SECTION:
-    ;id.server.                     CH      TXT
-    
-    ;; ANSWER SECTION:
-    id.server.              0       CH      TXT     "DUS"
-    
-    ;; Query time: 0 msec
-    ;; SERVER: 1.1.1.1#53(1.1.1.1)
-    ;; WHEN: Mon Aug 23 20:57:32 CEST 2021
-    ;; MSG SIZE  rcvd: 43
-    
+```dns
+; merlin@workstation:~> dig CHAOS TXT id.server. @1.1.1.1
+
+; <<>> DiG 9.16.6 <<>> CHAOS TXT id.server. @1.1.1.1
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 28916
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;id.server.                     CH      TXT
+
+;; ANSWER SECTION:
+id.server.              0       CH      TXT     "DUS"
+
+;; Query time: 0 msec
+;; SERVER: 1.1.1.1#53(1.1.1.1)
+;; WHEN: Mon Aug 23 20:57:32 CEST 2021
+;; MSG SIZE  rcvd: 43
+```
 
 BIND servers also provide CHAOS records:
 
-    merlin@workstation:~> dig CHAOS TXT version.bind @4.2.2.1
-    
-    ; <<>> DiG 9.16.6 <<>> CHAOS TXT version.bind @4.2.2.1
-    ;; global options: +cmd
-    ;; Got answer:
-    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 58630
-    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-    
-    ;; OPT PSEUDOSECTION:
-    ; EDNS: version: 0, flags:; udp: 4096
-    ;; QUESTION SECTION:
-    ;version.bind.                  CH      TXT
-    
-    ;; ANSWER SECTION:
-    version.bind.           1       CH      TXT     "Version: recursive-main/20717463"
-    
-    ;; Query time: 20 msec
-    ;; SERVER: 4.2.2.1#53(4.2.2.1)
-    ;; WHEN: Mon Aug 23 20:58:56 CEST 2021
-    ;; MSG SIZE  rcvd: 86
-    
-    merlin@workstation:~> dig CHAOS TXT hostname.bind @4.2.2.1
-    
-    ; <<>> DiG 9.16.6 <<>> CHAOS TXT hostname.bind @4.2.2.1
-    ;; global options: +cmd
-    ;; Got answer:
-    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 16012
-    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-    
-    ;; OPT PSEUDOSECTION:
-    ; EDNS: version: 0, flags:; udp: 8192
-    ;; QUESTION SECTION:
-    ;hostname.bind.                 CH      TXT
-    
-    ;; ANSWER SECTION:
-    hostname.bind.          1       CH      TXT     "pubntp1.frf1.Level3.net"
-    
-    ;; Query time: 30 msec
-    ;; SERVER: 4.2.2.1#53(4.2.2.1)
-    ;; WHEN: Mon Aug 23 20:59:29 CEST 2021
-    ;; MSG SIZE  rcvd: 78
+```dns
+; merlin@workstation:~> dig CHAOS TXT version.bind @4.2.2.1
+
+; <<>> DiG 9.16.6 <<>> CHAOS TXT version.bind @4.2.2.1
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 58630
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;version.bind.                  CH      TXT
+
+;; ANSWER SECTION:
+version.bind.           1       CH      TXT     "Version: recursive-main/20717463"
+
+;; Query time: 20 msec
+;; SERVER: 4.2.2.1#53(4.2.2.1)
+;; WHEN: Mon Aug 23 20:58:56 CEST 2021
+;; MSG SIZE  rcvd: 86
+
+; merlin@workstation:~> dig CHAOS TXT hostname.bind @4.2.2.1
+
+; <<>> DiG 9.16.6 <<>> CHAOS TXT hostname.bind @4.2.2.1
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 16012
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 8192
+;; QUESTION SECTION:
+;hostname.bind.                 CH      TXT
+
+;; ANSWER SECTION:
+hostname.bind.          1       CH      TXT     "pubntp1.frf1.Level3.net"
+
+;; Query time: 30 msec
+;; SERVER: 4.2.2.1#53(4.2.2.1)
+;; WHEN: Mon Aug 23 20:59:29 CEST 2021
+;; MSG SIZE  rcvd: 78
+```

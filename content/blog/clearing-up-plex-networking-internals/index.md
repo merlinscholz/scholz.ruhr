@@ -19,13 +19,13 @@ To set up a reverse proxy the proper way (and for the automatic certificate requ
 
 This is a supported configuration if, and only if, you configure Plex' "Custom server access URLs" to point to `https://plex.example.com:443`. Simply writing `plex.example.com` is *not* enough, since Plex will assume everything is still at port 32400, which it is not.
 
-![Screenshot 2023-02-02 at 00.07.42.png](https://ruhrscholz.mataroa.blog/images/07e6259c.png)
+![Plex screenshot showing "Custom Server Access URL" to be https://plex.example.com:443](07e6259c.png)
 
 Where does this address end up though? When an end user loads up `app.plex.tv`, the Plex Inc.-owned servers send a list of all possible locations at which the client can maybe access your Plex instance. This includes the "Custom server access URLs", but also the mystic `plex.direct`-URLs.
 
 While you can easily check your browsers network request panel for those, I've cleaned up mine and pasted them below so you can get a feeling for that request:
 
-```bash
+```console
 curl 'https://plex.tv/api/v2/resources?X-Plex-Client-Identifier=REDACTED&X-Plex-Token=REDACTED' \
   -H 'accept: application/json' \
   | jq '.[] | select(.product=="Plex Media Server")'
@@ -88,7 +88,7 @@ The domains are made up through combining the local IP (both IPv4 and IPv6 are s
 
 Fun fact: Their DNS server does not check the server ID (as long as it's 32 characters long, it doesn't even check for hex characters), it simply ignores it and resolves the local IP part:
 
-```sh
+```console
 dig A +short "123-123-123-123.YouCanWriteAnythingInHere1234567.plex.direct"
 
 123.123.123.123
@@ -119,4 +119,4 @@ This has been a long post for two simple rules. The most important things seem t
 - Set up the "Custom server access URLs" properly (including scheme and port)
 - Make sure your reverse proxy connects to `https://10-1-2-3.insertyourserveridhere.plex.direct:32400` instead of just the IP
 
-If there are any questions or things you would like to have clarified, check the list of my [socials](https://scholz.ruhr/socials/) on how to contact me and I may end up updating this article to clarify things!
+If there are any questions or things you would like to have clarified, check the list of my socials on the homepage on how to contact me and I may end up updating this article to clarify things!

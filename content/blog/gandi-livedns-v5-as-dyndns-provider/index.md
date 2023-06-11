@@ -7,7 +7,7 @@ This is just a simple `curl` command to put in your crontab that updates some do
 
 Replace the domain and API key with your own ones and put the following into your cron file:
 
-```shell-session
+```console
 curl -d "{\"items\":[{\"rrset_type\": \"A\", \"rrset_values\": [\"$(dig +short myip.opendns.com @resolver1.opendns.com)\"]}]}" -X PUT -H "Authorization: Apikey REDACTEDAPIKEY" -H "Content-Type: application/json" https://api.gandi.net/v5/livedns/domains/example.com/records/foobar > /root/last_dyndns_out.txt 
 ```
 

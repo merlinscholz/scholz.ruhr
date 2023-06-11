@@ -39,8 +39,7 @@ Luckily there is a nice thing called a [Dell Tower To Rack Conversion Kit](https
 
 So I searched for the actual rails through the [DellEMC™ Enterprise Systems Rail Sizing and Rack Compatibility Matrix](https://i.dell.com/sites/csdocuments/Business_solutions_engineering-Docs_Documents/en/rail-rack-matrix.pdf). The only ones that fit my server are the DellEMC C2 ReadyRails II. I believe they have Dell PN 5N9DY or maybe HD9VM, although I cannot be sure as according to Dell.com, they don’t exist. A quick ebay search shows a set costing at least 120€. Oof. For now, the server is laying on a rack shelf. 10€.
 
-Noise
------
+## Noise
 
 The noise production was the most important argument in the server selection process. As the T440 is a tower server, it is fairly quiet even without further configuration. After all, there only are two fans installed: One in the PSU (not noticeable) and one in the back (as loud as a usual desktop fan). Quiet, but it is possible to get it to be even more quiet.
 
@@ -52,15 +51,13 @@ But wait! Downgrade failed! It turns out Dell changed the signing certificates i
 
 The newly-acquired manual fan control is so manual that you can even turn off the fan. This is not advisable. I put my fan to 0x08, and while being inaudible (a single external HDD is louder than the whole server), it stays under 48°C under load on a single Xeon Silver 4208. You’ll probably have to experiment a little for yourself, but this is my preferred fan speed.
 
-Disks
------
+## Disks
 
 Disks. They are expensive and the recent Chia-coin did in fact not help. My disks of choice for this project are Western Digital Red 12Tb, mainly because they are quiet and they aren’t too expensive. While they are 320+€ usually, you can buy WD Elements/MyBook external hard drives and [shuck](https://www.howtogeek.com/324769/how-to-get-premium-hard-drives-for-cheap-by-shucking-external-drives/) them to get the WD Reds (or white-labelled WD Reds) that are inside. The external ones usually cost 220€ around here, but you can get them for 180€ if you are lucky. I was not lucky yet, but am hunting for good sales.
 
 I already got a single WD Elements, and shucking ti was extremely easy thanks to the [iFixIt guide](https://www.ifixit.com/Guide/How+to+Shuck+a+WD+Elements+External+Hard+Drive/137646). After that you should run badblocks, but beware, a single run takes multiple hundreds of hours per 12Tb.
 
-Using it
---------
+## Using it
 
 I already flashed the RAID controller - a Dell PERC H330 - to IT mode/HBA mode, using [this awesome guide from Sleyk on ServeTheHome](https://forums.servethehome.com/index.php?threads/flash-crossflash-dell-h330-raid-card-to-hba330-12gbps-hba-it-firmware.25498/) at this point. There’s not much to say about this, worked like a charm, nothing complicated.
 
@@ -75,7 +72,6 @@ Wrong screw placements and too high to fit.
 The onboard SATA ports were a hoax too:
 
 ![An Oculink-2 port labeled as SATA](d2750204.jpeg)
-
 
 Appearantly this is called Oculink-2 (even though it clearly says “SATA”), and a converter is neither cheap nor a nice solution.
 
