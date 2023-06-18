@@ -1,17 +1,20 @@
 {{ define "main" }}
-<div class="flex flex-col md:flex-row justify-between items-center py-8 md:py-24 mt-8 text-left text-zinc-900 dark:text-white gap-6">
-    <div class="drop-shadow-md md:pr-16 md:pl-10">
-        <img class="max-w-[10rem] md:max-w-[12rem] lg:max-w-[14rem]" src="memoji.png" alt="Memoji of me">
+<div class="flex flex-col lg:flex-row-reverse justify-between items-center mt-24 text-left text-zinc-900 dark:text-white gap-6
+    border-2 border-solid border-purple-700 p-4 font-mono items-stretch">
+    <div class="relative">
+        <div class="mx-auto h-[14rem] lg:h-[170%] lg:w-[20rem] relative lg:top-[-40%] bg-[url('/memoji-outline-white.png')] dark:bg-[url('/memoji-outline-zinc-900.png')] bg-contain bg-center bg-no-repeat">
+            
+        </div>
     </div>
     <div class="flex flex-col gap-8 w-full">
-        <div class="text-5xl font-semibold leading-normal text-center md:text-left">
+        <div class="text-xl font-semibold leading-normal text-center md:text-left">
             <a class="underline underline-offset-8 decoration2 transition-colors
                 text-zinc-900 decoration-zinc-300
                 dark:text-white dark:decoration-zinc-500
                 hover:decoration-purple-300 hover:text-purple-700
                 hover:dark:text-purple-500 hover:dark:decoration-purple-400"
                 href="https://en.wikipedia.org/wiki/Moin">Moin</a>
-            there! I'm Merlin<sup class="text-xl relative top-[-1.5em]">he/him</sup>
+            there! I'm Merlin (he/him)
         </div>
         <div class="text-xl leading-normal">
             Sysadmin.&ensp;CS Student.&ensp;German.&ensp;Vegan.&ensp;Bored.
@@ -30,7 +33,7 @@
     </div>
 </div>
 
-<div>
+<div class="mt-14">
     <h1 class="text-4xl text-zinc-900 dark:text-white font-bold pt-14 pb-4 mb-8">Latest Posts</h1>
     {{ range ( first 5 ( where .Site.RegularPages "Type" "blog" )) }}
         {{ partial "articleheading.html" . }}
