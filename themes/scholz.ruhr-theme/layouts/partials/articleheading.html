@@ -1,4 +1,4 @@
-<article class="mb-12">
+<!--<article class="mb-12">
     <time class="block text-sm" datetime="{{ .PublishDate.Format "2006-02-01" }}">
         {{ .PublishDate.Format "January 2, 2006" }}
     </time>
@@ -9,4 +9,18 @@
         hover:dark:text-purple-500 hover:dark:decoration-purple-400">
         {{ .Title }}
     </a>
-</article>
+</article>-->
+
+<li class="pl-[1ch]">
+    <time class="" datetime="{{ .PublishDate.Format "2006-02-01" }}">
+        {{ .PublishDate.Format "2006/01/02" }}
+    </time>
+    -
+    <a href="{{ .Permalink }}" class="text-zinc-900 underline underline-offset-8 decoration2 transition-colors
+    text-zinc-900 decoration-zinc-300
+    dark:text-white dark:decoration-zinc-500
+    hover:decoration-purple-300 hover:text-purple-700
+    hover:dark:text-purple-500 hover:dark:decoration-purple-400">
+    {{ .Title }}
+</a>
+</li>

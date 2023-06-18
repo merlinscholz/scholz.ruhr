@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="flex flex-col lg:flex-row-reverse justify-between items-center mt-24 text-left text-zinc-900 dark:text-white gap-6
-    border-2 border-solid border-purple-700 p-4 font-mono items-stretch">
+    border-2 border-solid border-purple-700 p-4 items-stretch">
     <div class="relative">
         <div class="mx-auto h-[14rem] lg:h-[170%] lg:w-[20rem] relative lg:top-[-40%] bg-[url('/memoji-outline-white.png')] dark:bg-[url('/memoji-outline-zinc-900.png')] bg-contain bg-center bg-no-repeat">
             
@@ -34,17 +34,11 @@
 </div>
 
 <div class="mt-14">
-    <h1 class="text-4xl text-zinc-900 dark:text-white font-bold pt-14 pb-4 mb-8">Latest Posts</h1>
-    {{ range ( first 5 ( where .Site.RegularPages "Type" "blog" )) }}
-        {{ partial "articleheading.html" . }}
-    {{ end }}
-    <div class="text-center py-6">
-        <a href="/blog" class="text-xl underline underline-offset-8 decoration2 transition-colors
-        text-zinc-900 decoration-zinc-300
-        dark:text-white dark:decoration-zinc-500
-        hover:decoration-purple-300 hover:text-purple-700
-        hover:dark:text-purple-500 hover:dark:decoration-purple-400">
-        View all &rarr;</a>
-    </div>
+    <h1 class="text-xl text-zinc-900 dark:text-white font-bold pt-14 pb-8">Latest Posts</h1>
+    <ul class="leading-9 list-['-']">
+        {{ range ( where .Site.RegularPages "Type" "blog" ) }}
+            {{ partial "articleheading.html" . }}
+        {{ end }}
+    </ul>
 </div>
 {{ end }}
