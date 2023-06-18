@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="flex flex-col md:flex-row-reverse justify-between items-center mt-24 text-left text-zinc-900 dark:text-white
+<div class="flex flex-col md:flex-row-reverse justify-between items-center mt-12 md:mt-24 text-left text-zinc-900 dark:text-white
     border-2 border-solid border-purple-700 p-4 items-stretch">
     <div class="relative">
         <div class="mx-auto h-[14rem] md:h-[170%] md:w-[14rem] relative md:top-[-40%] bg-[url('/memoji-outline-white.png')] dark:bg-[url('/memoji-outline-zinc-900.png')] bg-contain bg-center bg-no-repeat">
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<div class="mt-14">
+<div class="mt-10 md:mt-14">
     <h1 class="text-xl text-zinc-900 dark:text-white font-bold pt-14 pb-8">Latest Posts</h1>
     <ul class="list-['-']">
         {{ range ( where .Site.RegularPages "Type" "blog" ) }}
