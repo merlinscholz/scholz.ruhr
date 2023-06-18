@@ -1,8 +1,8 @@
 {{ define "main" }}
-<div class="flex flex-col lg:flex-row-reverse justify-between items-center mt-24 text-left text-zinc-900 dark:text-white gap-6
+<div class="flex flex-col md:flex-row-reverse justify-between items-center mt-24 text-left text-zinc-900 dark:text-white
     border-2 border-solid border-purple-700 p-4 items-stretch">
     <div class="relative">
-        <div class="mx-auto h-[14rem] lg:h-[170%] lg:w-[20rem] relative lg:top-[-40%] bg-[url('/memoji-outline-white.png')] dark:bg-[url('/memoji-outline-zinc-900.png')] bg-contain bg-center bg-no-repeat">
+        <div class="mx-auto h-[14rem] md:h-[170%] md:w-[14rem] relative md:top-[-40%] bg-[url('/memoji-outline-white.png')] dark:bg-[url('/memoji-outline-zinc-900.png')] bg-contain bg-center bg-no-repeat">
             
         </div>
     </div>
@@ -35,7 +35,7 @@
 
 <div class="mt-14">
     <h1 class="text-xl text-zinc-900 dark:text-white font-bold pt-14 pb-8">Latest Posts</h1>
-    <ul class="leading-9 list-['-']">
+    <ul class="list-['-']">
         {{ range ( where .Site.RegularPages "Type" "blog" ) }}
             {{ partial "articleheading.html" . }}
         {{ end }}

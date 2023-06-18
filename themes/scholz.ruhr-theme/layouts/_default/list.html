@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div>
   <h1 class="text-4xl text-zinc-900 dark:text-white font-bold pt-14 pb-8">{{ .Title }}</h1>
-  <ul class="leading-9 list-outside list-['-']">
+  <ul class="list-outside list-['-']">
   {{ range .Pages }}
   {{ partial "articleheading.html" . }}
   {{ end }}
