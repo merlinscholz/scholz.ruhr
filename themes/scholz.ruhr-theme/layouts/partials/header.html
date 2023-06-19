@@ -15,7 +15,6 @@
             {{ range site.Menus.main }}
                 <a class="text-sm md:text-base mx-0 md:ml-4 inline-block
                     before:font-bold after:font-bold before:content-['['] after:content-[']'] 
-                    transition-colors before:transition-colors after:transition-colors
                     {{ if $currentPage.IsMenuCurrent .Menu . }}
                         text-zinc-900 dark:text-white
                         before:text-purple-500 after:text-purple-500

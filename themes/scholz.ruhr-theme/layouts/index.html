@@ -7,26 +7,18 @@
         </div>
     </div>
     <div class="flex flex-col gap-8 w-full">
-        <div class="text-xl font-semibold leading-normal text-center md:text-left">
-            <a class="underline underline-offset-8 decoration2 transition-colors
-                text-zinc-900 decoration-zinc-300
-                dark:text-white dark:decoration-zinc-500
-                hover:decoration-purple-300 hover:text-purple-700
-                hover:dark:text-purple-500 hover:dark:decoration-purple-400"
+        <div class="text-xl font-semibold text-center md:text-left">
+            <a class="underline underline-offset-4 hover:text-white hover:bg-purple-700"
                 href="https://en.wikipedia.org/wiki/Moin">Moin</a>
             there! I'm Merlin (he/him)
         </div>
-        <div class="text-xl leading-normal">
+        <div class="text-xl">
             Sysadmin.&ensp;CS Student.&ensp;German.&ensp;Vegan.&ensp;Bored.
         </div>
-        <div class="text-xl leading-normal">
+        <div class="text-xl">
             {{ range .Site.Menus.social }}
                 <a rel="me" href="{{ .URL }}"
-                class="inline-block underline underline-offset-8 decoration2 transition-colors 
-                text-zinc-900 decoration-zinc-300
-                dark:text-white dark:decoration-zinc-500
-                hover:decoration-purple-300 hover:text-purple-700
-                hover:dark:text-purple-500 hover:dark:decoration-purple-400">{{ .Name }}
+                class="inline-block underline-offset-4 underline hover:text-white hover:bg-purple-700">{{ .Name }}
                 </a>&ensp;
             {{ end }}
         </div>
