@@ -7,7 +7,7 @@ This is an update to [IPv6, FRITZ!Box, and MikroTik](https://scholz.ruhr/blog/ip
 
 I finally figured everything[^1] out.
 
-[^1]: Not quite everything, DNS advertisement on RouterOS is still wonky
+[^1]: ~~Not quite everything, DNS advertisement on RouterOS is still wonky~~ No really, everything (check the update at the bottom)
 
 TL;DR: SLAAC.
 
@@ -94,6 +94,19 @@ Flags: X - disabled, I - invalid; D - dynamic
 
 The great thing about this setup is that everything is stateless. This includes the ULA addresses, so we can even set up DNS: Every host's IPv6 address is a combination of the ULA prefix for that given subnet and its MAC address. You can simply read it out and throw it in your DNS server.
 
-But: MikroTik has a terrible implementation for Router Advertisements with DNS. While it is possible to have them hand out DNS addresses (`/ipv6/nd`, field `advertise-dns`), you cannot configure those. It will always use the upstream DNS addresses configured in `/ip/dns`. This is the *worst* possible implementation as it essentially works fine, but skips everything you manually configures in your router's DNS server. It also skips caching. Some forum posts suggest creating a DHCPv6 server that only advertises DNS servers, but I couldn't get this to work on modern RouterOS. My solution is that I'm running a separate local DNS server anyways, which is configured in the MikroTik router, so it actually hands out the proper DNS server (even without DHCPv6). Another solution would be configuring the DNS manually in every client (which it seems isn't possible with some devices like Apple TVs, at least not for IPv6), but that's a lot of work.
+~~But: MikroTik has a terrible implementation for Router Advertisements with DNS. While it is possible to have them hand out DNS addresses (`/ipv6/nd`, field `advertise-dns`), you cannot configure those. It will always use the upstream DNS addresses configured in `/ip/dns`. This is the *worst* possible implementation as it essentially works fine, but skips everything you manually configures in your router's DNS server. It also skips caching. Some forum posts suggest creating a DHCPv6 server that only advertises DNS servers, but I couldn't get this to work on modern RouterOS. My solution is that I'm running a separate local DNS server anyways, which is configured in the MikroTik router, so it actually hands out the proper DNS server (even without DHCPv6). Another solution would be configuring the DNS manually in every client (which it seems isn't possible with some devices like Apple TVs, at least not for IPv6), but that's a lot of work.~~
 
-Well, apart from strange DNS everything seems to work for now, I even disabled IPv4 completely to test if everything works fine and it did. For now.
+~~Well, apart from strange DNS everything seems to work for now, I even disabled IPv4 completely to test if everything works fine and it did. For now.~~
+
+Update from the future (2023/06/20): They fixed it! Either in RouterOS 7.9 or 7.10 a new option `dns` appeared:
+
+```console
+[admin@cr1.merlin1.internal] > /ipv6/nd/print
+Flags: X - disabled, I - invalid; * - default
+ 0  * interface=all ra-interval=3m20s-10m ra-delay=3s mtu=unspecified
+      reachable-time=unspecified retransmit-interval=unspecified
+      ra-lifetime=30m ra-preference=medium hop-limit=64
+      advertise-mac-address=yes advertise-dns=yes
+      managed-address-configuration=no other-configuration=no
+      dns=fd35:f965:28de:0:4450:6bff:fe9e:c01 pref64=""
+```
