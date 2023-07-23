@@ -134,11 +134,17 @@ Since we moved down one OSI layer, we use IP routing for routing instead of DNS 
 
 ### ACME
 
-We do not have a single TLS terminating proxy anymore. Instead, all TLS connections are being terminated at their respective services (again, so that we can take different routes to them). A neat little detail about Let's Encrypt or ACME in general is, that it always tries IPv6 first. This is important, since the ACME HTTP-01 challenge works over plain HTTP, which does not have SNI headers and thus can not be forwarded via snid. But since IPv6 doesn't go through snid but rather to the server directly, everything works as it should. Services that can use ACME themselves (like Proxmox) can set themselves up, for everything else there's Caddy. No need for DNS-01 challenges anymore.
+We do not have a single TLS terminating proxy anymore. Instead, all TLS connections are being terminated at their respective services (again, so that we can take different routes to them). A neat little detail about Let's Encrypt or ACME in general is, that it always tries IPv6 first. This is important, since the ACME HTTP-01 challenge works over plain HTTP, which does not have SNI headers and thus can not be forwarded via snid. But since IPv6 doesn't go through snid but rather to the server directly, everything works as it should. Services that can use ACME themselves (like Proxmox) can set themselves up, for everything else there's Caddy.
+
+<iframe src="https://toot.kif.rocks/@ruhrscholz/110720251329511174/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://toot.kif.rocks/embed.js" async="async"></script>
+
+No need for DNS-01 challenges anymore.
 
 ### Adding services
 
 Adding services has become easier as well. I just have to spin up the VM, assign the IP address and configure DNS. During install, the hostname get automatically configured via reverse DNS. Snid pulls from DNS the moment it processes a request, and that's it.
+
+<iframe src="https://toot.kif.rocks/@ruhrscholz/110719939842806708/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://toot.kif.rocks/embed.js" async="async"></script>
 
 ### No More Port Forwarding
 
@@ -158,6 +164,9 @@ A lot of stuff still needs IPv4. In the beginning my server subnet was IPv6-only
 
 - Plex sends some kind of ping every few minutes or hours to plex.tv to show the system that your server is still alive. That was a particularly annoying issue, as my local Plex server seemed to work fine, but would just disappear completely after a few hours, even from its own web interface. Took some time to find that issue.
 - GitHub. When you set up servers, you sooner or later have to pull something from GitHub. Be it Nextcloud plugins, Uptime Kuma, Tautulli, everything needs GitHub. Guess which VCS provider doesn't have IPv6 enabled on their apex domain? Exactly. But at least they offer IPv6 for GitHub Pages on apex domains, that's why I moved my sites there from Netlify and Vercel.
+
+<iframe src="https://toot.kif.rocks/@ruhrscholz/110719187528314497/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://toot.kif.rocks/embed.js" async="async"></script>
+
 - Akkoma. I tried to set up Akkoma (same issues with Pleroma). First of all there were problems with the connection to my (IPv6-only) database. By default, Akkoma doesn't check AAAA records. That issue has been solved by checking [Pleroma's GitLab issues](https://git.pleroma.social/pleroma/pleroma/-/issues/214#note_9438). I was happy to have a working Fedi server, but of course there were troubles again. Akkoma, being an ActivityPub server, has to connect to other instances to actually do useful stuff. But exactly like with the database connection, it only checks for A records. Meaning federation was completely broken, in a way that could not be solved by NAT64. Checking the source code for an easy fix is somewhere on my TODO list.
 
 You see, there is no way to not use IPv4. Sadly. I could think of two workarounds:
