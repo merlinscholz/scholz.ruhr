@@ -8,10 +8,13 @@ copyright = "CC BY-NC-SA 4.0"
 [markup]
   [markup.highlight]
     noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true # Allow HTML in md files
 
 [outputs]
     home = ["HTML", "ATOM"]
     section = ["HTML"]
+
 
 [menu]
     [[menu.main]]
