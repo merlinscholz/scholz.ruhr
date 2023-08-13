@@ -3,7 +3,7 @@ date: "2021-08-23"
 title: "(Fake) Alternative DNS Roots"
 ---
 
-> Attention: This is an outdated post. Since it was published, I've written a more complete article about a real alternative DNS root. I'll leave this up not to break any existing links. You can find the new post [here](https://scholz.ruhr/post/real-alternative-dns-roots). 
+> Attention: This is an outdated post. Since it was published, I've written a more complete article about a real alternative DNS root. I'll leave this up not to break any existing links. You can find the new post [here](https://scholz.ruhr/blog/real-alternative-dns-roots). 
 
 > Note: We will technically not set up a “true” alternative DNS root, although it will do exactly the same. I will explain the differences later on.
 
