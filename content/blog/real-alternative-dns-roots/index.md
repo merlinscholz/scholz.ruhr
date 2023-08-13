@@ -3,7 +3,7 @@ date: "2022-02-08"
 title: "(Real) Alternative DNS Roots"
 ---
 
-This is meant to be a follow-up to my post about [Alternative DNS Roots](https://scholz.ruhr/post/alternative-dns-roots/). In that article we set up a DNS resolver that resolves a new, custom TLD because we decided we do not trust our current registrar. There's also some more information about how DNS works in there. At that point I noted that we did not set up a "real alternative DNS root":
+This is meant to be a follow-up to my post about [Alternative DNS Roots](https://scholz.ruhr/blog/alternative-dns-root). In that article we set up a DNS resolver that resolves a new, custom TLD because we decided we do not trust our current registrar. There's also some more information about how DNS works in there. At that point I noted that we did not set up a "real alternative DNS root":
 
 > To have a true alternative DNS root, we would have to replace our single resolving DNS server with two servers: One that uses some other Root Servers, and one that acts as Root Server. The result would mostly be the same, except for the fact that other people could easily set up DNS resolvers that point to our Root Server.
 
