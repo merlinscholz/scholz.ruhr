@@ -11,7 +11,7 @@ Let's fix this. The last post contained some vague chapters, you can look at thi
 
 ## Flashback
 
-If you've already know DNS or have read the old article you can safely [skip this chapter](#heading-working-environment), as it is mostly adapted from there.
+If you've already know DNS or have read the old article you can safely [skip this chapter](#working-environment), as it is mostly adapted from there.
 
 Can you really trust your domain registrar? After all they could at any point decide to just delete your domain. A solution? Becoming your own registrar. But since all TLDs are already being managed by somebody, and registering a new gTLD would [set you back around US$185,000](https://newgtlds.icann.org/en/applicants/global-support/faqs/faqs-en):
 
