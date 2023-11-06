@@ -41,7 +41,7 @@ The first one was containerd (the backend Docker usually uses internally) and ne
 
 ### Podman
 
-Podman is a perfect. A drop-in replacement for Docker, without service, perfect rootless support, it can even generate systemd unit files from running containers. And the best feature? Pods. The Pod concept we all love, taken from Kubernetes, made lightweight, and integrated into a normal container management tool. To make this even better, Podman can read (most) Kubernetes YAML files. And since both Podman and Ansible are heavily influenced by RedHat, the Podman support in Ansible is surprisingly usable. That is what my current tech stack is running on right now, Podman on Ansible, based on Kubernetes YAML files. You can see the configuration to deploy my server [in this repo](https://github.com/ruhrscholz/homelab/tree/880af120cfdce32a5e4e5528da10f52eed674566).
+Podman is a perfect. A drop-in replacement for Docker, without service, perfect rootless support, it can even generate systemd unit files from running containers. And the best feature? Pods. The Pod concept we all love, taken from Kubernetes, made lightweight, and integrated into a normal container management tool. To make this even better, Podman can read (most) Kubernetes YAML files. And since both Podman and Ansible are heavily influenced by RedHat, the Podman support in Ansible is surprisingly usable. That is what my current tech stack is running on right now, Podman on Ansible, based on Kubernetes YAML files. You can see the configuration to deploy my server [in this repo](https://github.com/merlinscholz/homelab/tree/880af120cfdce32a5e4e5528da10f52eed674566).
 
 ## New Base OS
 

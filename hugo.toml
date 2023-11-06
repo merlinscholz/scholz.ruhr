@@ -1,7 +1,7 @@
 baseURL = 'https://scholz.ruhr/'
 languageCode = 'en-us'
 title = 'scholz.ruhr'
-theme = 'scholz.ruhr-theme'
+theme = 'v5'
 pluralizelisttitles = false
 copyright = "CC BY-NC-SA 4.0"
 
@@ -36,7 +36,7 @@ copyright = "CC BY-NC-SA 4.0"
         weight = 10
     [[menu.social]]
         name = 'GitHub'
-        url = 'https://github.com/ruhrscholz'
+        url = 'https://github.com/merlinscholz'
         weight = 20
     [[menu.social]]
         name = 'More about me →'

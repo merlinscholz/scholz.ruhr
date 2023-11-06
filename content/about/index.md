@@ -12,4 +12,4 @@ I have finished getting my masters's degree in Computer Sciences at the [TU Dort
 
 My main points of interest are getting enterprise-grade-technology to run in here, explore the limits of what things you can do with soft- and hardware, but mostly do dumb things that come to my mind.
 
-You can also find me on [Mastodon](https://toot.kif.rocks/@ruhrscholz) and [GitHub](https://github.com/ruhrscholz).
+You can also find me on [Mastodon](https://toot.kif.rocks/@ruhrscholz) and [GitHub](https://github.com/merlinscholz).

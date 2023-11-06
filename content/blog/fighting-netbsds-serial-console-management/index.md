@@ -33,7 +33,7 @@ The trick in this mail isn't even documented anywhere in FreeBSD.
 
 And it uses a command that isn't even implemented in NetBSD 🙂.
 
-At this point I had enough and did [what everybody would do](https://github.com/ruhrscholz/lockdoc-netbsd/commit/0e44bf4b6cc27acd40d8a7b5d3342a233d22ed25) in `sys/kern/tty.c`:
+At this point I had enough and did [what everybody would do](https://github.com/merlinscholz/lockdoc-netbsd/commit/0e44bf4b6cc27acd40d8a7b5d3342a233d22ed25) in `sys/kern/tty.c`:
 ```c
 #ifndef EXPERIMENT
 #define	CONNECTED(tp)	(ISSET(tp->t_state, TS_CARR_ON) ||	\
