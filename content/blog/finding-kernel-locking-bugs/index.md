@@ -8,7 +8,7 @@ This post will be my attempt to package up my master's thesis in a format that c
 
 ## Locking is Hard
 
-{{/* Grob/Fein */}} 
+{{/* Grob/Fein */}}
 
 ## Locking a Kernel
 
@@ -39,8 +39,40 @@ As you can see by know, working on kernel code can be hard, since there is no si
 
 There have been some attempts of finding kernel issues. You usually can put them into one of the four categories:
 
-### Dynamic Analysis 
+### Dynamic Analysis
+
+One way of doing thigs is the dynamic approach, also called on-the-fly analysis. You first modify the code you want to analyze in such a way that it checks the current locking state after every relevant operations, be it actual locking operations, variable accesses, or depending on the implementation even memory accesses in general. Afterwards, the goal is to run as many code paths as possible to achieve maximum code coverage, and thus check the most locking states.
+
+This method has some advantages. One if them consists of the fact, that only actually executable code-paths are being analyzed. This may sound obvious, but as you will see later, is not a given with some of the other approaches. Another pro of this approach is the lack of abstraction layer which could affect the results.
+
+The dynamic analysis has a good chunk of disadvantages though. For one does it require an additional computational overhead at runtime. In the worst case, this can lead to some race conditions not occuring anymore, since the code is running slower. Furthermore, the analysis of time-sensitive code (i.e. software that interfaces with the outside world) is usually not possible anymore.
+
+The last disadvantage is that at the time of analysis of a specific line of code, only past states are known. This is in contrast to analysis methods that do the heavy-lifting after the program has finished execution, where at any given point all memory accesses, past or "future", are known.
+
+### Static Analysis
+
+### Model Checking
+
+## LockDoc
+
+### How does it work?
+
+### Locking-Rule Derivation
+
+### Analysis
+
+## Implementation
+
+### Basic Modifications
+
+### Instrumentation
+
+### Challenges
+
+## Results
 
 ## Want More Details?
 
 You've read through this and still aren't bored yet? Good news, you can [read my entire, German thesis](./Untersuchung%20der%20Kernsynchronisation%20in%20NetBSD%20mittels%20LockDoc.pdf) right now!
+
+Also if you have any questions, I'm happy to answer them! Shoot me a message on [Matrix](https://matrix.to/#/@ruhrscholz:kif.rocks), [Mastodon](https://toot.kif.rocks/@ruhrscholz), or an [email](mailto:hi@scholz.ruhr)!
