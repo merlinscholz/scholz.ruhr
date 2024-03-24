@@ -40,7 +40,7 @@ As you can see by know, working on kernel code can be hard, since there is no si
 
 LockDoc is based on previous work done in [LockDoc: Trace-Based Analysis of Locking in the Linux Kernel](https://ess.cs.tu-dortmund.de/Staff/al/Publications/files/eurosys-2019-lockdoc-lochmann.pdf) and its related papers. It is based on post mortem analysis, i.e. it first logs all memory and locking operations and analyzes them at a later point in time. If you're interested in alternatives to post mortem analysis, I recommend you read [RacerX: effective, static detection of race conditions and deadlocks](https://dl.acm.org/doi/abs/10.1145/1165389.945468) (or my own, German thesis, linked at the bottom).
 
-LockDoc has already successfully been used to analyze both the [Linux](https://ess.cs.tu-dortmund.de/Staff/al/Publications/files/eurosys-2019-lockdoc-lochmann.pdf) and [FreeBSD](https://dl.gi.de/items/a4ebd215-442c-4c2b-ae86-c8854b4bcf82) VFS subsystems.
+LockDoc has already successfully been used to analyze both the [Linux](https://ess.cs.tu-dortmund.de/Staff/al/Publications/files/eurosys-2019-lockdoc-lochmann.pdf) and [FreeBSD](https://dl.gi.de/items/a4ebd215-442c-4c2b-ae86-c8854b4bcf82) VFS subsystems. In my thesis, I applied those principles to NetBSD, also choosing the VFS subsystem.
 
 ### How does it work?
 
