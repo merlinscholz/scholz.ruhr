@@ -1,5 +1,5 @@
 ---
-title: "Finding NetSBD Kernel Bugs through LockDoc"
+title: "Finding NetBSD Kernel Bugs through LockDoc"
 date: "2024-03-24"
 ---
 
