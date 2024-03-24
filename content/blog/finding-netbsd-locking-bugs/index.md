@@ -282,4 +282,8 @@ All of the tooling can now be found on GitLab at [gitlab.com/lockdoc](https://gi
 
 You've read through this and still aren't bored yet? Good news, you can [read my entire, German thesis](./Untersuchung%20der%20Kernsynchronisation%20in%20NetBSD%20mittels%20LockDoc.pdf) right now!
 
-Also if you have any questions, I'm happy to answer them! Shoot me a message on [Matrix](https://matrix.to/#/@ruhrscholz:kif.rocks), [Mastodon](https://toot.kif.rocks/@ruhrscholz), or an [email](mailto:hi@scholz.ruhr)!
+Also if you have any questions, I'm happy to answer them! You can best reach me by just commenting on the Fediverse post at:
+
+<iframe src="https://toot.kif.rocks/@ruhrscholz/112152492661636360/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://toot.kif.rocks/embed.js" async="async"></script>
+
+Alternatively, you can shoot me a message on [Matrix](https://matrix.to/#/@ruhrscholz:kif.rocks), [Mastodon](https://toot.kif.rocks/@ruhrscholz), or an [email](mailto:hi@scholz.ruhr)!
