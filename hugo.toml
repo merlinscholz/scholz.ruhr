@@ -1,7 +1,7 @@
 baseURL = 'https://scholz.ruhr/'
 languageCode = 'en-us'
 title = 'scholz.ruhr'
-theme = 'v5'
+theme = 'v6'
 pluralizelisttitles = false
 copyright = "CC BY-NC-SA 4.0"
 

@@ -1,0 +1,86 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+box-sizing: border-box;
+}
+* {
+margin: 0;
+}
+body {
+line-height: 1.5;
+-webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+}
+input, button, textarea, select {
+font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+overflow-wrap: break-word;
+}
+#root, #__next {
+isolation: isolate;
+}
+
+body{
+    background: #150006;
+    color: rgba(255,255,255,0.9);
+    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+header{
+    height:64px;
+    border-bottom: solid 1px rgba(255,255,255,0.15);
+    background: rgba(0,0,0,0.33);
+    position: sticky;
+    top:0;
+    backdrop-filter: blur(10px);
+}
+.main-section-header-wrapper{
+
+    background: #150006;
+    background: linear-gradient(0deg, rgba(255,116,156,0.05) 33%, rgba(21,0,6,1) 100%);
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+.main-section-header{
+    display:flex;
+    align-items: center;
+    padding:125px 20px;
+    max-width: 1280px;
+    margin:0 auto;
+    gap: 48px;
+}
+.main-section-header div:nth-of-type(1) span{
+    color: #FF749C;
+    font-size: 56pt;
+    line-height: 1.2;
+    display: block;
+    margin-bottom: 20px;
+}
+.main-section-header div:nth-of-type(1) p{
+    color: rgba(255,255,255,0.9);
+    font-weight: medium;
+    font-size: 20pt;
+    line-height: 1.6;
+}
+.main-section-work{
+    display: flex;
+    align-items: center;
+    padding:125px 20px;
+    max-width: 1280px;
+    margin:0 auto;
+    gap: 128px;
+}
+.main-section-work div:nth-of-type(1) pre{
+    line-height: 1.2;
+    font-size: 10pt;
+    color:#FF749C
+}
+.main-section-work div:nth-of-type(2) p{
+    font-size: 24pt;
+    line-height: 1.4;
+    margin-bottom:1em
+}
