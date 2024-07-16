@@ -1,8 +1,7 @@
 <meta charset="utf-8">
 <title>{{ if not .IsHome }}{{ if .Page.Title }}{{ .Page.Title }} - {{ end }}{{ end }}{{ .Site.Title }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="/tw.css">
-<link rel="stylesheet" href="/syntax.css">
+<link rel="stylesheet" href="/style.css">
 <link rel="canonical" href="{{ .Permalink }}">
 {{ with .Site.Home }}
     {{ range .AlternativeOutputFormats -}}
@@ -11,6 +10,3 @@
 {{ end }}
 {{ template "_internal/opengraph.html" . }}
 {{ template "_internal/twitter_cards.html" . }}
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">

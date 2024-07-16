@@ -1,0 +1,8 @@
+<header>
+    <nav>
+        {{ $currentPage := . }}
+        {{ range site.Menus.main }}
+            <a href="{{ .URL }}">{{ .Name }}</a>
+        {{ end }}
+    </nav>
+</header>

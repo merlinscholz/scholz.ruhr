@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div>
+  <h1>{{ .Title }}</h1>
+  <ul>
+  {{ range .Pages }}
+  {{ partial "articleheading.html" . }}
+  {{ end }}
+  </ul>
+</div>
+{{ end }}

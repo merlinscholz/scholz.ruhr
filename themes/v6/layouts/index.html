@@ -1,0 +1,5 @@
+{{ define "main" }}
+        {{ range ( where .Site.RegularPages "Type" "blog" ) }}
+            {{ partial "articleheading.html" . }}
+        {{ end }}
+{{ end }}

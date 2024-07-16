@@ -1,0 +1,9 @@
+<li>
+    <time datetime="{{ .PublishDate.Format "2006-01-02" }}">
+        {{ .PublishDate.Format "2006/01/02" }}
+    </time>
+    -
+    <a href="{{ .Permalink }}">
+    {{ .Title }}
+</a>
+</li>
