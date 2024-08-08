@@ -1,0 +1,16 @@
+{{ define "main" }}
+<main class="wrapper"  id="main">
+    <article>
+        {{ if .PublishDate }}
+            <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
+        {{ end }}
+        <h1>
+            {{.Title}}
+        </h1>
+        
+        {{ .Content }}
+        
+        
+    </article>
+</main>
+{{ end }}

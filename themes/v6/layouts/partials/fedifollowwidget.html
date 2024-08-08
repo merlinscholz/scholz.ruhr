@@ -1,0 +1,27 @@
+
+<span class="mastowidgettitle">Fediverse</span>
+<form id="fediFollowWidget" class="mastowidget" action="#">
+    <input id="fediFollowWidgetHandle" type="text" placeholder="Your handle">
+    <input type="submit" value="Remote Follow">
+</form>
+<script>
+    document.getElementById("fediFollowWidget").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const value = document.getElementById("fediFollowWidgetHandle").value;
+        const [_, host] = value.split('@');
+
+        fetch(`https://${host}/.well-known/webfinger?resource=acct:${value}`)
+            .then(r => r.json())
+            .then(j => {
+                j.links.forEach(link => {
+                    if (link.rel === 'http://ostatus.org/schema/1.0/subscribe') {
+                        location.href = link.template.replace('{uri}', 'ruhrscholz@toot.kif.rocks');
+                    }
+                })
+            })
+        .catch(() => {
+                alert('Account nicht gefunden!')
+            })
+        
+    })
+</script>

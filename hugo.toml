@@ -17,34 +17,80 @@ copyright = "CC BY-NC-SA 4.0"
 
 
 [menu]
-    [[menu.main]]
+    [[menu.navbar_main]]
         name = 'Home'
         pageRef = '/'
         weight = 10
-    [[menu.main]]
-        name = 'Blog'
-        pageRef = 'blog'
-        weight = 20
-    [[menu.main]]
+    [[menu.navbar_main]]
         name = 'About'
-        pageRef = 'about'
+        pageRef = '/about'
+        weight = 20
+    [[menu.navbar_main]]
+        name = 'Now'
+        pageRef = '/now'
         weight = 30
+        
+    [[menu.navbar_main]]
+        name = 'Uses'
+        pageRef = '/uses'
+        weight = 40
+    [[menu.navbar_main]]
+        name = 'Friends'
+        pageRef = '/friends'
+        weight = 50
     
-    [[menu.social]]
-        name = 'Mastodon'
+    [[menu.navbar_writing]]
+        name = 'Blog'
+        pageRef = '/blog'
+        weight = 10
+    [[menu.navbar_writing]]
+        name = 'Blog'
+        pageRef = '/blog'
+        weight = 20
+    [[menu.navbar_writing]]
+        name = 'Notes'
+        pageRef = '/notes'
+        weight = 30
+    [[menu.navbar_writing]]
+        name = 'Projects'
+        pageRef = '/projects'
+        weight = 40
+    
+    [[menu.navbar_social]]
+        name = 'Fediverse'
         url = 'https://toot.kif.rocks/@ruhrscholz'
         weight = 10
-    [[menu.social]]
+    [[menu.navbar_social]]
         name = 'GitHub'
-        url = 'https://github.com/merlinscholz'
+        url = 'https://github.com/merlinscholz/'
         weight = 20
-    [[menu.social]]
-        name = 'More about me →'
-        pageRef = 'about'
-        weight = 50
+    [[menu.navbar_social]]
+        name = 'Matrix'
+        url = 'https://matrix.to/#/@ruhrscholz:matrix.kif.rocks'
+        weight = 30
+
+    [[menu.friends]]
+        name = 'Michael'
+        url = 'https://blog.mei-home.net/'
+        weight = 20
+    [[menu.friends]]
+        name = 'Linus'
+        url = 'https://linus.dev'
+        weight = 10
+    [[menu.friends]]
+        name = 'sdomi'
+        url = 'https://sdomi.pl'
+        weight = 30
+    [[menu.friends]]
+        name = 'famfo'
+        url = 'https://famfo.xyz'
+        weight = 8
+
+
+
 
 [params]
-    mainSections = ["blog"]
+    mainSections = ["blog", "notes", "projects"]
 
 [mediaTypes]
     [mediaTypes."application/atom+xml"]
