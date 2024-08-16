@@ -5,6 +5,9 @@ theme = 'v5'
 pluralizelisttitles = false
 copyright = "CC BY-NC-SA 4.0"
 
+disableKinds = ["taxonomy"]
+
+
 [markup]
   [markup.highlight]
     noClasses = false
@@ -43,3 +46,4 @@ copyright = "CC BY-NC-SA 4.0"
         isHTML = false
         noUgly = true
         permalinkable = false
+
