@@ -22,26 +22,9 @@ copyright = "CC BY-NC-SA 4.0"
         pageRef = '/'
         weight = 10
     [[menu.main]]
-        name = 'Blog'
-        pageRef = 'blog'
-        weight = 20
-    [[menu.main]]
-        name = 'About'
-        pageRef = 'about'
-        weight = 30
-    
-    [[menu.social]]
-        name = 'Mastodon'
+        name = 'Fediverse'
         url = 'https://toot.kif.rocks/@ruhrscholz'
-        weight = 10
-    [[menu.social]]
-        name = 'GitHub'
-        url = 'https://github.com/merlinscholz'
         weight = 20
-    [[menu.social]]
-        name = 'More about me →'
-        pageRef = 'about'
-        weight = 50
 
 [params]
     mainSections = ["blog"]

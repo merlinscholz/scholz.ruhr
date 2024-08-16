@@ -5,7 +5,7 @@
 </div>
 <hr>
 <div>
-    <p>You can find my latest posts below:</p>
+    <p>You can find my posts below:</p>
     <ul>
         {{ range ( where .Site.RegularPages "Type" "blog" ) }}
             {{ partial "articleheading.html" . }}
