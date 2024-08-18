@@ -35,3 +35,5 @@ Of course the concept of an e.V., or a non-profit organization is not limited to
 Have you had any experience, good or bad, with moving to a smaller, more local hosting provider? If so, tell me in the replies to this post:
 
 <iframe src="https://toot.kif.rocks/@ruhrscholz/112983462540568791/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://toot.kif.rocks/embed.js" async="async"></script>
+
+PS: I forgot an e.V. I'm using for a long time: The [Förderverein der KIF e.V.](https://wiki.kif.rocks/wiki/Verein:Hauptseite) that I use for my Mastodon and Matrix accounts on [kif.rocks](http://kif.rocks). I guess past me was on the right track all those years ago.
