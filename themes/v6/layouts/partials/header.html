@@ -1,21 +1,8 @@
-<div class="wrapper">
-    <header>
-        {{ partial "mainnav.html" . }}
-        <div class="page-title">
-            <a href="{{ .Site.BaseURL }}" class="no-link-arrow">{{ .Site.Title }}</a>
-            <!--<div class="colors">
-                <div style="background-color: #ffffff; border:solid 1px rgba(0,0,0,.3)"></div>
-                <div style="background-color: #ffafc8;"></div>
-                <div style="background-color: #74d7ee;"></div>
-                <div style="background-color: #613915;"></div>
-                <div style="background-color: #000000; border:solid 1px rgba(255,255,255,.3)"></div> 
-                <div style="background-color: #e40303;"></div>
-                <div style="background-color: #ff8c00;"></div>
-                <div style="background-color: #ffed00;"></div>
-                <div style="background-color: #008026;"></div>
-                <div style="background-color: #24408e;"></div>
-                <div style="background-color: #732982;"></div>
-            </div>-->
-        </div>
-    </header>
-</div>
+<nav class="navbar">
+        <a href="/" class="no-link-arrow">scholz.ruhr</a>
+        <div class="fill"></div>
+        {{ $currentPage := . }}
+        {{ range site.Menus.navbar }}
+            <a href="{{ .URL }}" target="{{ if in .URL "://" }}_blank{{ else }}_self{{ end }}" class="no-link-arrow {{ if $currentPage.IsMenuCurrent .Menu . }}active-menu-item{{ end }}">{{ .Name }}</a>
+        {{ end }}
+</nav>

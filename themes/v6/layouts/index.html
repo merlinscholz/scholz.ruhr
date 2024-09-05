@@ -1,67 +1,7 @@
 {{ define "main" }}
 
-<main id="main">
-    <div class="wrapper" id="main">
-        <div class="home-intro">
-            <div>
-                <p><a href="https://en.wikipedia.org/wiki/Moin" class="no-underline">Moin</a> there! I'm Merlin (he/him)</p>
-                <hr class="stub">
-                <p>A sysadmin and application engineer from Germany.</p>
-            </div>
-            <picture class="home-pfp">
-            </picture>
-        </div>
-    </div>
-    <div class="wrapper">
-        <section class="home-section">
-            <h2>
-                Tech
-            </h2>
-            <div>
-                <p>
-                    At day I work in the IT department of a huge banking organization. My role involves managing a range of systems, from legacy AIX to modern Kubernetes applications.
-                </p>
-                <p>
-                    Before that I studied computer science at the <a href="https://www.tu-dortmund.de/en/" target="_blank">TU Dortmund</a>, where I got my bachelor's and master's degrees.
-                </p>
-            </div>
-        </section>
-        <section class="home-section">
-            <h2>
-                Writing
-            </h2>
-            <div>
-                <p> 
-                    While I can't share too many details about my work, I can write about how I spend my free time tinkering with my Homelab. This allows me to explore new technologies, self-host various services, and occasionally break things for fun.
-                </p>
-            </div>
-        </section>
-        <section class="home-section">
-            <h2>
-                Projects
-            </h2>
-            <div>
-                <p>While my main project all the time is probably the <a href="/projects/homelab">ever-evolving homelab</a>, there have been some smaller experiments in the past.</p>
-
-            </div>
-        </section>
-        {{/* <section class="home-section">
-            <h2>
-                Friends with blogs
-            </h2>
-            <div>
-                If you like this site you'll probably enjoy some of my friends' great websites. They are listed in alphabetical order.
-                <ul>
-                    {{ range site.Menus.friends }}
-                        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-                    {{ end }}
-                </ul> 
-                You can find more blogs I enjoy in my <a href="https://gist.github.com/merlinscholz/1fc014f9295429a2278c156e3f6ffefa">blogroll</a>.
-                While you're at it you may want to add this page's <a href="/feed.atom">feed</a> to your reader.
-            </div>
-        </section> */}}
-        {{ partial "fedifollowwidget.html" . }}
-    </div>
+<main class="main-simple" id="main">
+    {{ .Content }}
 </main>
 
 {{ end }}

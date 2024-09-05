@@ -2,11 +2,6 @@
 <title>{{ if not .IsHome }}{{ if .Page.Title }}{{ .Page.Title }} - {{ end }}{{ end }}{{ .Site.Title }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- TODO Remove -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128&display=swap" rel="stylesheet">
-<link href="https://iosevka-webfonts.github.io/iosevka-aile/iosevka-aile.css" rel="stylesheet" />
 {{ with resources.Get "style.css" | fingerprint }}
   <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
 {{ end }}
@@ -22,7 +17,7 @@
 <link rel="manifest" href="/favicon/site.webmanifest">
 <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/favicon/favicon.ico">
-<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileColor" content="#121212">
 <meta name="msapplication-config" content="/favicon/browserconfig.xml">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#121212">
 {{ template "_internal/opengraph.html" . }}
