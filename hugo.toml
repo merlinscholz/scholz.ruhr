@@ -26,7 +26,7 @@ disableKinds = ["taxonomy"]
         weight = 10
     [[menu.main]]
         name = 'Fediverse'
-        url = 'https://toot.kif.rocks/@ruhrscholz'
+        url = 'https://toot.kif.rocks/@merlin'
         weight = 20
 
 [params]
